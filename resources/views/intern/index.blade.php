@@ -55,11 +55,11 @@
             <!-- Nav Items (translatable) -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#home" data-translate="Home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./program.html" data-translate="Program">Program</a></li>
-                    <li class="nav-item"><a class="nav-link applynow" href="./application_search.html" data-translate="Application">Application</a></li>
-                    <li class="nav-item"><a class="nav-link register" href="./register.html" data-translate="Register">Register</a></li>
-                    <li class="nav-item"><a class="btn btn-dark" href="./login.html" style="background-color:#b1bbe7; color:black;" data-translate="Log In">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ url('intern') }}" data-translate="Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/program') }}" data-translate="Program">Program</a></li>
+                    <li class="nav-item"><a class="nav-link applynow" href="{{ url('/application_search') }}" data-translate="Application">Application</a></li>
+                    <li class="nav-item"><a class="nav-link register" href="{{ url('/register') }}" data-translate="Register">Register</a></li>
+                    <li class="nav-item"><a class="btn btn-dark" href="{{ url('/login') }}" style="background-color:#b1bbe7; color:black;" data-translate="Log In">Log In</a></li>
                 </ul>
             </div>
         </div>
@@ -69,11 +69,11 @@
     <section class="hero-section" style="background-color:#fff;">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="slogan">
-                <h1 class="fw-bold display-5" data-translate="HI. WELCOME TO INTERNPLUS">HI. WELCOME TO<br>IN<span style="color:#3c3f7c;">T</span><span style="color:#4346a7;">E</span><span style="color:#4a4ec4;">R</span><span style="color:#5c60cf;">N</span><span style="color:#676bd6;">P</span><span style="color:#777adf;">L</span><span style="color:#888bea;">U</span><span style="color:#888cea;">S</span></h1>
+                <h1 class="fw-bold display-5"> <span  data-translate="HI. WELCOME TO">HI. WELCOME TO</span><br>IN<span style="color:#3c3f7c;">T</span><span style="color:#4346a7;">E</span><span style="color:#4a4ec4;">R</span><span style="color:#5c60cf;">N</span><span style="color:#676bd6;">P</span><span style="color:#777adf;">L</span><span style="color:#888bea;">U</span><span style="color:#888cea;">S</span></h1>
                 <p class="lead" style="font-size:20px; font-weight:bold;" data-translate="Internship application system of Vanness Plus Consulting Co., Ltd.">
                     Internship application system by <br> Vanness Plus Consulting Co., Ltd.
                 </p>
-                <a href="./program.html" class="btn btn-dark btn-lg mt-3" style="background-color:#474bc2; color:white;" data-translate="Apply Now">Apply Now</a>
+                <a href="{{url('program')}}" class="btn btn-dark btn-lg mt-3" style="background-color:#474bc2; color:white;" data-translate="Apply Now">Apply Now</a>
             </div>
             <div class="hero-image">
                 <img src="../assets/img/pc.png" alt="Laptop Graphic" class="img-fluid" style="width: 600px; height: 600px; max-width: none;"/>
