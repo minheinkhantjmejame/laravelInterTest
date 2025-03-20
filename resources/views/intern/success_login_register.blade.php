@@ -194,35 +194,7 @@
 </head>
 <body>
    <!-- Navigation Bar -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="./index.html" style="font-size:40px;">INTERNPLUS</a>
-        <div class="dropdown" style="display: inline-block;">
-            <button class="btn btn-white" style="border:none; background-color:white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
-            </ul>
-        </div>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="./program.html">Program</a></li>
-                <li class="nav-item"><a class="nav-link applynow" href="./internship.html">Application</a></li>
-                <li class="nav-item"><a class="nav-link register" href="./register.html">Register</a></li>
-                <li class="nav-item"><a class="btn btn-dark " href="./login.html" style="background-color:#b1bbe7; color:black; border-radius:4px;">Log In</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    @include('layouts.navbar')
 <div class="application_info_container">
     <div class="info-row">
         <div class="outer-circle">
@@ -254,7 +226,7 @@
         <!-- Status Buttons -->
     <div class="buttons info-row">
         <div>
-            <a href="./pending_status.html"><button class="button status-button-color" style="color:white;">1</button></a>
+            <a href="#"><button class="button status-button-color" style="color:white;">1</button></a>
             <p>Pending</p>
         </div>
 
@@ -265,7 +237,7 @@
         </div> -->
         
         <div>
-            <a href="./request_internship_application.html"><button class="button status-button-color" style="color:white;">2</button></a>
+            <a href="#"><button class="button status-button-color" style="color:white;">2</button></a>
             <p>Request Internship Application</p>
         </div>
         
@@ -296,10 +268,10 @@
                 <img src="../assets/img/board.png" style="width:220px;" alt="">
                 <h3 style="font-size:30px;">WELCOME ONBOARD</h3>
                 <p>Welcome onboard as UX/UI Designer Trainee on<br/> Nov 25th,2024.<br/>Please log in to our website or sign up to access details <br/> throughout your internship</p>
-                <a href="./login.html" style="text-decoration: none;">
+                <a href="{{url('login')}}" style="text-decoration: none;">
                     <button class="confirm-button" onclick="confirmInternship()">Login</button>
                 </a>
-                <a href="./register.html">
+                <a href="{{url('register')}}">
                     <button class="cancel-button" style="border:none; background-color:#b1bbe7;" onclick="cancelInternship()">Register</button>
                 </a>
                 

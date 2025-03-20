@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
         <div class="container d-flex justify-content-start align-items-center">
             <!-- INTERNPLUS -->
-            <a class="navbar-brand fw-bold me-3" href="./index.html" style="font-size:40px;">INTERNPLUS</a>
+            <a class="navbar-brand fw-bold me-3" href="{{url('intern')}}" style="font-size:40px;">INTERNPLUS</a>
             
             <!-- Dropdown -->
             <div class="dropdown">
@@ -47,7 +47,7 @@
                 <img src="../assets/img/application_success.png" alt="Success Image" class="mb-3">
                 <h1 class="card-title" style="font-size:32px;">SUBMIT SUCCESSFULLY</h1>
                 <p class="card-text">We have received your document! <br/>Please wait to proceed to the next step in a few days</p>
-                <a href="./pending_success.html" class="btn btn-dark" style="background-color:#474bc2;color:white; border:0; border-radius:4px;">Close</a>
+                <a href="{{url('pending_success')}}" class="btn btn-dark" style="background-color:#474bc2;color:white; border:0; border-radius:4px;">Close</a>
             </div>
         </div>
     </div>

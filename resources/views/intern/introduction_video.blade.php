@@ -55,35 +55,7 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="./index.html" style="font-size:40px;">INTERNPLUS</a>
-            <div class="dropdown" style="display: inline-block;">
-                <button class="btn btn-white" style="border:none; background-color:white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
-                </ul>
-            </div>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./program.html">Program</a></li>
-                    <li class="nav-item"><a class="nav-link applynow" href="./internship.html">Application</a></li>
-                    <li class="nav-item"><a class="nav-link register" href="./register.html">Register</a></li>
-                    <li class="nav-item"><a class="btn btn-dark " href="./login.html" style="background-color:#b1bbe7; color:black;  border-radius:4px;">Log In</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('layouts.navbar')
 
     <div class="container mt-5">
         <p class="badge" style="font-weight:bold;">In-progress</p>

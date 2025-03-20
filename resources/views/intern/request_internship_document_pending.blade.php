@@ -194,36 +194,7 @@
 </head>
 <body>
    <!-- Navigation Bar -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="./index.html" style="font-size:40px;">INTERNPLUS</a>
-        <div class="dropdown" style="display: inline-block;">
-            <button class="btn btn-white" style="border:none;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
-            </ul>
-        </div>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="./program.html">Program</a></li>
-                <li class="nav-item"><a class="nav-link applynow" href="./internship.html">Application</a></li>
-                <li class="nav-item"><a class="nav-link register" href="./register.html">Register</a></li>
-                <li class="nav-item"><a class="btn btn-dark " href="./login.html" style="background-color:#b1bbe7; color:black;">Log In</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+    @include('layouts.navbar')
 
 <div class="application_info_container">
     <div class="info-card">
@@ -300,10 +271,10 @@
                 <img src="../assets/img/ballon.png" style="width:200px;" alt="">
                 <h3>CONGRATULATIONS</h3>
                 <p>You have been accepted into our internship program.<br/>If you would like to intern with us, you can confirm <br/> your internship application now.</p>
-                <a href="./request_internship_document_submission.html" style="text-decoration:none;">
+                <a href="{{url('request_internship_document_submission')}}" style="text-decoration:none;">
                     <button class="confirm-button" onclick="confirmInternship()">Confirm Internship</button>
                 </a>
-                <a href="./index.html">
+                <a href="{{url('intern')}}">
                     <button class="cancel-button" onclick="cancelInternship()">Cancel Internship</button>
                 </a>
                 

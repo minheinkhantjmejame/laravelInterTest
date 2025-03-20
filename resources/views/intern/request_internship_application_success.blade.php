@@ -46,7 +46,7 @@
                 <img src="../assets/img/application_success.png" alt="Success Image" class="mb-3">
                 <h1 class="card-title" style="font-size:32px;">SUBMIT SUCCESSFULLY</h1>
                 <p class="card-text">We have received your answer! <br/>Please wait for the evaluation and review your answer.</p>
-                <a href="./pending_request_internship_application.html" class="btn btn-dark" style="background-color:#474bc2;color:white; border:0; border-radius:4px;">Close</a>
+                <a href="{{url('pending_request_internship_application')}}" class="btn btn-dark" style="background-color:#474bc2;color:white; border:0; border-radius:4px;">Close</a>
             </div>
         </div>
     </div>
