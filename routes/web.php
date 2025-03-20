@@ -166,6 +166,57 @@ Route::get('/success_login_register', function () {
     return view('intern.success_login_register');
 });
 
+
+// home_page_dashboard_before_approve
+Route::get('/home_page_dashboard_before_approve', function () {
+    return view('intern.dashboard_before_approve.home_page_dashboard_before_approve');
+});
+
+// home_page_dashboard_before_approve_program
+
+Route::get('/home_page_dashboard_before_approve_program', function () {
+    // Define your job categories here (or fetch from the database)
+    $categories = [
+        'IT' => [
+            ['title' => 'Software Developer Intern', 'description' => 'Work on development projects...', 'positions' => 3],
+            ['title' => 'Web Developer Intern', 'description' => 'Design and develop websites...', 'positions' => 2],
+        ],
+        'Marketing' => [
+            ['title' => 'Marketing Intern', 'description' => 'Assist in marketing campaigns...', 'positions' => 1],
+            ['title' => 'Social Media Intern', 'description' => 'Manage social media accounts...', 'positions' => 2],
+        ]
+    ];
+
+    // Set the default category or retrieve it from request
+    $currentCategory = 'IT'; // Or fetch from request, e.g., $currentCategory = request('category');
+
+    // Pass the categories and currentCategory to the view
+    return view('intern.dashboard_before_approve.home_page_dashboard_before_approve_program', compact('categories', 'currentCategory'));
+});
+
+// home_page_dashboard_before_approve_application_search
+Route::get('/home_page_dashboard_before_approve_application_search', function () {
+    return view('intern.dashboard_before_approve.home_page_dashboard_before_approve_application_search');
+});
+
+// home_page_dashboard_before_approve_internship
+
+Route::get('/home_page_dashboard_before_approve_internship', function () {
+    return view('intern.dashboard_before_approve.home_page_dashboard_before_approve_internship');
+});
+
+Route::get('/home_page_dashboard_before_approve_internship', function () {
+    $title = request('title');
+    $category = request('category');
+    $positions = request('positions');
+
+    // Set the current category, or fallback if not passed
+    $currentCategory = $category ?: 'IT';  // Default to 'IT' if category is not passed
+
+    return view('intern.dashboard_before_approve.home_page_dashboard_before_approve_internship', compact('title', 'category', 'positions', 'currentCategory'));
+})->name('home_page_dashboard_before_approve_internship');
+
+
 // intern pages
 
 //hr pages
