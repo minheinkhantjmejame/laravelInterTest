@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminAuthController;
+use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/',function(){
@@ -221,6 +223,108 @@ Route::get('/home_page_dashboard_before_approve_internship', function () {
 
 //hr pages
 Route::get('hr', function () {
-    return view('hr.index');  // This is the Blade view for HR page
-})->name('hr');  // Named route "hr"
+    return view('hr.index'); 
+})->name('hr');
+
+// register 
+Route::get('/register', function () {
+    return view('hr.register'); 
+});
+
+// login
+Route::get('/login', function () {
+    return view('hr.login'); 
+});
+
+// assignment sheet 
+Route::get('/assignment_sheet', function () {
+    return view('hr.assignment_sheet'); 
+});
+
+// calendar 
+Route::get('/calendar', function () {
+    return view('hr.calendar'); 
+});
+
+// dashboard
+Route::get('/dashboard', function () {
+    return view('hr.dashboard'); 
+});
+
+// candidates 
+Route::get('/candidates', function () {
+    return view('hr.candidates'); 
+});
+
+// interns
+Route::get('/interns', function () {
+    return view('hr.interns'); 
+});
+
+// offboard 
+Route::get('/offboard', function () {
+    return view('hr.offboard'); 
+});
+
+// payroll
+Route::get('/payroll', function () {
+    return view('hr.payroll'); 
+});
+
+// program 
+Route::get('/program', function () {
+    return view('hr.program'); 
+});
+
+// registration_successful 
+Route::get('/registration_successful', function () {
+    return view('hr.registration_successful'); 
+});
+
+// report
+Route::get('/report', function () {
+    return view('hr.report'); 
+});
+
+// storage 
+Route::get('/storage', function () {
+    return view('hr.storage'); 
+});
+
+// test_forms 
+Route::get('/test_forms', function () {
+    return view('hr.test_forms'); 
+});
+
+// time_attendance
+Route::get('/time_attendance', function () {
+    return view('hr.time_attendance'); 
+});
+
 //hr pages
+
+// Admin Dashboard For HR accounts
+
+
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');  // This will load the dashboard.blade.php view from the admin folder
+    })->name('admin.dashboard');
+});
+
+
+// Admin login page route
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+
+// Admin login submit route
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+
+// Admin logout route
+Route::post('/admin/logout', function () {
+    Auth::guard('admin')->logout();  // Log out the admin user
+    request()->session()->invalidate(); // Invalidate the session
+    request()->session()->regenerateToken(); // Regenerate the CSRF token to prevent session fixation attacks
+
+    return redirect('/admin/login'); // Redirect to the login page after logout
+})->name('admin.logout');
+// Admin Dashboard For HR accounts

@@ -461,8 +461,8 @@
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item me-5"><a class="btn btn-dark" href="./register.html" style="width:140px;background-color:#b1bbe7; color:black;">Register</a></li>
-                    <li class="nav-item"><a class="btn btn-dark" href="./login.html" style="width:111px;background-color:#b1bbe7; color:black;">Log In</a></li>
+                    <li class="nav-item me-5"><a class="btn btn-dark" href="{{url('/register')}}" style="width:140px;background-color:#b1bbe7; color:black;">Register</a></li>
+                    <li class="nav-item"><a class="btn btn-dark" href="{{url('/login')}}" style="width:111px;background-color:#b1bbe7; color:black;">Log In</a></li>
                 </ul>
             </div>
         </div>
@@ -476,8 +476,8 @@
             <div class="slogan">
                 <h1 class="fw-bold display-5" style="font-size:70px;">HI. WELCOME TO<br>I<span style="color:#393c66;">n</span><span style="color:#3c3f7c;">t</span><span style="color:#4346a7;">e</span><span style="color:#4a4ec4;">r</span><span style="color:#5c60cf;">n</span><span style="color:#676bd6;">P</span><span style="color:#777adf;">l</span><span style="color:#888bea;">u</span><span style="color:#888cea;">s</span></h1>
                 <p class="mb-5" id="lineptag"><span></span>ALL ABOUT HR EASE</p>
-                <a href="./register.html" class="btn btn-dark btn-lg mt-5 me-5" style="width:200px;background-color:#474bc2; color:white;">Free Trial</a>
-                <a href="./register.html" class="btn btn-dark btn-lg mt-5" style="width:200px;background-color:#474bc2; color:white;">Request Demo</a>
+                <a href="{{url('/register')}}" class="btn btn-dark btn-lg mt-5 me-5" style="width:200px;background-color:#474bc2; color:white;">Free Trial</a>
+                <a href="{{url('/register')}}" class="btn btn-dark btn-lg mt-5" style="width:200px;background-color:#474bc2; color:white;">Request Demo</a>
             </div>
             <div class="heroparagraph">
                 <div>
