@@ -149,7 +149,7 @@
     <!-- Custom JS -->
     <script type="text/javascript">
                 // Typing animation logic
-                document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
     const typingElement = document.querySelector(".typing");
     if (typingElement) {
         const spans = typingElement.querySelectorAll("span");

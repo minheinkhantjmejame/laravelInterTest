@@ -569,6 +569,7 @@
                                         <img src="../assets/icon/close-circle.png" alt="">
                                     </td>
                                 </tr>
+                                
                                 <tr>
                                     <td class="d-flex align-items-center">
                                         <img src="https://i.pravatar.cc/40?img=2" class="profile-img" alt="User">
