@@ -116,8 +116,8 @@
     </nav>
 
     <div class="card-body" style="margin:auto;">
-        <form id="registrationForm" method="POST" action="{{ route('hr.register') }}">
-            @csrf
+        <form id="registrationForm">
+            
             <h2>Register</h2>
             <p style="margin:0;">First Name</p>
             <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
