@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - InternPlus</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+@extends('layouts.intern.internLayout')
+@section('styles')
     <style type="text/css" rel="stylesheet">
         body{
             background-color:#fff;
         }
     </style>
-</head>
-<body>
+@endsection
+
+@section('content')
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
         <div class="container d-flex justify-content-start align-items-center">
             <!-- INTERNPLUS -->
@@ -76,24 +70,22 @@
             </div>
         </div>
     </div>
+@endsection
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="../js/app.js"></script>
-    <!-- Custom Js  -->
+@section('script')
     <script type="text/javascript">
-        function togglePasswordVisibility() {
-            var passwordInput = document.getElementById('password');
-            var toggleIcon = document.getElementById('toggleIcon');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
+            function togglePasswordVisibility() {
+                var passwordInput = document.getElementById('password');
+                var toggleIcon = document.getElementById('toggleIcon');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
+                } else {
+                    passwordInput.type = 'password';
+                    toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
+                }
             }
-        }
     </script>
-</body>
-</html>
+@endsection
+

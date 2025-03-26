@@ -1,10 +1,150 @@
+@extends('layouts.hr.hrLayout')
 
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
+@section('styles')
+    <style rel="stylesheet" type="text/css">
+                    body {
+                        background-color: #fff;
+                        height: 100%;
+                    }
+                    .main-container {
+                        display: flex;
+                        align-items: stretch; /* Ensures both sidebar & content stretch equally */
+                    }
+                    .sidebar {
+                        background-color: #F3F5FC;
+                        padding-top: 10px;
+                        padding-left: 20px;
+                        height: auto; /* Allows it to stretch dynamically */
 
-<!-- content body -->
-@include('layouts.hr.navbar')
+                        
+                    }
+                    /* Default styling for sidebar links */
+            /* Default sidebar link styling */
+            .nav-link {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+                border-left: 3px solid transparent; /* No border by default */
+                transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+
+            /* Add border-left only when clicked */
+            .nav-link.active {
+                border-left: 4px solid black; /* Highlight color */
+                background-color: #EDEFF7; /* Optional: Background change */
+            }
+
+            /* offboard heading part  */
+                    .dashboard-content {
+                        padding: 20px;
+                    }
+                    .badge-box{
+                        background-color:#B1BBE7;
+                        border-radius:4px;
+                    }
+            /* offboard heading part  */
+            /* Ensure all elements have the same height */
+            .search-box {
+                width: 300px;
+                height: 42px; /* Set the same height as buttons */
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: white;
+                display: flex;
+                align-items: center;
+            }
+
+            .search-box .input-group-text {
+                background: none;
+                border: none;
+                color: #555;
+            }
+
+            .search-box input {
+                border: none;
+                box-shadow: none;
+                background-color: white;
+                height: 100%; /* Ensure input fills the height */
+                padding: 10px;
+            }
+
+            .search-box input:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            /* Ensure buttons and dropdowns have the same height */
+            .custom-dropdown-btn,
+            .general-setting-btn {
+                height: 42px; /* Set the same height */
+                display: flex;
+                align-items: center;
+            }
+
+            /* General Setting Button */
+            .general-setting-btn {
+                border: 1px solid #ccc;
+                background: none;
+                font-weight: 500;
+            }
+            .general-setting-btn:hover {
+                background-color: #F3F5FC;
+            }
+
+            /* offboard table  */
+            /* Keep the table scrollable */
+
+            .pagination-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0;
+                background-color: #F3F5FC; /* Same as table parent */
+            }
+
+
+
+            /* Pagination Buttons */
+            /* Apply background color to all table data (td) but NOT to the header row */
+            .table tbody tr td {
+                background-color: #F3F5FC;
+            }
+
+            .pagination .page-item .page-link {
+                border: none;
+                background-color: #F3F5FC;
+                color: black;
+                font-weight: 500;
+                border-radius: 4px;
+                padding: 6px 12px;
+                border:1px solid grey;
+                margin:5px;
+            
+            }
+
+            .pagination .page-item.active .page-link {
+                background-color: #474BC2; /* Active Page */
+                color: white;
+                font-weight: bold;
+            }
+
+            .pagination .page-item.disabled .page-link {
+                color: #A0A0A0;
+            }
+
+
+
+
+            /* offboard table  */
+        
+        
+    </style>
+@endsection
+    
+@section('content')
+    @include('layouts.hr.navbar')
 
     <div class="row main-container" >
             
@@ -152,159 +292,9 @@
                 <!-- The profile UI will be injected here -->
             </div>
     </div>
-
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-<!-- extra CSS -->
-@section('styles')
-    <style rel="stylesheet" type="text/css">
-                    body {
-                        background-color: #fff;
-                        height: 100%;
-                    }
-                    .main-container {
-                        display: flex;
-                        align-items: stretch; /* Ensures both sidebar & content stretch equally */
-                    }
-                    .sidebar {
-                        background-color: #F3F5FC;
-                        padding-top: 10px;
-                        padding-left: 20px;
-                        height: auto; /* Allows it to stretch dynamically */
-
-                        
-                    }
-                    /* Default styling for sidebar links */
-            /* Default sidebar link styling */
-            .nav-link {
-                display: flex;
-                align-items: center;
-                padding: 10px;
-                text-decoration: none;
-                color: black;
-                border-left: 3px solid transparent; /* No border by default */
-                transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            }
-
-            /* Add border-left only when clicked */
-            .nav-link.active {
-                border-left: 4px solid black; /* Highlight color */
-                background-color: #EDEFF7; /* Optional: Background change */
-            }
-
-            /* offboard heading part  */
-                    .dashboard-content {
-                        padding: 20px;
-                    }
-                    .badge-box{
-                        background-color:#B1BBE7;
-                        border-radius:4px;
-                    }
-            /* offboard heading part  */
-            /* Ensure all elements have the same height */
-            .search-box {
-                width: 300px;
-                height: 42px; /* Set the same height as buttons */
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                background-color: white;
-                display: flex;
-                align-items: center;
-            }
-
-            .search-box .input-group-text {
-                background: none;
-                border: none;
-                color: #555;
-            }
-
-            .search-box input {
-                border: none;
-                box-shadow: none;
-                background-color: white;
-                height: 100%; /* Ensure input fills the height */
-                padding: 10px;
-            }
-
-            .search-box input:focus {
-                outline: none;
-                box-shadow: none;
-            }
-
-            /* Ensure buttons and dropdowns have the same height */
-            .custom-dropdown-btn,
-            .general-setting-btn {
-                height: 42px; /* Set the same height */
-                display: flex;
-                align-items: center;
-            }
-
-            /* General Setting Button */
-            .general-setting-btn {
-                border: 1px solid #ccc;
-                background: none;
-                font-weight: 500;
-            }
-            .general-setting-btn:hover {
-                background-color: #F3F5FC;
-            }
-
-            /* offboard table  */
-            /* Keep the table scrollable */
-
-            .pagination-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 0;
-                background-color: #F3F5FC; /* Same as table parent */
-            }
-
-
-
-            /* Pagination Buttons */
-            /* Apply background color to all table data (td) but NOT to the header row */
-            .table tbody tr td {
-                background-color: #F3F5FC;
-            }
-
-            .pagination .page-item .page-link {
-                border: none;
-                background-color: #F3F5FC;
-                color: black;
-                font-weight: 500;
-                border-radius: 4px;
-                padding: 6px 12px;
-                border:1px solid grey;
-                margin:5px;
-            
-            }
-
-            .pagination .page-item.active .page-link {
-                background-color: #474BC2; /* Active Page */
-                color: white;
-                font-weight: bold;
-            }
-
-            .pagination .page-item.disabled .page-link {
-                color: #A0A0A0;
-            }
-
-
-
-
-            /* offboard table  */
-        
-        
-    </style>
 @endsection
-<!-- extra CSS -->
 
-<!-- extra JS -->
+
 @section('script')
     <script type="text/javascript">
 
@@ -482,15 +472,6 @@
 
 
 
-    </script>    
+    </script> 
 @endsection
-<!-- extra JS -->
-
-
-
-
-
-
-
-
-
+   

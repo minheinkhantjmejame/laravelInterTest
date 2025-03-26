@@ -1,10 +1,89 @@
+@extends('layouts.hr.hrLayout')
 
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
+@section('styles')
+    <style rel="stylesheet" type="text/css">
+                    body {
+                        background-color: #fff;
+                        height: 100%;
+                    }
+                    .main-container {
+                        display: flex;
+                        align-items: stretch; /* Ensures both sidebar & content stretch equally */
+                    }
+                    .sidebar {
+                        background-color: #F3F5FC;
+                        padding-top: 10px;
+                        padding-left: 20px;
+                        height: auto; /* Allows it to stretch dynamically */
 
-<!-- content body -->
-@include('layouts.hr.navbar')
+                        
+                    }
+                    /* Default styling for sidebar links */
+            /* Default sidebar link styling */
+            .nav-link {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+                border-left: 3px solid transparent; /* No border by default */
+                transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+
+            /* Add border-left only when clicked */
+            .nav-link.active {
+                border-left: 4px solid black; /* Highlight color */
+                background-color: #EDEFF7; /* Optional: Background change */
+            }
+
+            /* offboard heading part  */   
+                    .dashboard-content {
+                        padding: 20px;
+                    }
+                    .badge-box{
+                        background-color:#B1BBE7;
+                        border-radius:4px;
+                    }
+            /* offboard heading part  */   
+
+            .pagination-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0;
+                background-color: #F3F5FC; /* Same as table parent */
+            }
+
+
+
+            /* Pagination Buttons */
+            .pagination .page-item .page-link {
+                border: none;
+                background-color: #F3F5FC;
+                color: black;
+                font-weight: 500;
+                border-radius: 4px;
+                padding: 6px 12px;
+                border:1px solid grey;
+                margin:5px;
+            
+            }
+
+            .pagination .page-item.active .page-link {
+                background-color: #474BC2; /* Active Page */
+                color: white;
+                font-weight: bold;
+            }
+
+            .pagination .page-item.disabled .page-link {
+                color: #A0A0A0;
+            }
+        
+    </style>
+@endsection
+    
+@section('content')
+    @include('layouts.hr.navbar')
 
     <div class="row main-container" >
                 @include('layouts.hr.sidebar')
@@ -129,98 +208,8 @@
                 </div>
     </div>
 
-
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-<!-- extra CSS -->
-@section('styles')
-    <style rel="stylesheet" type="text/css">
-                    body {
-                        background-color: #fff;
-                        height: 100%;
-                    }
-                    .main-container {
-                        display: flex;
-                        align-items: stretch; /* Ensures both sidebar & content stretch equally */
-                    }
-                    .sidebar {
-                        background-color: #F3F5FC;
-                        padding-top: 10px;
-                        padding-left: 20px;
-                        height: auto; /* Allows it to stretch dynamically */
-
-                        
-                    }
-                    /* Default styling for sidebar links */
-            /* Default sidebar link styling */
-            .nav-link {
-                display: flex;
-                align-items: center;
-                padding: 10px;
-                text-decoration: none;
-                color: black;
-                border-left: 3px solid transparent; /* No border by default */
-                transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            }
-
-            /* Add border-left only when clicked */
-            .nav-link.active {
-                border-left: 4px solid black; /* Highlight color */
-                background-color: #EDEFF7; /* Optional: Background change */
-            }
-
-            /* offboard heading part  */   
-                    .dashboard-content {
-                        padding: 20px;
-                    }
-                    .badge-box{
-                        background-color:#B1BBE7;
-                        border-radius:4px;
-                    }
-            /* offboard heading part  */   
-
-            .pagination-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 0;
-                background-color: #F3F5FC; /* Same as table parent */
-            }
-
-
-
-            /* Pagination Buttons */
-            .pagination .page-item .page-link {
-                border: none;
-                background-color: #F3F5FC;
-                color: black;
-                font-weight: 500;
-                border-radius: 4px;
-                padding: 6px 12px;
-                border:1px solid grey;
-                margin:5px;
-            
-            }
-
-            .pagination .page-item.active .page-link {
-                background-color: #474BC2; /* Active Page */
-                color: white;
-                font-weight: bold;
-            }
-
-            .pagination .page-item.disabled .page-link {
-                color: #A0A0A0;
-            }
-        
-    </style>
 @endsection
-<!-- extra CSS -->
 
-<!-- extra JS -->
 @section('script')
      <script type="text/javascript">
 
@@ -398,14 +387,4 @@
 
     </script>   
 @endsection
-<!-- extra JS -->
-
-
-
-
-
-
-
-
-
-
+       

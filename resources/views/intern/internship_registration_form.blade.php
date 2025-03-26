@@ -1,108 +1,94 @@
+@extends('layouts.intern.internLayout')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>presentation powerpoint form</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- custom css  -->
-    <link rel="stylesheet" href="../css/styles.css" />
-    <!-- Jquery JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/inputmask.min.js"></script>
-    <!-- Custom CSS -->
+@section('styles')
     <style type="text/css" rel="stylesheet">
-        body {
-            background-color: #ffffff;
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+                body {
+                    background-color: #ffffff;
+                }
+                .header-content {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
 
-        .badge {
-            display: inline-block;
-            padding: 10px 12px;
-            font-size: 0.75em;
-            font-weight:3;
-            line-height: 1;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
-            border-radius: 0.375rem;
-            background-color: #d1d1f0;
-            color: black;
-        }
-        .btn{
-            background-color: #d1d1f0;
-            color:black;
-            border-radius:0px;
-            border:none;
-        }
-        .topic {
-            margin: 10px 0;
-        }
-        .duedate{
-            font-size:12px;
-        }
-        .input-group-text{
-            background-color:#474bc2;
-        }
-        .btn-custom {
-            background-color: #d1d1f0;
-            color: black;
-            border: none;
-            border-radius: 0.375rem;
-            padding: 10px 20px;
-        }
-        .btn-custom.active {
-            background-color: #474bc2;
-            color: white;
-        }
-        .input-group-text {
-            background-color: #474bc2;
-            color: white;
-        }
-        .form-control[readonly] {
-            background-color: transparent;
-            cursor: pointer;
-        }
-        .toggle-select {
-            display: inline-block;
-            padding: 5px 10px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            margin-right: 5px;
+                .badge {
+                    display: inline-block;
+                    padding: 10px 12px;
+                    font-size: 0.75em;
+                    font-weight:3;
+                    line-height: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    border-radius: 0.375rem;
+                    background-color: #d1d1f0;
+                    color: black;
+                }
+                .btn{
+                    background-color: #d1d1f0;
+                    color:black;
+                    border-radius:0px;
+                    border:none;
+                }
+                .topic {
+                    margin: 10px 0;
+                }
+                .duedate{
+                    font-size:12px;
+                }
+                .input-group-text{
+                    background-color:#474bc2;
+                }
+                .btn-custom {
+                    background-color: #d1d1f0;
+                    color: black;
+                    border: none;
+                    border-radius: 0.375rem;
+                    padding: 10px 20px;
+                }
+                .btn-custom.active {
+                    background-color: #474bc2;
+                    color: white;
+                }
+                .input-group-text {
+                    background-color: #474bc2;
+                    color: white;
+                }
+                .form-control[readonly] {
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+                .toggle-select {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    border: 1px solid #ccc;
+                    margin-right: 5px;
 
-        }
-        .toggle-select.active {
-            background-color: #474bc2;
-            color: white;
-            border-color: #474bc2;
-        }
+                }
+                .toggle-select.active {
+                    background-color: #474bc2;
+                    color: white;
+                    border-color: #474bc2;
+                }
 
-        #internshipTypeSelectors {
-            display: flex;
-            align-items: center;
-            flex-wrap: nowrap;
-            gap: 10px;
-        }
-        input[type="text"].toggle-input {
-            width: auto;
-            flex-grow: 1;
-        }
+                #internshipTypeSelectors {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    gap: 10px;
+                }
+                input[type="text"].toggle-input {
+                    width: auto;
+                    flex-grow: 1;
+                }
 
     </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    @include('layouts.navbar')
+@endsection
+
+@section('content')
+    @include('layouts.intern.navbar')
 
     <div class="container mt-5">
         <p class="badge" style="font-weight:bold;">In-progress</p>
@@ -245,133 +231,127 @@
 
 
     </div>
-
+@endsection
 
         
         
         
-    
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-        
-        document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".file-input").forEach((fileInput) => {
-        const textInput = fileInput.closest(".input-group").querySelector(".file-name");
+@section('script')
+    <script type="text/javascript">
+            
+                document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".file-input").forEach((fileInput) => {
+                const textInput = fileInput.closest(".input-group").querySelector(".file-name");
 
-        fileInput.addEventListener("change", function () {
-            textInput.value = this.files.length > 0 ? this.files[0].name : "Select the file to upload";
-        });
-
-        textInput.parentElement.addEventListener("click", function () {
-            fileInput.click();
-        });
-    });
-
-    document.querySelectorAll(".input-group-text").forEach((label) => {
-        label.addEventListener("click", function () {
-            const fileInput = this.closest(".input-group").querySelector(".file-input");
-            fileInput.click();
-        });
-    });
-});
-
-
-        document.getElementById('dob').addEventListener('focus', function() {
-            this.type = 'date';
-        });
-        document.getElementById('dob').addEventListener('blur', function() {
-            this.type = 'text';
-        });
-
-        function selectBloodType(type) {
-            const selectors = document.querySelectorAll('#bloodTypeSelector .toggle-select');
-            selectors.forEach(el => {
-                if (el.textContent === type) {
-                    el.classList.add('active');
-                } else {
-                    el.classList.remove('active');
-                }
-            });
-            if (type !== 'Other') {
-                document.getElementById('bloodTypeOther').value = '';
-            }
-        }
-
-
-        document.querySelectorAll('.file-input').forEach(input => {
-    input.addEventListener('change', function() {
-        const textInput = this.closest('.input-group').querySelector('.file-name');
-        textInput.value = this.files.length > 0 ? this.files[0].name : "Select the file to upload";
-    });
-});
-
-    
-
-document.querySelectorAll('.input-group-text').forEach((label, index) => {
-    label.addEventListener('click', function() {
-        document.querySelectorAll('.file-input')[index].click();
-    });
-});
-
-        function selectPC(choice) {
-            const selectors = document.querySelectorAll('#pcOwnership .toggle-select');
-            selectors.forEach(el => {
-                el.classList.remove('active');
-                if (el.textContent === choice) {
-                    el.classList.add('active');
-                }
-            });
-        }
-
-        function selectReason(selectedReason) {
-            const reasonSelectors = document.querySelectorAll('#reasonSelectors .toggle-select');
-            reasonSelectors.forEach(selector => {
-                selector.classList.remove('active');
-                if (selector.textContent === selectedReason) {
-                    selector.classList.add('active');
-                }
-            });
-            document.getElementById('reason').value = selectedReason; 
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            flatpickr("#dateOfBirth", {
-                enableTime: false,
-                dateFormat: "m/d/Y",
-                "locale": {
-                    "firstDayOfWeek": 1 
-                },
-                onChange: function(selectedDates, dateStr, instance) {
-                    instance.input.value = dateStr;
-                },
-            });
-        });
-
-        function selectInternshipType(type) {
-            const selectors = document.querySelectorAll('#internshipTypeSelectors .toggle-select');
-            selectors.forEach(el => el.classList.remove('active'));
-            if (type !== 'WFH 100%' && type !== 'WFO 100%' && type !== 'Hybrid') {
-                document.getElementById('otherInternshipType').value = type;
-                document.getElementById('otherInternshipType').classList.add('active');
-            } else {
-                document.querySelectorAll('#internshipTypeSelectors .toggle-select').forEach(el => {
-                    if (el.textContent.trim() === type) {
-                        el.classList.add('active');
-                    }
+                fileInput.addEventListener("change", function () {
+                    textInput.value = this.files.length > 0 ? this.files[0].name : "Select the file to upload";
                 });
-                document.getElementById('otherInternshipType').value = '';
-            }
-            document.getElementById('internshipType').value = type; 
-        }
+
+                textInput.parentElement.addEventListener("click", function () {
+                    fileInput.click();
+                });
+            });
+
+            document.querySelectorAll(".input-group-text").forEach((label) => {
+                label.addEventListener("click", function () {
+                    const fileInput = this.closest(".input-group").querySelector(".file-input");
+                    fileInput.click();
+                });
+            });
+        });
+
+
+                document.getElementById('dob').addEventListener('focus', function() {
+                    this.type = 'date';
+                });
+                document.getElementById('dob').addEventListener('blur', function() {
+                    this.type = 'text';
+                });
+
+                function selectBloodType(type) {
+                    const selectors = document.querySelectorAll('#bloodTypeSelector .toggle-select');
+                    selectors.forEach(el => {
+                        if (el.textContent === type) {
+                            el.classList.add('active');
+                        } else {
+                            el.classList.remove('active');
+                        }
+                    });
+                    if (type !== 'Other') {
+                        document.getElementById('bloodTypeOther').value = '';
+                    }
+                }
+
+
+                document.querySelectorAll('.file-input').forEach(input => {
+            input.addEventListener('change', function() {
+                const textInput = this.closest('.input-group').querySelector('.file-name');
+                textInput.value = this.files.length > 0 ? this.files[0].name : "Select the file to upload";
+            });
+        });
+
+            
+
+        document.querySelectorAll('.input-group-text').forEach((label, index) => {
+            label.addEventListener('click', function() {
+                document.querySelectorAll('.file-input')[index].click();
+            });
+        });
+
+                function selectPC(choice) {
+                    const selectors = document.querySelectorAll('#pcOwnership .toggle-select');
+                    selectors.forEach(el => {
+                        el.classList.remove('active');
+                        if (el.textContent === choice) {
+                            el.classList.add('active');
+                        }
+                    });
+                }
+
+                function selectReason(selectedReason) {
+                    const reasonSelectors = document.querySelectorAll('#reasonSelectors .toggle-select');
+                    reasonSelectors.forEach(selector => {
+                        selector.classList.remove('active');
+                        if (selector.textContent === selectedReason) {
+                            selector.classList.add('active');
+                        }
+                    });
+                    document.getElementById('reason').value = selectedReason; 
+                }
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    flatpickr("#dateOfBirth", {
+                        enableTime: false,
+                        dateFormat: "m/d/Y",
+                        "locale": {
+                            "firstDayOfWeek": 1 
+                        },
+                        onChange: function(selectedDates, dateStr, instance) {
+                            instance.input.value = dateStr;
+                        },
+                    });
+                });
+
+                function selectInternshipType(type) {
+                    const selectors = document.querySelectorAll('#internshipTypeSelectors .toggle-select');
+                    selectors.forEach(el => el.classList.remove('active'));
+                    if (type !== 'WFH 100%' && type !== 'WFO 100%' && type !== 'Hybrid') {
+                        document.getElementById('otherInternshipType').value = type;
+                        document.getElementById('otherInternshipType').classList.add('active');
+                    } else {
+                        document.querySelectorAll('#internshipTypeSelectors .toggle-select').forEach(el => {
+                            if (el.textContent.trim() === type) {
+                                el.classList.add('active');
+                            }
+                        });
+                        document.getElementById('otherInternshipType').value = '';
+                    }
+                    document.getElementById('internshipType').value = type; 
+                }
 
 
 
+            
+    </script>
         
-        </script>
-        
-    
-</body>
-</html>
+@endsection

@@ -1,99 +1,90 @@
+@extends('layouts.intern.internLayout')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>presentation powerpoint form</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- custom css  -->
-    <link rel="stylesheet" href="../css/styles.css" />
+@section('styles')
+    <style rel="stylesheet" type="text/css">
+                body {
+                    background-color: #ffffff;
+                }
+                .header-content {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
 
-    <style>
-        body {
-            background-color: #ffffff;
+                .badge {
+                    display: inline-block;
+                    padding: 10px 12px;
+                    font-size: 0.75em;
+                    font-weight:3;
+                    line-height: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    border-radius: 0.375rem;
+                    background-color: #d1d1f0;
+                    color: black;
+                }
+                .btn{
+                    background-color: #d1d1f0;
+                    color:black;
+                    border-radius:0px;
+                    border:none;
+                }
+                .topic {
+                    margin: 10px 0;
+                }
+                .duedate{
+                    font-size:12px;
+                }
+
+
+                .input-group-text{
+                    background-color:#474bc2;
+                }
+
+                .form-control {
+                border: 1px solid black; 
+                box-shadow: none; 
+            }
+            .form-control:focus {
+                border-color: black; 
+                box-shadow: none;
+            }
+
+
+
+                .form-check {
+                    padding-left: 0;
+                }
+                .form-check-input {
+            display: none; 
         }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
 
-        .badge {
+        .form-check-label {
             display: inline-block;
-            padding: 10px 12px;
-            font-size: 0.75em;
-            font-weight:3;
-            line-height: 1;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
-            border-radius: 0.375rem;
-            background-color: #d1d1f0;
-            color: black;
-        }
-        .btn{
-            background-color: #d1d1f0;
-            color:black;
-            border-radius:0px;
-            border:none;
-        }
-        .topic {
-            margin: 10px 0;
-        }
-        .duedate{
-            font-size:12px;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: 1px solid black;
+            font-size:16px;
+            border-radius:4px;
+            background-color: #fff; 
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s; 
         }
 
-
-        .input-group-text{
-            background-color:#474bc2;
+        .form-check-input:checked + .form-check-label {
+            background-color: #474bc2;
+            color: white;
+            border-color: #474bc2; 
         }
-
-        .form-control {
-        border: 1px solid black; 
-        box-shadow: none; 
-    }
-    .form-control:focus {
-        border-color: black; 
-        box-shadow: none;
-    }
-
-
-
-        .form-check {
-            padding-left: 0;
-        }
-        .form-check-input {
-    display: none; 
-}
-
-.form-check-label {
-    display: inline-block;
-    padding: 8px 15px;
-    margin-right: 10px;
-    border: 1px solid black;
-    font-size:16px;
-    border-radius:4px;
-    background-color: #fff; 
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s; 
-}
-
-.form-check-input:checked + .form-check-label {
-    background-color: #474bc2;
-    color: white;
-    border-color: #474bc2; 
-}
     </style>
-</head>
-<body>
+@endsection
+
+@section('content')
     <!-- Navigation Bar -->
-    @include('layouts.navbar')
+    @include('layouts.intern.navbar')
     
 
     <div class="container mt-5">
@@ -196,13 +187,11 @@
             <button type="submit" class="btn mb-3" style="background-color:#474bc2; color:white; font-size:18px; border-radius:4px;">Send</button>
         </form>
     </div>
-
+@endsection
   
     
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/app.js"></script>
-    <script>
+@section('script')
+    <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function() {
                 const inputGroup = document.querySelector('.input-group');
                 inputGroup.addEventListener('click', function() {
@@ -223,6 +212,7 @@
             document.getElementById('fileInput').click();
         };
     </script>
-    
-</body>
-</html>
+@endsection
+
+
+

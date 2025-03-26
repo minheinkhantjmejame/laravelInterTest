@@ -1,141 +1,6 @@
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
 
+@extends('layouts.hr.hrLayout')
 
-<!-- content body -->
-@include('layouts.hr.navbar')
-
-<div class="row main-container" >
-
-    @include('layouts.hr.sidebar') 
-
-
-        <div class="col-md-9 dashboard-content"  id="dashboardContent">
-            <div class="container" style="background-color:#fff;">
-                <div class="calendar-header">
-                    <h2>Calendar</h2>
-                
-                    <div  style=" width:60%;">
-                    <!-- New container for Year Selector & Month Navigation -->
-                    <div class="calendar-controls">
-                        <!-- Year Selector -->
-                        <div class="year-selector-container">
-                            <button id="year-selector-btn" class="year-selector-btn">
-                                <span id="selected-year">2024</span>
-                                <i class="bi bi-chevron-down"></i>
-                            </button>
-                            <ul id="year-dropdown" class="year-dropdown">
-                                <li data-value="2024">2024</li>
-                                <li data-value="2025">2025</li>
-                                <li data-value="2026">2026</li>
-                            </ul>
-                        </div>
-                        
-                        
-                
-                        <!-- Month Navigation -->
-                        <div class="month-navigation text-center" style="width:80%;display:flex;justify-content: center;align-items: center;">
-                            <div style="display:flex;justify-content: center;align-items: center;">
-                            <i id="prev-month" class="bi bi-chevron-left"></i>
-                            <p id="current-month" class="m-0">December</p>
-                            <i id="next-month" class="bi bi-chevron-right"></i>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    </div>
-
-                </div>
-                
-                
-                
-                <div class="calendar-container mt-0">
-                    <!-- Calendar -->
-                    <div class="calendar-section mt-0">
-                        <div class="calendar-days" id="day-names">
-                            <!-- Days will be inserted dynamically -->
-                        </div>
-                        <div class="calendar-grid" id="calendar">
-                            <!-- Dates will be inserted dynamically -->
-                        </div>
-                    </div>
-
-                    <!-- Add this inside the calendar-container div -->
-                    <div id="description-box" class="description-box">
-                        <div class="description-header">
-                            <span id="description-date">Wed, 25 Dec 2024</span>
-                        </div>
-                        <div class="description-content">
-                            <div class="description-select">
-                                <img src="../assets/icon/pin.png" alt="">
-                                <select id="description-type" style="border:none; background-color: #F3F5FC; padding:10px 10px;" >
-                                    <option value="holiday">Holiday</option>
-                                    <option value="weekend">Weekend</option>
-                                    <option value="internship-onboard">Internship Onboard</option>
-                                    <option value="internship-offboard">Internship Offboard</option>
-                                </select>
-                            </div>
-                            <div class="description-input">
-                                <label style="font-size:16px;">Description</label>
-                                <input type="text" id="description-text" placeholder="Enter description">
-                            </div>
-                            <div class="description-badge">
-                                <span class="badge" id="description-badge">Weekend</span>
-                            </div>
-                            <div>
-                                <img src="../assets/icon/add_profile.png" style="width: 35px; height: 35px; border: 1px dashed black; border-radius: 50%; padding: 10px; box-sizing: border-box;"  alt="">
-                            </div>
-                            <div class="description-actions" style="display:flex;justify-content: end;align-items: end;">
-                                <button id="add-button">Add</button>
-                                <button id="delete-button">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="date-description">
-                        <h5>Date Description</h5>
-                        <hr>
-                        <p class="badge-text">
-                            <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> Holiday
-                        </p>
-                        <p class="badge-text">
-                            <span class="badge offboard-badge" style="width:15px;height:15px;"> </span> Weekend
-                        </p>
-                        <p class="badge-text">
-                            <span class="badge onboard-badge" style="width:15px;height:15px;"> </span> Internship onboard
-                        </p>
-                        <p class="badge-text">
-                            <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> Internship offboard
-                        </p>
-
-
-                    </div>
-                    
-                    
-                    
-                </div>
-                
-            </div>
-        </div>
-        <div class="col-md-9 dashboard-content" id="packageContent" style="display: none;">
-            <!-- The package UI will be injected here -->
-        </div>
-        <div class="col-md-9 dashboard-content" id="settingsContent" style="display: none;">
-            <!-- The settings UI will be injected here -->
-        </div>
-        <div class="col-md-9 dashboard-content" id="profileContent" style="display: none;">
-            <!-- The profile UI will be injected here -->
-        </div>      
-</div>
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-
-<!-- extra CSS -->
 @section('styles')
     <style rel="stylesheet" type="text/css">
                     body {
@@ -756,9 +621,137 @@
     </style>
 @endsection
 
-<!-- extra CSS -->
+   
+@section('content')
+    @include('layouts.hr.navbar')
 
-<!-- extra JS -->
+    <div class="row main-container" >
+
+        @include('layouts.hr.sidebar') 
+
+
+            <div class="col-md-9 dashboard-content"  id="dashboardContent">
+                <div class="container" style="background-color:#fff;">
+                    <div class="calendar-header">
+                        <h2>Calendar</h2>
+                    
+                        <div  style=" width:60%;">
+                        <!-- New container for Year Selector & Month Navigation -->
+                        <div class="calendar-controls">
+                            <!-- Year Selector -->
+                            <div class="year-selector-container">
+                                <button id="year-selector-btn" class="year-selector-btn">
+                                    <span id="selected-year">2024</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <ul id="year-dropdown" class="year-dropdown">
+                                    <li data-value="2024">2024</li>
+                                    <li data-value="2025">2025</li>
+                                    <li data-value="2026">2026</li>
+                                </ul>
+                            </div>
+                            
+                            
+                    
+                            <!-- Month Navigation -->
+                            <div class="month-navigation text-center" style="width:80%;display:flex;justify-content: center;align-items: center;">
+                                <div style="display:flex;justify-content: center;align-items: center;">
+                                <i id="prev-month" class="bi bi-chevron-left"></i>
+                                <p id="current-month" class="m-0">December</p>
+                                <i id="next-month" class="bi bi-chevron-right"></i>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    
+                    
+                    
+                    <div class="calendar-container mt-0">
+                        <!-- Calendar -->
+                        <div class="calendar-section mt-0">
+                            <div class="calendar-days" id="day-names">
+                                <!-- Days will be inserted dynamically -->
+                            </div>
+                            <div class="calendar-grid" id="calendar">
+                                <!-- Dates will be inserted dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Add this inside the calendar-container div -->
+                        <div id="description-box" class="description-box">
+                            <div class="description-header">
+                                <span id="description-date">Wed, 25 Dec 2024</span>
+                            </div>
+                            <div class="description-content">
+                                <div class="description-select">
+                                    <img src="../assets/icon/pin.png" alt="">
+                                    <select id="description-type" style="border:none; background-color: #F3F5FC; padding:10px 10px;" >
+                                        <option value="holiday">Holiday</option>
+                                        <option value="weekend">Weekend</option>
+                                        <option value="internship-onboard">Internship Onboard</option>
+                                        <option value="internship-offboard">Internship Offboard</option>
+                                    </select>
+                                </div>
+                                <div class="description-input">
+                                    <label style="font-size:16px;">Description</label>
+                                    <input type="text" id="description-text" placeholder="Enter description">
+                                </div>
+                                <div class="description-badge">
+                                    <span class="badge" id="description-badge">Weekend</span>
+                                </div>
+                                <div>
+                                    <img src="../assets/icon/add_profile.png" style="width: 35px; height: 35px; border: 1px dashed black; border-radius: 50%; padding: 10px; box-sizing: border-box;"  alt="">
+                                </div>
+                                <div class="description-actions" style="display:flex;justify-content: end;align-items: end;">
+                                    <button id="add-button">Add</button>
+                                    <button id="delete-button">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="date-description">
+                            <h5>Date Description</h5>
+                            <hr>
+                            <p class="badge-text">
+                                <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> Holiday
+                            </p>
+                            <p class="badge-text">
+                                <span class="badge offboard-badge" style="width:15px;height:15px;"> </span> Weekend
+                            </p>
+                            <p class="badge-text">
+                                <span class="badge onboard-badge" style="width:15px;height:15px;"> </span> Internship onboard
+                            </p>
+                            <p class="badge-text">
+                                <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> Internship offboard
+                            </p>
+
+
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-9 dashboard-content" id="packageContent" style="display: none;">
+                <!-- The package UI will be injected here -->
+            </div>
+            <div class="col-md-9 dashboard-content" id="settingsContent" style="display: none;">
+                <!-- The settings UI will be injected here -->
+            </div>
+            <div class="col-md-9 dashboard-content" id="profileContent" style="display: none;">
+                <!-- The profile UI will be injected here -->
+            </div>      
+    </div>
+@endsection
+
+
+
+
 @section('script')
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
@@ -1067,7 +1060,15 @@
 
     </script>
 @endsection
-<!-- extra JS -->
+   
+
+
+
+
+
+
+
+
 
 
 

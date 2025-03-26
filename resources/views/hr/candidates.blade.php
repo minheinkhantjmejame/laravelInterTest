@@ -1,158 +1,5 @@
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
+@extends('layouts.hr.hrLayout')
 
-
-<!-- content body -->
-@include('layouts.hr.navbar')
-
-<div class="row main-container" >
-
-            @include('layouts.hr.sidebar')
-
-            
-
-
-
-            <div class="col-md-9 dashboard-content" id="dashboardContent">
-                <div class="container-fluid">
-                    <div class="d-flex justify-content-between mb-3">
-                        <h2 class="mb-0">Candidates</h2>
-                    
-                        <!-- Summary Badges -->
-                        <div class="d-flex gap-3">
-                            <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
-                                <p class="mb-1">Succeeded</p>
-                                <h4 class="mb-0">24</h4>
-                            </div>
-                            <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
-                                <p class="mb-1">In-progress</p>
-                                <h4 class="mb-0">53</h4>
-                            </div>
-                            <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
-                                <p class="mb-1">Failed</p>
-                                <h4 class="mb-0">76</h4>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <!-- Search & Filters Row -->
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <!-- Left Section: Search Box & Filters -->
-                        <div class="d-flex align-items-center gap-3">
-                            <!-- Search Box -->
-                            <div class="input-group search-box">
-                                <span class="input-group-text"><i class="bi bi-search"></i></span>
-                                <input type="text" class="form-control border-0" placeholder="Search for candidates">
-                            </div>
-                    
-                            <!-- All Program Dropdown -->
-                            <div class="dropdown">
-                                <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="programDropdownBtn">
-                                    <img src="../assets/icon/desktop.png" alt=""> All Program
-
-                                    <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" ></i></span>
-                                </button>
-                                <ul class="dropdown-menu" id="programDropdown">
-                                    <li><a class="dropdown-item active" href="#">All</a></li>
-                                    <li><a class="dropdown-item" href="#">HR Trainee</a></li>
-                                    <li><a class="dropdown-item" href="#">Software Tester</a></li>
-                                    <li><a class="dropdown-item" href="#">Marketing Trainee</a></li>
-                                </ul>
-                            </div>
-                    
-                            <!-- All Step Dropdown -->
-                            <div class="dropdown">
-                                <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="stepDropdownBtn">
-                                    <img src="../assets/icon/arrow-circle-right.png" alt=""> All Step
-                                    <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="background-color:white;"></i></span>
-                                </button>
-                                <ul class="dropdown-menu" id="stepDropdown">
-                                    <li><a class="dropdown-item active" href="#">All</a></li>
-                                    <li><a class="dropdown-item" href="#">Pending</a></li>
-                                    <li><a class="dropdown-item" href="#">Request Internship Application</a></li>
-                                    <li><a class="dropdown-item" href="#">Success</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    
-                        <!-- Right Section: General Setting Button -->
-                        <button class="btn btn-outline-dark general-setting-btn">
-                            <i class="bi bi-sliders"></i> General Setting
-                        </button>
-                    </div>
-                    
-                    
-
-                    
-        <!-- Table Container -->
-        <div class="table-container">
-            <div class="table-responsive"> 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Internship ID</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Email address</th>
-                            <th>Phone number</th>
-                            <th>Internship Period</th>
-                            <th>Type</th>
-                            <th>Program</th>
-                            <th>Step</th>
-                            <th></th> <!-- Action Column for Dropdown -->
-                        </tr>
-                    </thead>
-                    <tbody id="table-body">
-
-                    </tbody>
-                </table>
-            </div>
-                <!-- Pagination (Inside Same Container) -->
-                <div class="pagination-container">
-                    <div>
-                        <label>Candidates per page</label>
-                        <select class="form-select d-inline-block w-auto">
-                            <option>8</option>
-                            <option>16</option>
-                            <option>32</option>
-                        </select>
-                    </div>
-                    <nav>
-                        <ul class="pagination mb-0">
-                            
-                        </ul>
-                    </nav>
-                </div>
-        </div>
-
-
-
-
-
-                </div>
-                
-            </div>
-            <div class="col-md-9 dashboard-content" id="packageContent" style="display: none;">
-                <!-- The package UI will be injected here -->
-            </div>
-            <div class="col-md-9 dashboard-content" id="settingsContent" style="display: none;">
-                <!-- The settings UI will be injected here -->
-            </div>
-            <div class="col-md-9 dashboard-content" id="profileContent" style="display: none;">
-                <!-- The profile UI will be injected here -->
-            </div>
-</div>
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-
-<!-- extra CSS -->
 @section('styles')
     <style rel="stylesheet" type="text/css">
                 body {
@@ -357,10 +204,151 @@
 
     </style>
 @endsection
+    
+@section('content')
+    @include('layouts.hr.navbar')
 
-<!-- extra CSS -->
+    <div class="row main-container" >
 
-<!-- extra JS -->
+                @include('layouts.hr.sidebar')
+
+                
+
+
+
+                <div class="col-md-9 dashboard-content" id="dashboardContent">
+                    <div class="container-fluid">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h2 class="mb-0">Candidates</h2>
+                        
+                            <!-- Summary Badges -->
+                            <div class="d-flex gap-3">
+                                <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
+                                    <p class="mb-1">Succeeded</p>
+                                    <h4 class="mb-0">24</h4>
+                                </div>
+                                <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
+                                    <p class="mb-1">In-progress</p>
+                                    <h4 class="mb-0">53</h4>
+                                </div>
+                                <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
+                                    <p class="mb-1">Failed</p>
+                                    <h4 class="mb-0">76</h4>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <!-- Search & Filters Row -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <!-- Left Section: Search Box & Filters -->
+                            <div class="d-flex align-items-center gap-3">
+                                <!-- Search Box -->
+                                <div class="input-group search-box">
+                                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                                    <input type="text" class="form-control border-0" placeholder="Search for candidates">
+                                </div>
+                        
+                                <!-- All Program Dropdown -->
+                                <div class="dropdown">
+                                    <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="programDropdownBtn">
+                                        <img src="../assets/icon/desktop.png" alt=""> All Program
+
+                                        <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" ></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="programDropdown">
+                                        <li><a class="dropdown-item active" href="#">All</a></li>
+                                        <li><a class="dropdown-item" href="#">HR Trainee</a></li>
+                                        <li><a class="dropdown-item" href="#">Software Tester</a></li>
+                                        <li><a class="dropdown-item" href="#">Marketing Trainee</a></li>
+                                    </ul>
+                                </div>
+                        
+                                <!-- All Step Dropdown -->
+                                <div class="dropdown">
+                                    <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="stepDropdownBtn">
+                                        <img src="../assets/icon/arrow-circle-right.png" alt=""> All Step
+                                        <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="background-color:white;"></i></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="stepDropdown">
+                                        <li><a class="dropdown-item active" href="#">All</a></li>
+                                        <li><a class="dropdown-item" href="#">Pending</a></li>
+                                        <li><a class="dropdown-item" href="#">Request Internship Application</a></li>
+                                        <li><a class="dropdown-item" href="#">Success</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        
+                            <!-- Right Section: General Setting Button -->
+                            <button class="btn btn-outline-dark general-setting-btn">
+                                <i class="bi bi-sliders"></i> General Setting
+                            </button>
+                        </div>
+                        
+                        
+
+                        
+            <!-- Table Container -->
+            <div class="table-container">
+                <div class="table-responsive"> 
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Internship ID</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Email address</th>
+                                <th>Phone number</th>
+                                <th>Internship Period</th>
+                                <th>Type</th>
+                                <th>Program</th>
+                                <th>Step</th>
+                                <th></th> <!-- Action Column for Dropdown -->
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+
+                        </tbody>
+                    </table>
+                </div>
+                    <!-- Pagination (Inside Same Container) -->
+                    <div class="pagination-container">
+                        <div>
+                            <label>Candidates per page</label>
+                            <select class="form-select d-inline-block w-auto">
+                                <option>8</option>
+                                <option>16</option>
+                                <option>32</option>
+                            </select>
+                        </div>
+                        <nav>
+                            <ul class="pagination mb-0">
+                                
+                            </ul>
+                        </nav>
+                    </div>
+            </div>
+
+
+
+
+
+                    </div>
+                    
+                </div>
+                <div class="col-md-9 dashboard-content" id="packageContent" style="display: none;">
+                    <!-- The package UI will be injected here -->
+                </div>
+                <div class="col-md-9 dashboard-content" id="settingsContent" style="display: none;">
+                    <!-- The settings UI will be injected here -->
+                </div>
+                <div class="col-md-9 dashboard-content" id="profileContent" style="display: none;">
+                    <!-- The profile UI will be injected here -->
+                </div>
+    </div>
+@endsection
+
 @section('script')
     <script tyle="text/javascript">
                 document.addEventListener("DOMContentLoaded", function () {
@@ -681,7 +669,8 @@
 
     </script>
 @endsection
-<!-- extra JS -->
+
+
 
 
 

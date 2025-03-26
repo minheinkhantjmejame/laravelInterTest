@@ -1,85 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programs - InternPlus</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+@extends('layouts.intern.internLayout')
 
-        <!-- Myanmar Unicode Font (Noto Sans Myanmar) -->
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+@section('styles')
+<style type="text/css" rel="stylesheet">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="./css/styles.css">
-    
-        <!-- Jquery UI -->
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <style type="text/css" rel="stylesheet">
-
-body {
-            font-family: 'Noto Sans Myanmar', sans-serif;
+        body {
+                    font-family: 'Noto Sans Myanmar', sans-serif;
+                }
+            .card-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch; /* Ensure the card stretches to fill the container */
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
-       .card-custom {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch; /* Ensure the card stretches to fill the container */
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
 
-.card-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    width: 100%; /* Ensure the card body takes full width */
-}
+        .card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            width: 100%; /* Ensure the card body takes full width */
+        }
 
-.card-text-content {
-    width: 60%;
-    padding: 20px;
-    background-color: #F3F5FC; /* Ensure the background color is consistent */
-    border-radius: 8px 0 0 8px; /* Rounded corners on the left side */
-}
+        .card-text-content {
+            width: 60%;
+            padding: 20px;
+            background-color: #F3F5FC; /* Ensure the background color is consistent */
+            border-radius: 8px 0 0 8px; /* Rounded corners on the left side */
+        }
 
-.card-image-container {
-    width: 100%;
-    height:100%;
-    position: relative;
-    overflow: hidden; /* Ensure the image doesn't overflow */
-    border-radius: 0 8px 8px 0; /* Rounded corners on the right side */
-}
+        .card-image-container {
+            width: 100%;
+            height:100%;
+            position: relative;
+            overflow: hidden; /* Ensure the image doesn't overflow */
+            border-radius: 0 8px 8px 0; /* Rounded corners on the right side */
+        }
 
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the entire container */
-    display: block; /* Remove any extra space below the image */
-}
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the entire container */
+            display: block; /* Remove any extra space below the image */
+        }
 
-.custom-pagination-button {
-    background-color: #474BC2;
-    border: none;
-    border-radius: 4px;
-    width: 50px;
-    height: 50px;
-    color: white;
-}
-    </style>
-</head>
-<body>
+        .custom-pagination-button {
+            background-color: #474BC2;
+            border: none;
+            border-radius: 4px;
+            width: 50px;
+            height: 50px;
+            color: white;
+        }
+</style>
+
+@endsection
+@section('content')
     <!-- Navigation Bar -->
-    @include('layouts.navbar')
+    @include('layouts.intern.navbar')
 
     <!-- Program Page Section -->
     <section class="program-page bg-white py-5">
@@ -175,179 +156,177 @@ body {
             </div>
         </div>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/app.js"></script>
-    <script>
+@endsection
 
-        
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            filterCategory('IT');
-        });
-        
-        // Global declaration of category data
-        const categories = {
-    'IT': [
-        { title: 'Software Developer Intern', description: 'Engage in hands-on development projects under the guidance of experienced software engineers. Participate in code reviews, learn software development best practices, and contribute to real-world applications.', positions: 3 },
-        { title: 'Network Administrator Intern', description: 'Assist with the maintenance and optimization of network operations. Gain experience with network configuration, troubleshooting, and ensuring secure and stable network performance.', positions: 2 },
-        { title: 'Web Developer Intern', description: 'Support the design and development of web applications. Collaborate with UI/UX designers and backend developers to create responsive and user-friendly websites.', positions: 2 },
-        { title: 'Data Analyst Intern', description: 'Work with large datasets to extract meaningful insights and assist in decision-making processes. Learn to use analytical tools and software to create reports and visualize data effectively.', positions: 1 },
-        { title: 'Security Specialist Intern', description: 'Contribute to the strengthening of our cybersecurity measures. Assist with vulnerability assessments, security audits, and the implementation of security protocols.', positions: 1 }
-    ],
-    'Human Resources': [
-        { title: 'HR Trainee', description: 'Support the HR team in day-to-day operations including recruitment, staff orientation, and employee welfare programs. Gain valuable insight into human resources management in a dynamic corporate environment.', positions: 3 },
-        { title: 'Recruitment Coordinator Intern', description: 'Assist with the coordination of recruitment processes. Help organize job postings, review resumes, schedule interviews, and participate in the selection process.', positions: 2 },
-        { title: 'Employee Relations Intern', description: 'Help manage relationships with employees and ensure a harmonious workplace. Engage in conflict resolution, employee advocacy, and assist in organizing staff engagement programs.', positions: 1 },
-        { title: 'HR Data Analyst Intern', description: 'Analyze HR metrics to provide insights that support strategic decisions. Work on projects involving data collection, analysis, and reporting to enhance HR initiatives.', positions: 1 },
-        { title: 'Organizational Development Intern', description: 'Participate in the development and implementation of organizational change programs. Assist in workshops, training sessions, and activities that drive organizational effectiveness.', positions: 1 }
-    ],
-    'Marketing': [
-        { title: 'Marketing Specialist', description: 'Take part in the development and execution of marketing strategies. Work closely with the marketing team to create campaigns that effectively promote the company’s products and services.', positions: 2 },
-        { title: 'Content Marketing Intern', description: 'Create compelling content for blogs, social media, and the company’s website. Learn content strategy and SEO best practices to enhance digital marketing efforts.', positions: 2 },
-        { title: 'Digital Marketing Intern', description: 'Support digital marketing campaigns through email, social media, and digital advertising. Gain insights into digital marketing analytics and campaign performance.', positions: 1 },
-        { title: 'Social Media Marketing Intern', description: 'Manage and grow the company’s presence on social media platforms. Create engaging content, respond to comments, and analyze user engagement to improve social media strategies.', positions: 2 },
-        { title: 'Event Marketing Intern', description: 'Assist in the planning and execution of marketing events. Help coordinate logistics, manage registrations, and interact with attendees to enhance brand visibility and networking.', positions: 1 }
-    ],
-    'Translation': [
-        { title: 'Translator Intern', description: 'Provide language translation services for documents and communications. Work with a team of linguists to ensure accurate and culturally relevant translations.', positions: 1 },
-        { title: 'Localization Specialist Intern', description: 'Help adapt products or services for international markets. Focus on cultural, linguistic, and technical localization to ensure the company’s offerings resonate with local consumers.', positions: 1 },
-        { title: 'Technical Translator Intern', description: 'Translate technical documents, manuals, and other materials. Work closely with technical teams to ensure clarity and accuracy in specialized content.', positions: 1 },
-        { title: 'Multimedia Translator Intern', description: 'Engage in the translation and localization of multimedia content such as videos, presentations, and audio recordings. Ensure that multimedia translations align with the original tone and message.', positions: 1 },
-        { title: 'Translator Intern', description: 'Provide language translation services for documents and communications. Work with a team of linguists to ensure accurate and culturally relevant translations.', positions: 1 },
-        { title: 'Localization Specialist Intern', description: 'Help adapt products or services for international markets. Focus on cultural, linguistic, and technical localization to ensure the company’s offerings resonate with local consumers.', positions: 1 },
-        { title: 'Technical Translator Intern', description: 'Translate technical documents, manuals, and other materials. Work closely with technical teams to ensure clarity and accuracy in specialized content.', positions: 1 },
-        { title: 'Multimedia Translator Intern', description: 'Engage in the translation and localization of multimedia content such as videos, presentations, and audio recordings. Ensure that multimedia translations align with the original tone and message.', positions: 1 }
-    ]
-};
+@section('script')
+    <script type="text/javascript">
+
+                
+                
+                document.addEventListener('DOMContentLoaded', function() {
+                    filterCategory('IT');
+                });
+                
+                // Global declaration of category data
+                const categories = {
+            'IT': [
+                { title: 'Software Developer Intern', description: 'Engage in hands-on development projects under the guidance of experienced software engineers. Participate in code reviews, learn software development best practices, and contribute to real-world applications.', positions: 3 },
+                { title: 'Network Administrator Intern', description: 'Assist with the maintenance and optimization of network operations. Gain experience with network configuration, troubleshooting, and ensuring secure and stable network performance.', positions: 2 },
+                { title: 'Web Developer Intern', description: 'Support the design and development of web applications. Collaborate with UI/UX designers and backend developers to create responsive and user-friendly websites.', positions: 2 },
+                { title: 'Data Analyst Intern', description: 'Work with large datasets to extract meaningful insights and assist in decision-making processes. Learn to use analytical tools and software to create reports and visualize data effectively.', positions: 1 },
+                { title: 'Security Specialist Intern', description: 'Contribute to the strengthening of our cybersecurity measures. Assist with vulnerability assessments, security audits, and the implementation of security protocols.', positions: 1 }
+            ],
+            'Human Resources': [
+                { title: 'HR Trainee', description: 'Support the HR team in day-to-day operations including recruitment, staff orientation, and employee welfare programs. Gain valuable insight into human resources management in a dynamic corporate environment.', positions: 3 },
+                { title: 'Recruitment Coordinator Intern', description: 'Assist with the coordination of recruitment processes. Help organize job postings, review resumes, schedule interviews, and participate in the selection process.', positions: 2 },
+                { title: 'Employee Relations Intern', description: 'Help manage relationships with employees and ensure a harmonious workplace. Engage in conflict resolution, employee advocacy, and assist in organizing staff engagement programs.', positions: 1 },
+                { title: 'HR Data Analyst Intern', description: 'Analyze HR metrics to provide insights that support strategic decisions. Work on projects involving data collection, analysis, and reporting to enhance HR initiatives.', positions: 1 },
+                { title: 'Organizational Development Intern', description: 'Participate in the development and implementation of organizational change programs. Assist in workshops, training sessions, and activities that drive organizational effectiveness.', positions: 1 }
+            ],
+            'Marketing': [
+                { title: 'Marketing Specialist', description: 'Take part in the development and execution of marketing strategies. Work closely with the marketing team to create campaigns that effectively promote the company’s products and services.', positions: 2 },
+                { title: 'Content Marketing Intern', description: 'Create compelling content for blogs, social media, and the company’s website. Learn content strategy and SEO best practices to enhance digital marketing efforts.', positions: 2 },
+                { title: 'Digital Marketing Intern', description: 'Support digital marketing campaigns through email, social media, and digital advertising. Gain insights into digital marketing analytics and campaign performance.', positions: 1 },
+                { title: 'Social Media Marketing Intern', description: 'Manage and grow the company’s presence on social media platforms. Create engaging content, respond to comments, and analyze user engagement to improve social media strategies.', positions: 2 },
+                { title: 'Event Marketing Intern', description: 'Assist in the planning and execution of marketing events. Help coordinate logistics, manage registrations, and interact with attendees to enhance brand visibility and networking.', positions: 1 }
+            ],
+            'Translation': [
+                { title: 'Translator Intern', description: 'Provide language translation services for documents and communications. Work with a team of linguists to ensure accurate and culturally relevant translations.', positions: 1 },
+                { title: 'Localization Specialist Intern', description: 'Help adapt products or services for international markets. Focus on cultural, linguistic, and technical localization to ensure the company’s offerings resonate with local consumers.', positions: 1 },
+                { title: 'Technical Translator Intern', description: 'Translate technical documents, manuals, and other materials. Work closely with technical teams to ensure clarity and accuracy in specialized content.', positions: 1 },
+                { title: 'Multimedia Translator Intern', description: 'Engage in the translation and localization of multimedia content such as videos, presentations, and audio recordings. Ensure that multimedia translations align with the original tone and message.', positions: 1 },
+                { title: 'Translator Intern', description: 'Provide language translation services for documents and communications. Work with a team of linguists to ensure accurate and culturally relevant translations.', positions: 1 },
+                { title: 'Localization Specialist Intern', description: 'Help adapt products or services for international markets. Focus on cultural, linguistic, and technical localization to ensure the company’s offerings resonate with local consumers.', positions: 1 },
+                { title: 'Technical Translator Intern', description: 'Translate technical documents, manuals, and other materials. Work closely with technical teams to ensure clarity and accuracy in specialized content.', positions: 1 },
+                { title: 'Multimedia Translator Intern', description: 'Engage in the translation and localization of multimedia content such as videos, presentations, and audio recordings. Ensure that multimedia translations align with the original tone and message.', positions: 1 }
+            ]
+        };
 
 
-        
-        let currentCategory = 'IT'; 
-        let currentPage = 1;
-        const itemsPerPage = 5;
-        
-        function filterCategory(category) {
-            currentCategory = category; 
-            currentPage = 1; // Reset to the first page
-            applySearch(); 
-        }
-        
-        function applySearch() {
-            const searchText = document.getElementById('searchInput').value.toLowerCase();
-            const filteredJobs = categories[currentCategory].filter(job => 
-                job.title.toLowerCase().includes(searchText) || job.description.toLowerCase().includes(searchText)
-            );
+                
+                let currentCategory = 'IT'; 
+                let currentPage = 1;
+                const itemsPerPage = 5;
+                
+                function filterCategory(category) {
+                    currentCategory = category; 
+                    currentPage = 1; // Reset to the first page
+                    applySearch(); 
+                }
+                
+                function applySearch() {
+                    const searchText = document.getElementById('searchInput').value.toLowerCase();
+                    const filteredJobs = categories[currentCategory].filter(job => 
+                        job.title.toLowerCase().includes(searchText) || job.description.toLowerCase().includes(searchText)
+                    );
+                    
+                    updateListings(filteredJobs);
+                }
+                function updateListings(jobs) {
+            const listingsElement = document.getElementById('listings');
+            const paginationElement = document.getElementById('pagination');
             
-            updateListings(filteredJobs);
-        }
-        function updateListings(jobs) {
-    const listingsElement = document.getElementById('listings');
-    const paginationElement = document.getElementById('pagination');
-    
-    listingsElement.innerHTML = ''; 
+            listingsElement.innerHTML = ''; 
 
-    // Calculate pagination
-    const totalPages = Math.ceil(jobs.length / itemsPerPage);
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const jobsToShow = jobs.slice(start, end);
+            // Calculate pagination
+            const totalPages = Math.ceil(jobs.length / itemsPerPage);
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const jobsToShow = jobs.slice(start, end);
 
-    if (jobsToShow.length > 0) {
-        jobsToShow.forEach(job => {
-            const jobElement = document.createElement('div');
-            jobElement.classList.add('card', 'mb-3');
-// Inside the jobElement.innerHTML in program.blade.php
-jobElement.innerHTML = `
-    <div class="card-body row position-relative" style="background-color:white;margin:0;padding:0; border:0; border-radius: 8px; height:auto;">
-        <!-- Left Column: Job Description (col-md-7) -->
-        <div class="col-md-7 d-flex flex-column justify-content-start" style="background-color:#F3F5FC; margin:0;padding:20px; border-radius: 8px 0 0 8px;">
-            <h5 class="card-title" style="font-size:32px;" data-translate="${job.title}">${job.title}</h5>
-            <p class="card-text" style="font-size:20px;" data-translate="${job.description}">${job.description}</p>
-            <div class="row">
-                <div class="d-flex gap-2">
-                    <button class="card-text" 
-                            style="border:none; background-color:#D1D1F0; border-radius:4px; width:auto;height:30px;">
-                        <small class="text-muted" style="font-size:16px;">${currentCategory}</small>
-                    </button>
-                    <button class="card-text" 
-                            style="border:none; background-color:#B1BBE7; border-radius:4px;width:auto;height:30px;">
-                        <small class="text-muted" style="font-size:16px;">${job.positions} positions</small>
-                    </button>
+            if (jobsToShow.length > 0) {
+                jobsToShow.forEach(job => {
+                    const jobElement = document.createElement('div');
+                    jobElement.classList.add('card', 'mb-3');
+        // Inside the jobElement.innerHTML in program.blade.php
+        jobElement.innerHTML = `
+            <div class="card-body row position-relative" style="background-color:white;margin:0;padding:0; border:0; border-radius: 8px; height:auto;">
+                <!-- Left Column: Job Description (col-md-7) -->
+                <div class="col-md-7 d-flex flex-column justify-content-start" style="background-color:#F3F5FC; margin:0;padding:20px; border-radius: 8px 0 0 8px;">
+                    <h5 class="card-title" style="font-size:32px;" data-translate="${job.title}">${job.title}</h5>
+                    <p class="card-text" style="font-size:20px;" data-translate="${job.description}">${job.description}</p>
+                    <div class="row">
+                        <div class="d-flex gap-2">
+                            <button class="card-text" 
+                                    style="border:none; background-color:#D1D1F0; border-radius:4px; width:auto;height:30px;">
+                                <small class="text-muted" style="font-size:16px;">${currentCategory}</small>
+                            </button>
+                            <button class="card-text" 
+                                    style="border:none; background-color:#B1BBE7; border-radius:4px;width:auto;height:30px;">
+                                <small class="text-muted" style="font-size:16px;">${job.positions} positions</small>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 " style="background-color:white; margin:0;padding:0; border-radius:0 8px 8px 0; overflow: hidden; height: 100%;">
+                    <!-- Full-width and full-height Image -->
+                    <img class="card-image" src="${job.imgSrc || '../assets/img/hrphoto.png'}" alt="Job Image" 
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; margin: 0; padding: 0; display: block;">
+
+                    <!-- "Apply" Button with URL Parameters -->
+                    <a href="/internship?title=${encodeURIComponent(job.title)}&category=${encodeURIComponent(currentCategory)}&positions=${job.positions}" 
+                    class="btn btn-dark" 
+                    style="background-color:#474bc2; border:0; padding: 10px 20px; position: absolute; bottom: 10px; right: 10px;">
+                    Apply
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-5 " style="background-color:white; margin:0;padding:0; border-radius:0 8px 8px 0; overflow: hidden; height: 100%;">
-            <!-- Full-width and full-height Image -->
-            <img class="card-image" src="${job.imgSrc || '../assets/img/hrphoto.png'}" alt="Job Image" 
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; margin: 0; padding: 0; display: block;">
+        `;
+                    listingsElement.appendChild(jobElement);
+                });
+            } else {
+                listingsElement.innerHTML = '<div class="text-center">No results found.</div>'; 
+            }
 
-            <!-- "Apply" Button with URL Parameters -->
-            <a href="/internship?title=${encodeURIComponent(job.title)}&category=${encodeURIComponent(currentCategory)}&positions=${job.positions}" 
-            class="btn btn-dark" 
-            style="background-color:#474bc2; border:0; padding: 10px 20px; position: absolute; bottom: 10px; right: 10px;">
-            Apply
-            </a>
-        </div>
-    </div>
-`;
-            listingsElement.appendChild(jobElement);
-        });
-    } else {
-        listingsElement.innerHTML = '<div class="text-center">No results found.</div>'; 
-    }
-
-    updatePagination(totalPages);
-    updateActiveCategoryButton(currentCategory);
-}
-
-function updatePagination(totalPages) {
-    const paginationElement = document.getElementById('pagination');
-    paginationElement.innerHTML = '';
-
-    // Ensure there's at least one button (for page 1)
-    totalPages = Math.max(totalPages, 1);
-
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
-        button.textContent = i;
-        button.classList.add("custom-pagination-button", 'mx-1');
-        if (i === currentPage) {
-            button.classList.add('active');
+            updatePagination(totalPages);
+            updateActiveCategoryButton(currentCategory);
         }
-        button.addEventListener('click', () => {
-            currentPage = i;
-            applySearch(); // Refresh listings for the current page
-        });
-        paginationElement.appendChild(button);
-    }
-}
 
-        
-function updateActiveCategoryButton(activeCategory) { 
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        // Check `data-category` instead of button text
-        if (btn.getAttribute('data-category') === activeCategory) {
-            btn.classList.add('active');
-            btn.classList.remove('btn-outline-secondary'); // Remove outline style
-            btn.classList.add('btn-primary'); // Add active style
-        } else {
-            btn.classList.remove('active');
-            btn.classList.remove('btn-primary');
-            btn.classList.add('btn-outline-secondary'); // Restore outline style
+        function updatePagination(totalPages) {
+            const paginationElement = document.getElementById('pagination');
+            paginationElement.innerHTML = '';
+
+            // Ensure there's at least one button (for page 1)
+            totalPages = Math.max(totalPages, 1);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.classList.add("custom-pagination-button", 'mx-1');
+                if (i === currentPage) {
+                    button.classList.add('active');
+                }
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    applySearch(); // Refresh listings for the current page
+                });
+                paginationElement.appendChild(button);
+            }
         }
-    });
-}
+
+                
+        function updateActiveCategoryButton(activeCategory) { 
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                // Check `data-category` instead of button text
+                if (btn.getAttribute('data-category') === activeCategory) {
+                    btn.classList.add('active');
+                    btn.classList.remove('btn-outline-secondary'); // Remove outline style
+                    btn.classList.add('btn-primary'); // Add active style
+                } else {
+                    btn.classList.remove('active');
+                    btn.classList.remove('btn-primary');
+                    btn.classList.add('btn-outline-secondary'); // Restore outline style
+                }
+            });
+        }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    filterCategory('IT'); // Default category
-});
+        document.addEventListener('DOMContentLoaded', () => {
+            filterCategory('IT'); // Default category
+        });
 
 
 
 
-</script>
-        
-</body>
-</html>
+    </script>
+@endsection

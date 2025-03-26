@@ -1,24 +1,14 @@
+@extends('layouts.intern.internLayout')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Successful - InternPlus</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
+@section('styles')
     <style rel="stylesheet" type="text/css">
         body{
             background-color:#fff;
         }
     </style>
-    
+@endsection 
 
-</head>
-<body>
+@section('content')
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
         <div class="container d-flex justify-content-start align-items-center">
@@ -38,8 +28,7 @@
             </div>
         </div>
     </nav>
-    
-
+   
     <!-- Success Message Card -->
     <div class="container mt-5">
         <div class="card mx-auto" style="max-width: 600px;">
@@ -51,8 +40,9 @@
             </div>
         </div>
     </div>
+@endsection 
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+@section('script')
+
+@endsection

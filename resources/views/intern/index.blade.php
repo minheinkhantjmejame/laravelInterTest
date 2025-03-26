@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternPlus</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+@extends('layouts.intern.internLayout')
 
-    <!-- Myanmar Unicode Font (Noto Sans Myanmar) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
-
-    <!-- Jquery UI -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
+@section('styles')
     <!-- Apply the font -->
-    <style>
+    <style rel="stylesheet" type="text/css">
         body {
             font-family: 'Noto Sans Myanmar', sans-serif;
         }
@@ -29,10 +11,10 @@
             font-family: inherit !important;
         }
     </style>
-</head>
-<body>
-    
-    @include('layouts.navbar')
+@endsection
+
+@section('content')
+    @include('layouts.intern.navbar')
     
     <!-- Hero Section -->
     <section class="hero-section" style="background-color:#fff;">
@@ -119,11 +101,9 @@
             </div>
         </div>
     </footer>
+@endsection
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/app.js"></script>
-    <!-- Custom JS -->
+@section('script')
     <script type="text/javascript">
 
         // Initialize date picker (existing function)
@@ -134,5 +114,4 @@
             });
         });
     </script>
-</body>
-</html>
+@endsection

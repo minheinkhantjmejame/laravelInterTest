@@ -1,304 +1,291 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternPlus</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
+@extends('layouts.intern.internLayout')
+@section('styles')
     <style rel="stylesheet" type="text/css">
-        body{
-            background-color:#ffffff;
+            body{
+                background-color:#ffffff;
+            }
+            .container .headingtext{
+                text-align: center;
+            }
+            .search-container {
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                padding: 40px 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 100%;
+                margin: auto;
+            }
+
+            .input-group {
+                justify-content: center;
+            }
+
+            .app-id-input {
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                margin-right: 5px; 
+                border-radius: 5px;
+                border: 1px solid black; 
+                background-color:white;
+                transition: border-color .15s ease-in-out;
+                display: inline-block;
+            }
+
+            .app-id-input:last-child {
+                margin-right: 0; 
+            }
+
+            .app-id-input:focus {
+                border-color: #80bdff;
+                box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+            }
+
+            .app-search-button {
+                width: 100px; 
+                padding: 10px 0; 
+                margin-top: 10px; 
+                background-color: #474bc2;
+
+                box-shadow: none;
+            }
+
+            .app-search-button:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
+
+            .internship-details .btn {
+                margin: 0 5px;
+            }
+
+            .internship-details .card {
+                background-color: #f8f9fa;
+                border: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .internship-details .card-body {
+                padding: 20px;
+                line-height: 1.6;
+                color: #333;
+            }
+
+            .status-buttons button {
+                margin-bottom: 5px; 
+            }
+
+            .statuscontainer {
+                max-width: 1000px; 
+                margin: auto;
+                background-color: #f8f9fa;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .status-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px; 
+            }
+
+            .btn {
+                padding: 10px 15px; 
+            }
+
+            .card {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                overflow: hidden; 
+            }
+
+            .card-body {
+                display: flex;
+                flex-wrap: wrap; 
+                align-items: center;
+                justify-content: space-between; 
+                padding: 20px;
+            }
+
+
+            .card-image {
+                height: 100%; 
+                object-fit: cover;
+            }
+
+            .hr {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-top: 1px solid #eee;
+            }
+
+            .col-md-3 {
+                flex: 1 1 20%;
+                margin: 10px;
+                min-width: 160px;
+                max-width: 240px;
+            }
+
+            .date-box, .type-box {
+                background-color: #f4f4f9;
+                padding: 10px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                width: 100%;
+                text-align: center;
+            }
+
+            .date-details p {
+                margin-bottom: 5px;
+            }
+
+            .type-title {
+                font-size: 24px;
+                margin-bottom: 0;
+            }
+
+            .type-text {
+                font-size: 16px;
+                margin-top: 5px;
+            }
+
+            .card-title {
+                font-size: 1.2rem; 
+                margin-bottom: 5px; 
+            }
+
+            .card-title, .card-text {
+                margin-bottom: 4px; 
+            }
+
+            .card-body p {
+                font-size: 0.9rem; 
+                margin-bottom: 5px; 
+
+            }
+            .btn-primary, .btn-success, .btn-danger {
+                color: #fff;
+            }
+
+            .btn-primary {
+                background-color: #007bff; 
+            }
+
+            .btn-success {
+                background-color: #28a745;
+            }
+
+            .btn-danger {
+                background-color: #dc3545; 
+            }
+
+            .card {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                overflow: hidden; 
+            }
+
+            .col-md-3 {
+                flex: 1 1 20%;
+                margin: 10px;
+                min-width: 160px;
+            }
+
+            .date-box, .type-box {
+                background-color: #f4f4f9;
+                padding: 10px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                width: 100%;
+                text-align: center;
+            }
+            .card-image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .date-box, .type-box {
+                background-color: #f4f4f9;
+                padding: 10px 15px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .card-title {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .card-text {
+                font-size: 14px;
+            }
+
+            .hr {
+                border-top: 1px solid #ddd;
+                margin: 8px 0;
+            }
+
+            .type-box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .bi-suitcase-lg {
+                font-size: 24px;
+                color: #6c757d;
+            }
+
+            a{
+                text-decoration:none;
+            }
+
+
+
+
+        @media (max-width: 992px) { /* Adjusts when the screen size is below 992px */
+            .card-body {
+                flex-direction: column; /* Stacks the columns vertically on smaller screens */
+            }
+
+            .col-md-3 {
+                flex: 1 1 100%; /* Takes full width on smaller screens */
+            }
+
+            .date-box, .type-box {
+                margin-bottom: 10px; /* Ensures spacing between boxes on smaller screens */
+            }
         }
-        .container .headingtext{
-            text-align: center;
-        }
-        .search-container {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 40px 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 100%;
-            margin: auto;
-        }
 
-        .input-group {
-            justify-content: center;
-        }
-
-        .app-id-input {
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            margin-right: 5px; 
-            border-radius: 5px;
-            border: 1px solid black; 
-            background-color:white;
-            transition: border-color .15s ease-in-out;
-            display: inline-block;
-        }
-
-        .app-id-input:last-child {
-            margin-right: 0; 
-        }
-
-        .app-id-input:focus {
-            border-color: #80bdff;
-            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-        }
-
-        .app-search-button {
-            width: 100px; 
-            padding: 10px 0; 
-            margin-top: 10px; 
-            background-color: #474bc2;
-
-            box-shadow: none;
-        }
-
-        .app-search-button:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-
-        .internship-details .btn {
-            margin: 0 5px;
-        }
-
-        .internship-details .card {
-            background-color: #f8f9fa;
-            border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .internship-details .card-body {
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .status-buttons button {
-            margin-bottom: 5px; 
-        }
-
-        .statuscontainer {
-            max-width: 1000px; 
-            margin: auto;
-            background-color: #f8f9fa;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .status-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px; 
-        }
-
-        .btn {
-            padding: 10px 15px; 
-        }
-
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            overflow: hidden; 
-        }
-
-        .card-body {
-            display: flex;
-            flex-wrap: wrap; 
-            align-items: center;
-            justify-content: space-between; 
-            padding: 20px;
+        @media (max-width: 1196px) {
+            .card-body {
+                justify-content: space-around; /* Adjusts spacing for medium screens */
+            }
+            .col-md-3 {
+                flex: 1 1 22%; /* Slightly more width per column at this breakpoint */
+            }
         }
 
 
-        .card-image {
-            height: 100%; 
-            object-fit: cover;
-        }
-
-        .hr {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border-top: 1px solid #eee;
-        }
-
-        .col-md-3 {
-            flex: 1 1 20%;
-            margin: 10px;
-            min-width: 160px;
-            max-width: 240px;
-        }
-
-        .date-box, .type-box {
-            background-color: #f4f4f9;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 100%;
-            text-align: center;
-        }
-
-        .date-details p {
-            margin-bottom: 5px;
-        }
-
-        .type-title {
-            font-size: 24px;
-            margin-bottom: 0;
-        }
-
-        .type-text {
-            font-size: 16px;
-            margin-top: 5px;
-        }
-
-        .card-title {
-            font-size: 1.2rem; 
-            margin-bottom: 5px; 
-        }
-
-        .card-title, .card-text {
-            margin-bottom: 4px; 
-        }
-
-        .card-body p {
-            font-size: 0.9rem; 
-            margin-bottom: 5px; 
-
-        }
-        .btn-primary, .btn-success, .btn-danger {
-            color: #fff;
-        }
-
-        .btn-primary {
-            background-color: #007bff; 
-        }
-
-        .btn-success {
-            background-color: #28a745;
-        }
-
-        .btn-danger {
-            background-color: #dc3545; 
-        }
-
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            overflow: hidden; 
-        }
-
-        .col-md-3 {
-            flex: 1 1 20%;
-            margin: 10px;
-            min-width: 160px;
-        }
-
-        .date-box, .type-box {
-            background-color: #f4f4f9;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 100%;
-            text-align: center;
-        }
-        .card-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .date-box, .type-box {
-            background-color: #f4f4f9;
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .card-title {
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .card-text {
-            font-size: 14px;
-        }
-
-        .hr {
-            border-top: 1px solid #ddd;
-            margin: 8px 0;
-        }
-
-        .type-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .bi-suitcase-lg {
-            font-size: 24px;
-            color: #6c757d;
-        }
-
-        a{
-            text-decoration:none;
-        }
+    </style>
+@endsection
 
 
 
-
-@media (max-width: 992px) { /* Adjusts when the screen size is below 992px */
-    .card-body {
-        flex-direction: column; /* Stacks the columns vertically on smaller screens */
-    }
-
-    .col-md-3 {
-        flex: 1 1 100%; /* Takes full width on smaller screens */
-    }
-
-    .date-box, .type-box {
-        margin-bottom: 10px; /* Ensures spacing between boxes on smaller screens */
-    }
-}
-
-@media (max-width: 1196px) {
-    .card-body {
-        justify-content: space-around; /* Adjusts spacing for medium screens */
-    }
-    .col-md-3 {
-        flex: 1 1 22%; /* Slightly more width per column at this breakpoint */
-    }
-}
-
-
-</style>
-
-    <!-- Jquery UI -->
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
-</head>
-<body>
+@section('content')
     <!-- Navigation Bar -->
-    @include('layouts.navbar')
+    @include('layouts.intern.navbar')
     
     <div class="container my-5">
         <h5 class="mb-4 headingtext" style="font-size:48px;" data-translate="YOUR INTERNSHIP">YOUR INTERNSHIP</h5>
@@ -319,7 +306,7 @@
         </div>
     </div>
 
-        <div class="container internship-details mt-3">
+    <div class="container internship-details mt-3">
             <h4 class="text-start mb-4" data-translate="APPLICATION INTERNSHIP">APPLICATION INTERNSHIP</h4>
             <div class="status-buttons d-flex justify-content-start mb-3">
                 <button class="btn btn-primary mx-2" style="background-color:#b1bbe7;color:#000; border:0; border-radius:4px; font-size:20px;" data-translate="Pending">Pending</button>
@@ -361,15 +348,9 @@
                     </div>
                 </div>
             </a>
-        </div>           
-    
-    
-    
-    
-    
+    </div>             
 
-
-        <footer class="bg-light py-4">
+    <footer class="bg-light py-4">
             <div class="container text-left">
                 <div class="row align-items-center">
                     <div class="col-md-6 fw-bold fs-4">INTERNPLUS</div>
@@ -407,68 +388,64 @@
                     </div>
                 </div>
             </div>
-        </footer>
+    </footer>
+@endsection
 
 
-    
-    
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS  -->
-    <script src="../js/app.js"></script>
-    <script>
+@section('script')
+    <script type="text/javascript">
 
 
-        $(document).ready(function() {
-                $("#startDate, #endDate").datepicker({
-                    showButtonPanel: true,
-                    dateFormat: "dd/mm/yy"
-                });
+                $(document).ready(function() {
+                        $("#startDate, #endDate").datepicker({
+                            showButtonPanel: true,
+                            dateFormat: "dd/mm/yy"
+                        });
+                    });
+
+                    document.querySelectorAll('.app-id-input').forEach((input, index, array) => {
+            input.addEventListener('keyup', function() {
+                if (this.value.length === 1 && index !== array.length - 1) {
+                    array[index + 1].focus();
+                }
             });
-
-            document.querySelectorAll('.app-id-input').forEach((input, index, array) => {
-    input.addEventListener('keyup', function() {
-        if (this.value.length === 1 && index !== array.length - 1) {
-            array[index + 1].focus();
-        }
-    });
-});
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const searchButton = document.querySelector('.app-search-button');
-        const appIdInputs = document.querySelectorAll('.app-id-input');
-        const internshipDetails = document.querySelector('.internship-details');
-
-        // Hide the internship details on page load
-        internshipDetails.style.display = 'none';
-
-        function getAppId() {
-            return Array.from(appIdInputs).map(input => input.value).join('');
-        }
-
-        searchButton.addEventListener('click', function() {
-            const appId = getAppId();
-            if (appId === "112987630") {  // Assuming "112987630" is a valid ID for demonstration
-                internshipDetails.style.display = 'block';
-            } else {
-                alert('No application found with that ID.');
-                internshipDetails.style.display = 'none';
-            }
         });
 
-        document.querySelectorAll('.app-id-input').forEach((input, index, array) => {
-    input.addEventListener('keyup', function(event) {
-        if (this.value.length === 1 && index !== array.length - 1) {
-            array[index + 1].focus(); // Move to next input if a digit is entered
-        } else if (event.key === "Backspace" && index !== 0 && this.value === "") {
-            array[index - 1].focus(); // Move back to previous input when deleting
-        }
-    });
-});
+            document.addEventListener("DOMContentLoaded", function() {
+                const searchButton = document.querySelector('.app-search-button');
+                const appIdInputs = document.querySelectorAll('.app-id-input');
+                const internshipDetails = document.querySelector('.internship-details');
 
-});
+                // Hide the internship details on page load
+                internshipDetails.style.display = 'none';
+
+                function getAppId() {
+                    return Array.from(appIdInputs).map(input => input.value).join('');
+                }
+
+                searchButton.addEventListener('click', function() {
+                    const appId = getAppId();
+                    if (appId === "112987630") {  // Assuming "112987630" is a valid ID for demonstration
+                        internshipDetails.style.display = 'block';
+                    } else {
+                        alert('No application found with that ID.');
+                        internshipDetails.style.display = 'none';
+                    }
+                });
+
+                document.querySelectorAll('.app-id-input').forEach((input, index, array) => {
+            input.addEventListener('keyup', function(event) {
+                if (this.value.length === 1 && index !== array.length - 1) {
+                    array[index + 1].focus(); // Move to next input if a digit is entered
+                } else if (event.key === "Backspace" && index !== 0 && this.value === "") {
+                    array[index - 1].focus(); // Move back to previous input when deleting
+                }
+            });
+        });
+
+        });
 
 
     </script>
-</body>
-</html>
+@endsection
+

@@ -1,18 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternPlus Skill Test</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- custom css  -->
-
-    <link rel="stylesheet" href="../css/styles.css" />
-
+@extends('layouts.intern.internLayout')
+@section('styles')
     <style type="text/css" rel="stylesheet">
         body {
             background-color: #ffffff;
@@ -105,10 +92,11 @@
 
 
     </style>
-</head>
-<body>
+@endsection
+
+@section('content')
     <!-- Navigation Bar -->
-    @include('layouts.navbar')
+    @include('layouts.intern.navbar')
 
     <div class="container mt-5">
         <p class="badge" style="font-size:16px; font-weight:bold;">In-progress</p>
@@ -161,71 +149,66 @@
 
     </div>
 
+@endsection
 
-        
-        
-        
-    
-    <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/app.js"></script>
-<script>
+@section('script')
+    <script type="text/javascript">
 
-    document.addEventListener('DOMContentLoaded', function() {
-            const inputGroup = document.querySelector('.input-group');
-            inputGroup.addEventListener('click', function() {
-            document.getElementById('fileInput').click();  
+            document.addEventListener('DOMContentLoaded', function() {
+                    const inputGroup = document.querySelector('.input-group');
+                    inputGroup.addEventListener('click', function() {
+                    document.getElementById('fileInput').click();  
+                    });
+                });
+
+                
+            document.querySelectorAll('.btn-topic').forEach(button => {
+                button.addEventListener('click', function() {
+                this.classList.toggle('btn-active');
+                });
             });
-        });
+            
+                
+            function toggleInput(type) {
+                const fileInput = document.getElementById('fileInput');
+                const fileTextInput = document.querySelector('.input-group input[type="text"]'); 
+                const linkInput = document.getElementById('linkInput');
 
-        
-    document.querySelectorAll('.btn-topic').forEach(button => {
-        button.addEventListener('click', function() {
-        this.classList.toggle('btn-active');
-        });
-    });
-    
-        
-    function toggleInput(type) {
-        const fileInput = document.getElementById('fileInput');
-        const fileTextInput = document.querySelector('.input-group input[type="text"]'); 
-        const linkInput = document.getElementById('linkInput');
+            if (type === 'file') {
+                fileInput.disabled = false;
+                fileTextInput.classList.remove('disabled-input');
+                fileInput.classList.remove('disabled-input');
 
-    if (type === 'file') {
-        fileInput.disabled = false;
-        fileTextInput.classList.remove('disabled-input');
-        fileInput.classList.remove('disabled-input');
+                linkInput.disabled = true;
+                linkInput.classList.add('disabled-input');
+                linkInput.value = '';
+            } else {
+                linkInput.disabled = false;
+                linkInput.classList.remove('disabled-input');
 
-        linkInput.disabled = true;
-        linkInput.classList.add('disabled-input');
-        linkInput.value = '';
-    } else {
-        linkInput.disabled = false;
-        linkInput.classList.remove('disabled-input');
-
-        fileInput.disabled = true;
-        fileTextInput.classList.add('disabled-input');
-        fileInput.classList.add('disabled-input');
-        fileInput.value = '';
-    }
-}
-
-    
-
-    document.querySelector('#fileInput').addEventListener('change', function() {
-        const textInput = document.querySelector('.input-group input[type="text"]');
-        if (this.files.length > 0) {
-        textInput.value = this.files[0].name; 
-        } else {
-                textInput.value = "Select the file to upload"; 
+                fileInput.disabled = true;
+                fileTextInput.classList.add('disabled-input');
+                fileInput.classList.add('disabled-input');
+                fileInput.value = '';
             }
-        });
+        }
+
+            
+
+            document.querySelector('#fileInput').addEventListener('change', function() {
+                const textInput = document.querySelector('.input-group input[type="text"]');
+                if (this.files.length > 0) {
+                textInput.value = this.files[0].name; 
+                } else {
+                        textInput.value = "Select the file to upload"; 
+                    }
+                });
+            
+
+                document.querySelector('.input-group-text').onclick = function() {
+                    document.getElementById('fileInput').click();
+                };
+    </script>
+@endsection
     
 
-        document.querySelector('.input-group-text').onclick = function() {
-            document.getElementById('fileInput').click();
-        };
-    </script>
-    
-</body>
-</html>

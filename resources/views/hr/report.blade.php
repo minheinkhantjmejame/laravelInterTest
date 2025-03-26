@@ -1,11 +1,7 @@
-
-
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
-
-<!-- content body -->
-@include('layouts.hr.navbar')
+@extends('layouts.hr.hrLayout')
+   
+@section('content')
+    @include('layouts.hr.navbar')
 
     <div class="row main-container" >
                 @include('layouts.hr.sidebar')
@@ -243,16 +239,9 @@
                     <!-- The profile UI will be injected here -->
                 </div>
     </div>
+@endsection
 
 
-
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-<!-- extra CSS -->
 @section('styles')
     <style rel="stylesheet" type="text/css">
                         body {
@@ -466,9 +455,7 @@
     </style>
     
 @endsection
-<!-- extra CSS -->
 
-<!-- extra JS -->
 @section('script')
 <script type="text/javascript">
 
@@ -848,7 +835,7 @@
 
 </script>
 @endsection
-<!-- extra JS -->
+
 
 
 

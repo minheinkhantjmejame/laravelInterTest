@@ -1,9 +1,341 @@
+@extends('layouts.hr.hrLayout')
 
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
+@section('styles')
+    <style rel="stylesheet" type="text/css">
+                body {
+                    background-color: #fff;
+                    height: 100%;
+                }
+                .main-container {
+                    display: flex;
+                    align-items: stretch; /* Ensures both sidebar & content stretch equally */
+                }
+                .sidebar {
+                    background-color: #F3F5FC;
+                    padding-top: 10px;
+                    padding-left: 20px;
+                    height: auto; /* Allows it to stretch dynamically */
 
-<!-- content body -->
+                    
+                }
+                /* Default styling for sidebar links */
+            /* Default sidebar link styling */
+            .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            border-left: 3px solid transparent; /* No border by default */
+            transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+
+            /* Add border-left only when clicked */
+            .nav-link.active {
+            border-left: 4px solid black; /* Highlight color */
+            background-color: #EDEFF7; /* Optional: Background change */
+            }
+
+
+                .dashboard-content {
+                    padding: 20px;
+                }
+                .card {
+                    margin-bottom: 20px;
+                }
+
+                .container {
+                background-color:#F3F5FC;
+                padding-left: 20px;
+                border-radius: 8px;
+
+                }
+
+                h3 {
+                    color: #333;
+                }
+
+                .underline {
+                    border-bottom: 3px solid #4a90e2;
+                }
+
+                .chart-container {
+                    width: 100%;
+                    height: 350px;
+                    border:1px solid #b6a6f1;
+                    padding:30px;
+                }
+
+                .legend {
+                    margin-top: 90px;
+                    display: flex;
+                    flex-direction:column;
+                    text-align: left;
+                    gap:20px;
+                }
+
+                .legend-item {
+                    width: 12px;
+                    height: 12px;
+                    display: inline-block;
+                    border-radius: 3px;
+                    text-align:left;
+                }
+
+                .on-time {
+                    background-color: #D1D1F0;
+                }
+
+                .late {
+                    background-color: #D5CFFB;
+                }
+
+                .absent {
+                    background-color: #B1BBE7;
+                }
+
+                #category-container .btn {
+            margin-right: 10px; /* Adjust the value as needed */
+            }
+
+            #category-container .btn:last-child {
+            margin-right: 0; /* Remove margin from the last button */
+            }
+
+            /* Sidebar Styling */
+            .sidebar-form {
+                position: fixed;
+                top: 0;
+                right: -400px; /* Hidden by default */
+                width: 400px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+                padding: 20px;
+                transition: right 0.3s ease-in-out;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            /* Show Sidebar */
+            .sidebar-form.show {
+                right: 0;
+            }
+
+            /* Sidebar Header */
+            .sidebar-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .sidebar-header h3 {
+                font-size: 20px;
+                margin: 0;
+            }
+
+            /* Close Button */
+            .close-btn {
+                font-size: 20px;
+                cursor: pointer;
+                color: black;
+            }
+
+            /* Sidebar Content */
+            .sidebar-content {
+                flex-grow: 1;
+            }
+
+            /* Category Name Label */
+            .text-muted {
+                font-size: 14px;
+            }
+
+            /* Create Button */
+            .btn-create {
+                background-color: #5c67f2; /* Color from image */
+                color: white;
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 16px;
+                border: none;
+            }
+
+            .btn-create:hover {
+                background-color: #4a54d2; /* Darker shade on hover */
+            }
+                .card-container {
+                    background: #F3F5FC;
+                    padding: 20px;
+                    padding-bottom:0;
+                    border-radius: 8px;
+                    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+                    margin: 50px auto;
+                }
+
+                .header-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+
+                .table-container {
+                    background-color: #F3F5FC;
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                .table{
+                    background-color:#F3F5FC;
+                }
+
+                .table th {
+                    background-color: #ffffff;
+                    border-bottom: 2px solid #e0e4f5;
+                    font-weight: bold;
+                }
+
+                .table td, .table th {
+                    vertical-align: middle;
+                    padding: 15px;
+                }
+                .table tr{
+                    background-color:#F3F5FC;
+                }
+                .table td{
+                    background-color:#F3F5FC;
+                }
+
+                .table td .approved{
+                    color:green;
+                }
+
+                .profile-img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                .approval-text {
+                    font-weight: bold;
+                }
+
+                .approval-text.approved {
+                    color: #6DD52D;
+                }
+
+                .approval-text.rejected {
+                    color: #DD3D3D;
+                }
+
+                .approval-icons img{
+                    margin-right:10px;
+                }
+
+
+
+                .hold { background-color: #ddd4ff; color: #5a49a1; }
+                .paid { background-color: #d4ffe5; color: #2b8750; }
+                .approved { color: green; }
+                .setup { color: gray; }
+
+
+                .table-container {
+                    overflow-x: auto;
+                    border:none;
+                }
+                .profile-img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+                .status-badge {
+                    padding: 5px 10px;
+                    border-radius: 12px;
+                    font-size: 12px;
+                }
+
+
+
+                .profile-img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+                .contact-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 14px;
+                }
+                .menu-icon {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    cursor: pointer;
+                }
+
+                /* calendar dropdown  */
+                
+            .calendar {
+            padding: 10px;
+            border-radius: 4px;
+            }
+
+            .calendar_btn{
+            border:1px solid black;
+            }
+
+            .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            }
+
+            .header button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            }
+
+            .days, .dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            }
+
+            .dates span {
+            text-align: center;
+            padding: 5px;
+            cursor: pointer;
+            }
+
+            .dates span.today {
+            background-color: #D1D1F0;
+            border-radius: 4px;
+            }
+
+            .dates span:hover {
+            background-color: #ddd;
+            }
+
+            .show {
+            display: block;
+            }
+                /* calendar dropdown */
+
+
+    </style>
+@endsection
+  
+@section('content')
     @include('layouts.hr.navbar')
 
     <div class="row main-container" >
@@ -467,351 +799,8 @@
         
     
     </div>
-
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-<!-- extra CSS -->
-@section('styles')
-    <style rel="stylesheet" type="text/css">
-                body {
-                    background-color: #fff;
-                    height: 100%;
-                }
-                .main-container {
-                    display: flex;
-                    align-items: stretch; /* Ensures both sidebar & content stretch equally */
-                }
-                .sidebar {
-                    background-color: #F3F5FC;
-                    padding-top: 10px;
-                    padding-left: 20px;
-                    height: auto; /* Allows it to stretch dynamically */
-
-                    
-                }
-                /* Default styling for sidebar links */
-            /* Default sidebar link styling */
-            .nav-link {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            text-decoration: none;
-            color: black;
-            border-left: 3px solid transparent; /* No border by default */
-            transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            }
-
-            /* Add border-left only when clicked */
-            .nav-link.active {
-            border-left: 4px solid black; /* Highlight color */
-            background-color: #EDEFF7; /* Optional: Background change */
-            }
-
-
-                .dashboard-content {
-                    padding: 20px;
-                }
-                .card {
-                    margin-bottom: 20px;
-                }
-
-                .container {
-                background-color:#F3F5FC;
-                padding-left: 20px;
-                border-radius: 8px;
-
-                }
-
-                h3 {
-                    color: #333;
-                }
-
-                .underline {
-                    border-bottom: 3px solid #4a90e2;
-                }
-
-                .chart-container {
-                    width: 100%;
-                    height: 350px;
-                    border:1px solid #b6a6f1;
-                    padding:30px;
-                }
-
-                .legend {
-                    margin-top: 90px;
-                    display: flex;
-                    flex-direction:column;
-                    text-align: left;
-                    gap:20px;
-                }
-
-                .legend-item {
-                    width: 12px;
-                    height: 12px;
-                    display: inline-block;
-                    border-radius: 3px;
-                    text-align:left;
-                }
-
-                .on-time {
-                    background-color: #D1D1F0;
-                }
-
-                .late {
-                    background-color: #D5CFFB;
-                }
-
-                .absent {
-                    background-color: #B1BBE7;
-                }
-
-                #category-container .btn {
-            margin-right: 10px; /* Adjust the value as needed */
-            }
-
-            #category-container .btn:last-child {
-            margin-right: 0; /* Remove margin from the last button */
-            }
-
-            /* Sidebar Styling */
-            .sidebar-form {
-                position: fixed;
-                top: 0;
-                right: -400px; /* Hidden by default */
-                width: 400px;
-                height: 100vh;
-                background-color: white;
-                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-                padding: 20px;
-                transition: right 0.3s ease-in-out;
-                z-index: 1000;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            /* Show Sidebar */
-            .sidebar-form.show {
-                right: 0;
-            }
-
-            /* Sidebar Header */
-            .sidebar-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 15px;
-            }
-
-            .sidebar-header h3 {
-                font-size: 20px;
-                margin: 0;
-            }
-
-            /* Close Button */
-            .close-btn {
-                font-size: 20px;
-                cursor: pointer;
-                color: black;
-            }
-
-            /* Sidebar Content */
-            .sidebar-content {
-                flex-grow: 1;
-            }
-
-            /* Category Name Label */
-            .text-muted {
-                font-size: 14px;
-            }
-
-            /* Create Button */
-            .btn-create {
-                background-color: #5c67f2; /* Color from image */
-                color: white;
-                width: 100%;
-                padding: 10px;
-                border-radius: 5px;
-                font-size: 16px;
-                border: none;
-            }
-
-            .btn-create:hover {
-                background-color: #4a54d2; /* Darker shade on hover */
-            }
-                .card-container {
-                    background: #F3F5FC;
-                    padding: 20px;
-                    padding-bottom:0;
-                    border-radius: 8px;
-                    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-                    margin: 50px auto;
-                }
-
-                .header-title {
-                    font-size: 24px;
-                    font-weight: bold;
-                }
-
-                .table-container {
-                    background-color: #F3F5FC;
-                    border-radius: 10px;
-                    overflow: hidden;
-                }
-                .table{
-                    background-color:#F3F5FC;
-                }
-
-                .table th {
-                    background-color: #ffffff;
-                    border-bottom: 2px solid #e0e4f5;
-                    font-weight: bold;
-                }
-
-                .table td, .table th {
-                    vertical-align: middle;
-                    padding: 15px;
-                }
-                .table tr{
-                    background-color:#F3F5FC;
-                }
-                .table td{
-                    background-color:#F3F5FC;
-                }
-
-                .table td .approved{
-                    color:green;
-                }
-
-                .profile-img {
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    margin-right: 10px;
-                }
-
-                .approval-text {
-                    font-weight: bold;
-                }
-
-                .approval-text.approved {
-                    color: #6DD52D;
-                }
-
-                .approval-text.rejected {
-                    color: #DD3D3D;
-                }
-
-                .approval-icons img{
-                    margin-right:10px;
-                }
-
-
-
-                .hold { background-color: #ddd4ff; color: #5a49a1; }
-                .paid { background-color: #d4ffe5; color: #2b8750; }
-                .approved { color: green; }
-                .setup { color: gray; }
-
-
-                .table-container {
-                    overflow-x: auto;
-                    border:none;
-                }
-                .profile-img {
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    margin-right: 10px;
-                }
-                .status-badge {
-                    padding: 5px 10px;
-                    border-radius: 12px;
-                    font-size: 12px;
-                }
-
-
-
-                .profile-img {
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    margin-right: 10px;
-                }
-                .contact-info {
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    font-size: 14px;
-                }
-                .menu-icon {
-                    position: absolute;
-                    top: 15px;
-                    right: 15px;
-                    cursor: pointer;
-                }
-
-                /* calendar dropdown  */
-                
-            .calendar {
-            padding: 10px;
-            border-radius: 4px;
-            }
-
-            .calendar_btn{
-            border:1px solid black;
-            }
-
-            .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            }
-
-            .header button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            }
-
-            .days, .dates {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            }
-
-            .dates span {
-            text-align: center;
-            padding: 5px;
-            cursor: pointer;
-            }
-
-            .dates span.today {
-            background-color: #D1D1F0;
-            border-radius: 4px;
-            }
-
-            .dates span:hover {
-            background-color: #ddd;
-            }
-
-            .show {
-            display: block;
-            }
-                /* calendar dropdown */
-
-
-    </style>
 @endsection
-<!-- extra CSS -->
 
-<!-- extra JS -->
 @section('script')
     <script type="text/javascript">
 
@@ -983,7 +972,7 @@
 
     </script>
 @endsection
-<!-- extra JS -->
+
 
 
 

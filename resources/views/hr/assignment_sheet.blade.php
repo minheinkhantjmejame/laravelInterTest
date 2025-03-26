@@ -1,270 +1,7 @@
 
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
-
-<!-- content body -->
-    @include('layouts.hr.navbar')
-
-    <div class="row main-container" >
-            
-            @include('layouts.hr.sidebar')
-
-            <div class="col-md-9 dashboard-content" id="dashboardContent">
-
-                <div class="d-flex justify-content-between mb-3">
-                    <h2 class="mb-0">Assignment Sheet</h2>
-                    <!-- Summary Badges -->
-                    <div class="d-flex gap-3">
-                        <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                            <p class="mb-1">Completed</p>
-                            <h4 class="mb-0">202</h4>
-                        </div>
-                        <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                            <p class="mb-1">Pending</p>
-                            <h4 class="mb-0">26</h4>
-                        </div>
-                        <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                            <p class="mb-1">Not Started</p>
-                            <h4 class="mb-0">4</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <!-- tab pane -->
-                    <ul class="nav nav-tabs" id="assignmentTabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="tasks-tab" data-bs-toggle="tab" href="#tasks">
-                                <i class="bi bi-clipboard-data-fill" style="margin-right:5px;"></i> Tasks
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="assignments-tab" data-bs-toggle="tab" href="#assignments">
-                                <i class="bi bi-file-earmark-text-fill" style="margin-right:5px;"></i> Assignments
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content mt-3">
-                        <!-- Tasks Tab -->
-                        <div class="tab-pane fade show active" id="tasks">
-                            <div class="w-100 d-flex justify-content-between mb-5">
-                                <h3>Tasks</h3>
-                                <div>
-                                    <div class="dropdown">
-                                        <button class="btn calendar_btn" type="button" id="dateButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img src="../assets/icon/calendar.png" alt="">
-                                            <span id="selectedDate"></span>
-                                            <img src="../assets/icon/down_arrow.png" alt="">
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dateButton" id="calendarDropdown">
-                                            <div class="calendar">
-                                                <div class="header">
-                                                    <button id="prevMonth" style="background-color: #B1BBE7;border-radius:4px;"><img src="../assets/icon/less_than.png" alt=""></button>
-                                                    <span id="monthYear"></span>
-                                                    <button id="nextMonth" style="background-color: #B1BBE7;border-radius:4px;"><img src="../assets/icon/greater_than.png" class="fw-bold" alt=""></button>
-                                                </div>
-                                                <div class="days">
-                                                    <span>Sun</span>
-                                                    <span>Mon</span>
-                                                    <span>Tue</span>
-                                                    <span>Wed</span>
-                                                    <span>Thu</span>
-                                                    <span>Fri</span>
-                                                    <span>Sat</span>
-                                                </div>
-                                                <div class="dates" id="dates"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
-                                </div>
-                            </div>
-                            <!-- data filter  -->
-                            <div class="d-flex justify-content-between mb-3" style="height:50px;">
-                                <div class="d-flex gap-2">
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">All Intern</button>
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">On-site</button>
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">Work From Home</button>
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">Hybrid</button>
-                                    <div class="dropdown"  style="width:auto; border-radius:4px;">
-                                        <button class="btn custom-dropdown-btn" style="background-color:white; height:100%;" data-bs-toggle="dropdown">
-                                            <img src="../assets/icon/verified.png" alt=""> All Approval
-                                            <span style="background-color:#474BC2 !important;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="color:white;"></i></span>
-                                        </button>
-                                        <ul class="dropdown-menu" id="stepDropdown">
-                                            <li><a class="dropdown-item active" href="#">All</a></li>
-                                            <li><a class="dropdown-item" href="#">Approved</a></li>
-                                            <li><a class="dropdown-item" href="#">Pending</a></li>
-                                            <li><a class="dropdown-item" href="#">Rejected</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <div class="input-group search-box" style="height:100%; justify-content: center; align-items: center; border:1px solid #C8C8C8; border-radius:4px;">
-                                        <span class="input-group-text" style="height:100%; border:none; background-color: white;"><i class="bi bi-search"></i></span>
-                                        <input type="text" id="searchInputTestForm" style="height:100%; width:200px; border:none; background-color: white;"  class="form-control" placeholder="Search for tests">
-                                    </div>
-                                    <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
-                                        <i class="bi bi-sliders"></i> <span> General Setting</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- data filter  -->
-                            
-                            <!-- tasks tab table  -->
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Intern</th>
-                                            <th>Task/Day</th>
-                                            <th>Start Time</th>
-                                            <th>End Time</th>
-                                            <th>Status</th>
-                                            <th>File</th>
-                                            <th>Approval</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tasksTableBody">
-                                        <!-- Data will be dynamically inserted here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <label for="tasksPerPage">Tasks per page:</label>
-                                    <select id="tasksPerPage" class="form-select d-inline-block w-auto bg-transparent" style="border:1px solid #C8C8C8;">
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                    </select>
-                                </div>
-                                <nav>
-                                    <ul class="pagination mb-0" id="tasksPaginationControls">
-                                        <!-- Pagination buttons will be dynamically inserted -->
-                                    </ul>
-                                </nav>
-                            </div>
-                            <!-- tasks tab table  -->
-                        </div>
-                        <!-- Tasks Tab -->
-
-                        <!-- Assignments Tab -->
-                        <div class="tab-pane fade" id="assignments">
-                            <div class="w-100 d-flex justify-content-between mb-5">
-                                <h3>Assignments</h3>
-                                <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
-                            </div>
-                            <div class="d-flex justify-content-between" >
-                                <div class="d-flex gap-2">
-                                    <div class="input-group search-box" style=" justify-content: center; align-items: center; border:1px solid #C8C8C8; border-radius:4px;">
-                                        <span class="input-group-text" style="height:100%; border:none; background-color: white;"><i class="bi bi-search"></i></span>
-                                        <input type="text" id="searchInputTestForm" style="height:100%; width:200px; border:none; background-color: white;"  class="form-control" placeholder="Search for tests">
-                                    </div>
-                                    <div class="dropdown">
-                                        <button class="btn calendar_btn" type="button" id="assignDateButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img src="../assets/icon/calendar.png" alt="">
-                                            <span id="assignSelectedDate"></span>
-                                            <img src="../assets/icon/down_arrow.png" alt="">
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="assignDateButton" id="assignCalendarDropdown">
-                                            <div class="calendar">
-                                                <div class="header">
-                                                    <button id="assignPrevMonth" style="background-color: #B1BBE7;border-radius:4px;">
-                                                        <img src="../assets/icon/less_than.png" alt="">
-                                                    </button>
-                                                    <span id="assignMonthYear"></span>
-                                                    <button id="assignNextMonth" style="background-color: #B1BBE7;border-radius:4px;">
-                                                        <img src="../assets/icon/greater_than.png" class="fw-bold" alt="">
-                                                    </button>
-                                                </div>
-                                                <div class="days">
-                                                    <span>Sun</span>
-                                                    <span>Mon</span>
-                                                    <span>Tue</span>
-                                                    <span>Wed</span>
-                                                    <span>Thu</span>
-                                                    <span>Fri</span>
-                                                    <span>Sat</span>
-                                                </div>
-                                                <div class="dates" id="assignDates"></div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
-                                    <i class="bi bi-sliders"></i> <span> General Setting</span>
-                                </button>
-                            </div>
-                                <!-- Assignment Cards -->
-            <!-- Assignment Cards -->
-            <div class="row mt-3" id="assignmentsContainer">
-                <!-- Assignment cards will be inserted dynamically here -->
-            </div>
-
-            <!-- Pagination -->
-            <div class="d-flex justify-content-between align-items-center mt-3">
-                <div>
-                    <label for="assignmentsPerPage">tasks per page:</label>
-                    <select id="assignmentsPerPage" class="form-select d-inline-block w-auto bg-transparent" style="border:1px solid #C8C8C8;">
-                        <option value="3">3</option>
-                        <option value="6">6</option>
-                        <option value="9">9</option>
-                    </select>
-                </div>
-                <nav>
-                    <ul class="pagination mb-0" id="assignmentsPaginationControls">
-                        <!-- Pagination buttons will be dynamically inserted -->
-                    </ul>
-                </nav>
-            </div>
-
-                <!-- Right-side details panel -->
-                <div id="assignmentDetailsPanel" class="assignment-details-panel">
-                    <div class="details-content">
-                        <button class="close-btn" onclick="closeDetailsPanel()">&times;</button>
-                        <div id="assignmentDetails"></div>
-                    </div>
-                </div>
-                                    <!-- Add assignments table or UI elements here -->
-                </div>
-                        
-                        <!-- Assignments Tab -->
-                    </div>
-        <!-- tab pane -->
-                </div>
-                    <!-- Right-side details panel -->
-                <div id="assignmentDetailsPanel" class="assignment-details-panel">
-                    <div class="details-content">
-                        <button class="close-btn" onclick="closeDetailsPanel()">&times;</button>
-                        <div id="assignmentDetails"></div>
-                    </div>
-                </div>
+@extends('layouts.hr.hrLayout')
 
 
-            </div>
-            <div class="col-md-9 dashboard-content" id="packageContent" style="display: none;">
-                <!-- The package UI will be injected here -->
-            </div>
-            <div class="col-md-9 dashboard-content" id="settingsContent" style="display: none;">
-                <!-- The settings UI will be injected here -->
-            </div>
-            <div class="col-md-9 dashboard-content" id="profileContent" style="display: none;">
-                <!-- The profile UI will be injected here -->
-            </div>
-    </div>
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-<!-- extra CSS -->
 @section('styles')
     <style rel="stylesheet" type="text/css">
                 body {
@@ -539,10 +276,269 @@
 
     </style>
 @endsection
-<!-- extra CSS -->
 
-<!-- extra JS -->
-    @section('script')
+
+    
+@section('content')
+    @include('layouts.hr.navbar')
+
+    <div class="row main-container" >
+            
+            @include('layouts.hr.sidebar')
+
+            <div class="col-md-9 dashboard-content" id="dashboardContent">
+
+                <div class="d-flex justify-content-between mb-3">
+                    <h2 class="mb-0">Assignment Sheet</h2>
+                    <!-- Summary Badges -->
+                    <div class="d-flex gap-3">
+                        <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
+                            <p class="mb-1">Completed</p>
+                            <h4 class="mb-0">202</h4>
+                        </div>
+                        <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
+                            <p class="mb-1">Pending</p>
+                            <h4 class="mb-0">26</h4>
+                        </div>
+                        <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
+                            <p class="mb-1">Not Started</p>
+                            <h4 class="mb-0">4</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <!-- tab pane -->
+                    <ul class="nav nav-tabs" id="assignmentTabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tasks-tab" data-bs-toggle="tab" href="#tasks">
+                                <i class="bi bi-clipboard-data-fill" style="margin-right:5px;"></i> Tasks
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="assignments-tab" data-bs-toggle="tab" href="#assignments">
+                                <i class="bi bi-file-earmark-text-fill" style="margin-right:5px;"></i> Assignments
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content mt-3">
+                        <!-- Tasks Tab -->
+                        <div class="tab-pane fade show active" id="tasks">
+                            <div class="w-100 d-flex justify-content-between mb-5">
+                                <h3>Tasks</h3>
+                                <div>
+                                    <div class="dropdown">
+                                        <button class="btn calendar_btn" type="button" id="dateButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="../assets/icon/calendar.png" alt="">
+                                            <span id="selectedDate"></span>
+                                            <img src="../assets/icon/down_arrow.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dateButton" id="calendarDropdown">
+                                            <div class="calendar">
+                                                <div class="header">
+                                                    <button id="prevMonth" style="background-color: #B1BBE7;border-radius:4px;"><img src="../assets/icon/less_than.png" alt=""></button>
+                                                    <span id="monthYear"></span>
+                                                    <button id="nextMonth" style="background-color: #B1BBE7;border-radius:4px;"><img src="../assets/icon/greater_than.png" class="fw-bold" alt=""></button>
+                                                </div>
+                                                <div class="days">
+                                                    <span>Sun</span>
+                                                    <span>Mon</span>
+                                                    <span>Tue</span>
+                                                    <span>Wed</span>
+                                                    <span>Thu</span>
+                                                    <span>Fri</span>
+                                                    <span>Sat</span>
+                                                </div>
+                                                <div class="dates" id="dates"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
+                                </div>
+                            </div>
+                            <!-- data filter  -->
+                            <div class="d-flex justify-content-between mb-3" style="height:50px;">
+                                <div class="d-flex gap-2">
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;">All Intern</button>
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;">On-site</button>
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;">Work From Home</button>
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;">Hybrid</button>
+                                    <div class="dropdown"  style="width:auto; border-radius:4px;">
+                                        <button class="btn custom-dropdown-btn" style="background-color:white; height:100%;" data-bs-toggle="dropdown">
+                                            <img src="../assets/icon/verified.png" alt=""> All Approval
+                                            <span style="background-color:#474BC2 !important;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="color:white;"></i></span>
+                                        </button>
+                                        <ul class="dropdown-menu" id="stepDropdown">
+                                            <li><a class="dropdown-item active" href="#">All</a></li>
+                                            <li><a class="dropdown-item" href="#">Approved</a></li>
+                                            <li><a class="dropdown-item" href="#">Pending</a></li>
+                                            <li><a class="dropdown-item" href="#">Rejected</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="input-group search-box" style="height:100%; justify-content: center; align-items: center; border:1px solid #C8C8C8; border-radius:4px;">
+                                        <span class="input-group-text" style="height:100%; border:none; background-color: white;"><i class="bi bi-search"></i></span>
+                                        <input type="text" id="searchInputTestForm" style="height:100%; width:200px; border:none; background-color: white;"  class="form-control" placeholder="Search for tests">
+                                    </div>
+                                    <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
+                                        <i class="bi bi-sliders"></i> <span> General Setting</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- data filter  -->
+                            
+                            <!-- tasks tab table  -->
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Intern</th>
+                                            <th>Task/Day</th>
+                                            <th>Start Time</th>
+                                            <th>End Time</th>
+                                            <th>Status</th>
+                                            <th>File</th>
+                                            <th>Approval</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tasksTableBody">
+                                        <!-- Data will be dynamically inserted here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <label for="tasksPerPage">Tasks per page:</label>
+                                    <select id="tasksPerPage" class="form-select d-inline-block w-auto bg-transparent" style="border:1px solid #C8C8C8;">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                    </select>
+                                </div>
+                                <nav>
+                                    <ul class="pagination mb-0" id="tasksPaginationControls">
+                                        <!-- Pagination buttons will be dynamically inserted -->
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- tasks tab table  -->
+                        </div>
+                        <!-- Tasks Tab -->
+
+                        <!-- Assignments Tab -->
+                        <div class="tab-pane fade" id="assignments">
+                            <div class="w-100 d-flex justify-content-between mb-5">
+                                <h3>Assignments</h3>
+                                <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
+                            </div>
+                            <div class="d-flex justify-content-between" >
+                                <div class="d-flex gap-2">
+                                    <div class="input-group search-box" style=" justify-content: center; align-items: center; border:1px solid #C8C8C8; border-radius:4px;">
+                                        <span class="input-group-text" style="height:100%; border:none; background-color: white;"><i class="bi bi-search"></i></span>
+                                        <input type="text" id="searchInputTestForm" style="height:100%; width:200px; border:none; background-color: white;"  class="form-control" placeholder="Search for tests">
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btn calendar_btn" type="button" id="assignDateButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="../assets/icon/calendar.png" alt="">
+                                            <span id="assignSelectedDate"></span>
+                                            <img src="../assets/icon/down_arrow.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="assignDateButton" id="assignCalendarDropdown">
+                                            <div class="calendar">
+                                                <div class="header">
+                                                    <button id="assignPrevMonth" style="background-color: #B1BBE7;border-radius:4px;">
+                                                        <img src="../assets/icon/less_than.png" alt="">
+                                                    </button>
+                                                    <span id="assignMonthYear"></span>
+                                                    <button id="assignNextMonth" style="background-color: #B1BBE7;border-radius:4px;">
+                                                        <img src="../assets/icon/greater_than.png" class="fw-bold" alt="">
+                                                    </button>
+                                                </div>
+                                                <div class="days">
+                                                    <span>Sun</span>
+                                                    <span>Mon</span>
+                                                    <span>Tue</span>
+                                                    <span>Wed</span>
+                                                    <span>Thu</span>
+                                                    <span>Fri</span>
+                                                    <span>Sat</span>
+                                                </div>
+                                                <div class="dates" id="assignDates"></div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
+                                    <i class="bi bi-sliders"></i> <span> General Setting</span>
+                                </button>
+                            </div>
+                                <!-- Assignment Cards -->
+            <!-- Assignment Cards -->
+            <div class="row mt-3" id="assignmentsContainer">
+                <!-- Assignment cards will be inserted dynamically here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div>
+                    <label for="assignmentsPerPage">tasks per page:</label>
+                    <select id="assignmentsPerPage" class="form-select d-inline-block w-auto bg-transparent" style="border:1px solid #C8C8C8;">
+                        <option value="3">3</option>
+                        <option value="6">6</option>
+                        <option value="9">9</option>
+                    </select>
+                </div>
+                <nav>
+                    <ul class="pagination mb-0" id="assignmentsPaginationControls">
+                        <!-- Pagination buttons will be dynamically inserted -->
+                    </ul>
+                </nav>
+            </div>
+
+                <!-- Right-side details panel -->
+                <div id="assignmentDetailsPanel" class="assignment-details-panel">
+                    <div class="details-content">
+                        <button class="close-btn" onclick="closeDetailsPanel()">&times;</button>
+                        <div id="assignmentDetails"></div>
+                    </div>
+                </div>
+                                    <!-- Add assignments table or UI elements here -->
+                </div>
+                        
+                        <!-- Assignments Tab -->
+                    </div>
+        <!-- tab pane -->
+                </div>
+                    <!-- Right-side details panel -->
+                <div id="assignmentDetailsPanel" class="assignment-details-panel">
+                    <div class="details-content">
+                        <button class="close-btn" onclick="closeDetailsPanel()">&times;</button>
+                        <div id="assignmentDetails"></div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-9 dashboard-content" id="packageContent" style="display: none;">
+                <!-- The package UI will be injected here -->
+            </div>
+            <div class="col-md-9 dashboard-content" id="settingsContent" style="display: none;">
+                <!-- The settings UI will be injected here -->
+            </div>
+            <div class="col-md-9 dashboard-content" id="profileContent" style="display: none;">
+                <!-- The profile UI will be injected here -->
+            </div>
+    </div>
+@endsection
+
+
+
+@section('script')
         <script type="text/javascript">
 
 
@@ -1102,7 +1098,8 @@
 
 
         </script>
-    @endsection
-<!-- extra JS -->
+@endsection
+
+
 
 

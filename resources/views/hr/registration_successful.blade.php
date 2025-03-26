@@ -1,9 +1,7 @@
+@extends('layouts.hr.hrLayout')
 
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
 
-<!-- content body -->
+@section('content')
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
         <div class="container d-flex justify-content-start align-items-center">
@@ -36,15 +34,10 @@
             </div>
         </div>
     </div>
+@endsection
 
 
-<!-- content body -->
 
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-<!-- extra CSS -->
 @section('styles')
     <style rel="stylesheet" type="text/css">
     body{
@@ -52,14 +45,12 @@
     }    
     </style>
 @endsection
-<!-- extra CSS -->
 
-<!-- extra JS -->
 @section('script')
     <script type="text/javascript">
     </script>
 @endsection
-<!-- extra JS -->
+
 
 
 

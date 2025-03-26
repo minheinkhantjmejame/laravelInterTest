@@ -1,10 +1,1215 @@
+@extends('layouts.hr.hrLayout')
 
-<!-- heading -->
-@extends('layouts.hr.hrHeader')
-<!-- heading -->
+@section('styles')
+    <style rel="stylesheet" type="text/css">
+                    
+                    body {
+                        background-color: #fff;
+                        height: 100%;
+                    }
+                    .main-container {
+                        display: flex;
+                        align-items: stretch; /* Ensures both sidebar & content stretch equally */
+                    }
+                    .sidebar {
+                        background-color: #F3F5FC;
+                        padding-top: 10px;
+                        padding-left: 20px;
+                        height: auto; /* Allows it to stretch dynamically */
 
-<!-- content body -->
-@include('layouts.hr.navbar')
+                        
+                    }
+                    /* Default styling for sidebar links */
+            /* Default sidebar link styling */
+            .nav-link {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+                border-left: 3px solid transparent; /* No border by default */
+                transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+
+            /* Add border-left only when clicked */
+            .nav-link.active {
+                border-left: 4px solid black; /* Highlight color */
+                background-color: #EDEFF7; /* Optional: Background change */
+            }
+
+
+            .dashboard-content {
+                padding: 20px;
+                flex-grow: 1; /* Ensure the content area takes the remaining space */
+                overflow-y: auto; /* Add scroll if content overflows */
+            }
+                    .card {
+                        margin-bottom: 20px;
+                    }
+
+                    .container {
+                    background-color:#F3F5FC;
+                    padding-left: 20px;
+                    border-radius: 8px;
+
+                    }
+
+                    h3 {
+                        color: #333;
+                    }
+
+                    .underline {
+                        border-bottom: 3px solid #4a90e2;
+                    }
+
+                    .chart-container {
+                        width: 100%;
+                        height: 350px;
+                        border:1px solid #b6a6f1;
+                        padding:30px;
+                    }
+
+                    .legend {
+                        margin-top: 90px;
+                        display: flex;
+                        flex-direction:column;
+                        text-align: left;
+                        gap:20px;
+                    }
+
+                    .legend-item {
+                        width: 12px;
+                        height: 12px;
+                        display: inline-block;
+                        border-radius: 3px;
+                        text-align:left;
+                    }
+
+                    .on-time {
+                        background-color: #D1D1F0;
+                    }
+
+                    .late {
+                        background-color: #D5CFFB;
+                    }
+
+                    .absent {
+                        background-color: #B1BBE7;
+                    }
+
+                    #category-container .btn {
+                margin-right: 10px; /* Adjust the value as needed */
+            }
+
+            #category-container .btn:last-child {
+                margin-right: 0; /* Remove margin from the last button */
+            }
+
+                /* Sidebar Styling */
+                .sidebar-form {
+                    position: fixed;
+                    top: 0;
+                    right: -400px; /* Hidden by default */
+                    width: 400px;
+                    height: 100vh;
+                    background-color: white;
+                    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+                    padding: 20px;
+                    transition: right 0.3s ease-in-out;
+                    z-index: 1000;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                /* Show Sidebar */
+                .sidebar-form.show {
+                    right: 0;
+                }
+
+                /* Sidebar Header */
+                .sidebar-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                }
+
+                .sidebar-header h3 {
+                    font-size: 20px;
+                    margin: 0;
+                }
+
+                /* Close Button */
+                .close-btn {
+                    font-size: 20px;
+                    cursor: pointer;
+                    color: black;
+                }
+
+                /* Sidebar Content */
+                .sidebar-content {
+                    flex-grow: 1;
+                }
+
+                /* Category Name Label */
+                .text-muted {
+                    font-size: 14px;
+                }
+
+                /* Create Button */
+                .btn-create {
+                    background-color: #5c67f2; /* Color from image */
+                    color: white;
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    border: none;
+                }
+
+                .btn-create:hover {
+                    background-color: #4a54d2; /* Darker shade on hover */
+                }
+                    .card-container {
+                        background: #F3F5FC;
+                        padding: 20px;
+                        padding-bottom:0;
+                        border-radius: 8px;
+                        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+                        margin: 50px auto;
+                    }
+
+                    .header-title {
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+
+                    .table-container {
+                        background-color: #F3F5FC;
+                        border-radius: 10px;
+                        overflow: hidden;
+                    }
+                    .table{
+                        background-color:#F3F5FC;
+                    }
+
+                    .table th {
+                        background-color: #ffffff;
+                        border-bottom: 2px solid #e0e4f5;
+                        font-weight: bold;
+                    }
+
+                    .table td, .table th {
+                        vertical-align: middle;
+                        padding: 15px;
+                    }
+                    .table tr{
+                        background-color:#F3F5FC;
+                    }
+                    .table td{
+                        background-color:#F3F5FC;
+                    }
+
+                    .table td .approved{
+                        color:green;
+                    }
+
+                    .profile-img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                    }
+
+                    .approval-text {
+                        font-weight: bold;
+                    }
+
+                    .approval-text.approved {
+                        color: #6DD52D;
+                    }
+
+                    .approval-text.rejected {
+                        color: #DD3D3D;
+                    }
+
+                    .approval-icons img{
+                        margin-right:10px;
+                    }
+
+
+
+                    .hold { background-color: #ddd4ff; color: #5a49a1; }
+                    .paid { background-color: #d4ffe5; color: #2b8750; }
+                    .approved { color: green; }
+                    .setup { color: gray; }
+
+
+                    .table-container {
+                        overflow-x: auto;
+                        border:none;
+                    }
+                    .profile-img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                    }
+                    .status-badge {
+                        padding: 5px 10px;
+                        border-radius: 12px;
+                        font-size: 12px;
+                    }
+
+
+
+                    .profile-img {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                    }
+                    .contact-info {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 14px;
+                    }
+                    .menu-icon {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        cursor: pointer;
+                    }
+
+                    .search-container {
+                        position: relative;
+                        width: 100%;
+
+                        
+                    }
+
+                    .search-input {
+                        width: 100%;
+                        padding: 12px 40px; /* Space for icon */
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        font-size: 16px;
+                        outline: none;
+                        color: #555;
+                        background-color: #fff;
+                    }
+
+                    .search-input::placeholder {
+                        color: #aaa;
+                    }
+
+                    .search-icon {
+                        position: absolute;
+                        left: 12px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #aaa;
+                        font-size: 18px;
+                    }
+
+                    .dropdown-container {
+                        position: relative;
+                        display: inline-flex;
+                        align-items: center;
+                        background-color: #F8F9FC;
+                        border-radius: 4px;
+                        padding: 10px 10px;
+                        font-size: 16px;
+                        cursor: pointer;
+                        font-weight: 500;
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+
+                    /* Left Section: Icon + Text */
+                    .dropdown-label {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        color: #333;
+                    }
+
+                    /* Down Arrow Button */
+                    .dropdown-arrow {
+                        background: white;
+                        border: none;
+                        padding: 5px 8px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 18px;
+                        transition: background 0.2s ease-in-out;
+                    }
+
+                    .dropdown-arrow:hover {
+                        background: #EDEDED;
+                    }
+
+                    /* Dropdown Menu */
+                    .dropdown-menu {
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        background: white;
+                        border-radius: 4px;
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        display: none; /* Initially hidden */
+                        padding: 5px 0;
+                        z-index: 1000;
+                    }
+
+                    .dropdown-menu.show {
+                        display: block;
+                    }
+
+                    /* Dropdown Items */
+                    .dropdown-item {
+                        padding: 10px 15px;
+                        font-size: 16px;
+                        color: #333;
+                        cursor: pointer;
+                        transition: background 0.2s ease-in-out;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                    .dropdown-item:hover {
+                        background: #F3F5FC;
+                    }
+
+                    /* Selected Checkmark */
+                    .dropdown-item.selected {
+                        color: #000;
+                        font-weight: bold;
+
+                    }
+
+                    .dropdown-item.selected::after {
+                        content: "✔";
+                        font-size: 16px;
+                        color: #474BC2;
+                    }
+
+                    /* Overlay Background */
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 999;
+                display: none;
+            }
+
+            /* Sidebar Styling */
+            .sidebar-form {
+                position: fixed;
+                top: 0;
+                right: -400px; /* Hidden by default */
+                width: 400px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+                padding: 20px;
+                transition: right 0.3s ease-in-out;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            /* Show Sidebar */
+            .sidebar-form.show {
+                right: 0;
+            }
+
+            /* Sidebar Header */
+            .sidebar-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .sidebar-header h3 {
+                font-size: 20px;
+                margin: 0;
+            }
+
+            /* Close Button */
+            .close-btn {
+                font-size: 20px;
+                cursor: pointer;
+                color: black;
+                background: none;
+                border: none;
+            }
+
+            /* Sidebar Content */
+            .sidebar-content {
+                flex-grow: 1;
+            }
+
+            .sidebar-content input,.sidebar-content textarea,.sidebar-content select{
+                border:1px solid grey;
+                margin-bottom:10px;
+            }
+
+
+            .image-upload-label {
+                font-size: 13px;
+                display: block;
+                margin-bottom: 5px;
+                color: #666;
+            }
+
+            .image-input-container {
+                display: flex;
+                align-items: center;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                overflow: hidden;
+                width: 100%;
+                height:40px;
+                background-color: #fff;
+                
+            }
+
+            .image-icon {
+                background-color: #4c47fe;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .image-icon i {
+                font-size: 20px;
+                color: white;
+            }
+
+            .image-input {
+                border: none;
+                flex-grow: 1;
+                padding: 10px;
+                outline: none;
+            }
+
+
+            /* Category Name Label */
+            .text-muted {
+                font-size: 14px;
+            }
+
+            /* Create Button */
+            .btn-create {
+                background-color: #5c67f2; /* Color from image */
+                color: white;
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 16px;
+                border: none;
+            }
+
+            .btn-create:hover {
+                background-color: #4a54d2; /* Darker shade on hover */
+            }
+
+
+                    .internship-card {
+                position: relative; /* Add this line */
+                border: 1px solid #DDE2F0;
+                border-radius: 12px;
+                padding: 20px;
+                background-color: #F8F9FC;
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+                max-width: 600px;
+                margin: 20px auto;
+            }
+
+            .status-container {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                padding: 8px 12px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: bold;
+                color: white;
+                cursor: pointer;
+                border: none;
+                position: relative; /* Ensure it doesn't interfere with the dropdown */
+            }
+                    /* Different Status Colors */
+                    .status-open { background-color: #34C759; }  /* Green */
+                    .status-close { background-color: #FF3B30; } /* Red */
+                    .status-hold { background-color: #333333; }  /* Black */
+
+                    /* Dropdown Menu */
+                    .dropdown-menu {
+                        background: white;
+                        border-radius: 8px;
+                        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .dropdown-item {
+                        font-size: 14px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        padding: 8px 15px;
+                        transition: background 0.2s ease-in-out;
+                    }
+
+                    .dropdown-item:hover {
+                        background: #F3F5FC;
+                    }
+
+                    /* Title */
+                    .internship-title {
+                        font-size: 20px;
+                        font-weight: bold;
+                        margin-top: 10px;
+                    }
+
+                    /* Location */
+                    .location {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        color: #666;
+                    }
+
+                    /* Stats Section */
+                    .stats-container {
+                        display: flex;
+                        background: white;
+                        border-radius: 8px;
+                        padding: 12px;
+                        margin: 15px 0;
+                        border: 1px solid #DDE2F0;
+                    }
+
+                    .stats-box {
+                        flex: 1;
+                        text-align: center;
+                    }
+
+                    .stats-box:not(:last-child) {
+                        border-right: 1px solid #DDE2F0;
+                    }
+
+                    .stats-number {
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: black;
+                    }
+
+                    .stats-text {
+                        font-size: 12px;
+                        color: #666;
+                    }
+
+                    /* Tags */
+                    .tag {
+                        background: #D5CFFB;
+                        color: #4A3DA1;
+                        padding: 6px 12px;
+                        font-size: 12px;
+                        font-weight: bold;
+                        border-radius: 6px;
+                        display: inline-block;
+                    }
+
+                    /* View Details Link */
+                    .view-details {
+                        color: black;
+                        font-size: 14px;
+                        font-weight: bold;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
+
+                    .view-details:hover {
+                        text-decoration: underline;
+                    }
+
+                    /* Three-dot menu */
+                    .menu-icon {
+                        cursor: pointer;
+                        font-size: 18px;
+                    }
+
+                    .dropdown-menu.status-dropdown-menu {
+                position: absolute; /* Add this line */
+                top: 100%; /* Position it below the button */
+                left: 0; /* Align it with the left edge of the parent */
+                width: 100%; /* Match the width of the parent */
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                display: none; /* Initially hidden */
+                z-index: 1000; /* Ensure it appears above other elements */
+                padding: 5px 0;
+            }
+
+            /* 🔹 Internship Details Panel */
+            .details-panel {
+                position: fixed;
+                top: 0;
+                right: -500px; /* Initially hidden */
+                width: 500px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+                padding: 20px;
+                transition: right 0.3s ease-in-out;
+                z-index: 1000;
+            }
+
+            /* 🔹 Show Details Panel */
+            .details-panel.show {
+                right: 0;
+            }
+
+            /* 🔹 Header */
+            .details-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            /* Hide Internship List when viewing Details */
+            #internship-details-page {
+                display: none;
+            }
+
+            .back-btn {
+                font-size: 16px;
+                background: none;
+                border: none;
+
+                cursor: pointer;
+                padding: 10px;
+            }
+
+            /* 🔹 Card Styling */
+            .details-card {
+                background: #F3F5FC;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+            }
+
+            /* 🔹 Tab Styling */
+            .nav-tabs{
+                width:100%;
+                padding:0;
+                margin:0;
+            }
+            .nav-tabs .nav-link {
+
+                font-weight: bold;
+                border: none;
+                color:grey;
+
+            }
+
+            .nav-tabs .nav-link.active {
+
+                border-bottom: 3px solid #474BC2 !important;
+                background-color:#F3F5FC;
+                box-shadow:none;
+
+            }
+
+
+            .pagination {
+                display: flex;
+                gap: 8px;
+            }
+
+            .page-item .page-link {
+                /* border-radius: 6px;
+                color: black;
+                border: 1px solid #ddd; */
+                padding: 8px 12px;
+                font-weight: 500;
+                transition: 0.3s ease-in-out;
+            }
+
+            .page-item.active .page-link {
+                background-color: #4c47fe; /* Match the blue color */
+                color: white;
+                border: none;
+                font-weight: bold;
+            }
+
+            .page-item.disabled .page-link {
+                color: #aaa;
+                cursor: not-allowed;
+                border: none;
+            }
+
+            .page-link:hover {
+                background-color: #f0f0f0;
+                color: black;
+            }
+
+
+            .scroll-container {
+                overflow-x: auto; /* Enables horizontal scrolling */
+                overflow-y: auto; /* Enables vertical scrolling */
+                white-space: nowrap; /* Prevents wrapping */
+                max-height: calc(100vh - 50px); /* Adjusts height to fit within viewport */
+                position: relative;
+                padding-bottom: 20px; /* Prevents content from covering the scrollbar */
+            }
+
+            /* ✅ Fixed Scrollbar Area */
+            .fixed-scrollbar {
+                position: sticky;
+                bottom: 0;
+                width: 100%;
+                background: white;
+                z-index: 10; /* Ensures scrollbar is above content */
+                height: 20px; /* Space for scrollbar */
+            }
+
+            /* ✅ Always Show Scrollbar */
+            .scroll-container::-webkit-scrollbar {
+                height: 10px; /* Makes scrollbar noticeable */
+                background-color: #f1f1f1;
+            }
+
+            .scroll-container::-webkit-scrollbar-thumb {
+                background-color: #888;
+                border-radius: 5px;
+            }
+
+            .scroll-container::-webkit-scrollbar-thumb:hover {
+                background-color: #555;
+            }
+
+
+
+
+            .kanban-board {
+                display: flex;
+                gap: 15px;
+                overflow-x: auto;
+            }
+
+            .column {
+                background: #F3F5FC;
+                border-radius: 8px;
+                padding: 10px;
+                min-width: 300px;
+                white-space: normal;
+            }
+
+            .card {
+                background: white;
+                padding: 10px;
+                border-radius: 5px;
+                margin-top: 5px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+
+
+            .status-pending{
+                padding:10px;
+                background-color:#FFE9A7;
+                border-radius:4px;
+            }
+
+            .status-pending .badge{
+                background-color:#FFC822;
+            }
+
+            .status-request{
+                padding:10px;
+                background-color:#D5EAFF;
+                border-radius:4px;
+            }
+
+            .status-request .badge{
+                background-color:#4EA6FF;
+            }
+
+            .status-fail{
+                padding:10px;
+                background-color:#FFB9B9;
+                border-radius:4px; 
+                
+            }
+
+            .status-fail .badge{
+                background-color:#980C0C;
+            }
+
+            .fail .card-body .badge{
+                color:#980C0C;
+                background-color:#FFB9B9;
+            }
+
+
+
+            .status-document{
+                padding:10px;
+                background-color:#DFC1FF;
+                border-radius:4px;
+            }
+
+            .status-document .badge{
+                background-color:#AA5BFF;
+            }
+
+
+            .status-acceptance{
+                padding:10px;
+                background-color:#FFB9E3;
+                border-radius:4px;
+            }
+
+            .status-acceptance .badge{
+                background-color:#FF68C3;
+            }
+
+
+            .status-success{
+                padding:10px;
+                background-color:#ADF1D7;
+                border-radius:4px;
+            }
+
+            .status-success .badge{
+                background-color:#4FD8A3;
+            }
+
+            .success .card-body .badge{
+                color:#359C22;
+                background-color:#b9efaf;
+            }
+
+            .applicant-card {
+                background: white;
+                border-radius: 4px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .profile-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            .applicant-name {
+                font-size: 16px;
+                font-weight: bold;
+                margin: 0;
+            }
+
+            .applicant-email {
+                font-size: 12px;
+                color: gray;
+                margin: 0;
+            }
+
+            .file-list {
+                margin-top: 10px;
+            }
+
+            .file-item {
+                display: flex;
+                align-items: center;
+                margin-top:10px;
+            }
+
+            .file-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+            }
+
+
+            /* Edit description  */
+            /* Layout Styles */
+
+            #edit-description-box label{
+                font-size:14px;
+
+            }
+
+            #edit-description-box textarea,#edit-description-box input,#edit-description-box .image-preview-container{
+                border:1px solid grey;
+                border-radius:4px;
+                color:grey;
+            }
+            .image-preview {
+                width: 100%;
+                height:100%;
+                border-radius: 4px;
+                object-fit: cover;
+            }
+
+            /* 🔹 Label */
+            .image-upload-label {
+                font-size: 14px;
+                margin-top: 10px;
+                color: #666;
+                text-align:start;
+                align-self: self-start;
+            }
+
+            /* 🔹 Custom Input Box */
+            .image-input-container {
+                display: flex;
+                align-items: center;
+                border-radius: 4px;
+                overflow: hidden;
+                width: 100%;
+                height: 40px;
+                background-color: #f8f9fc;
+                cursor: pointer;
+            }
+
+            /* 🔹 Icon Side */
+            .image-icon {
+                background-color: #4c47fe;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .image-icon i {
+                font-size: 20px;
+                color: white;
+            }
+
+            /* 🔹 Input Box for File Name */
+            .image-filename {
+                border: none;
+                flex-grow: 1;
+                padding: 10px;
+                outline: none;
+                font-size: 14px;
+                background: transparent;
+            }
+
+            .image-preview {
+                width: 100%;
+                height: auto;
+                border-radius: 4px;
+            }
+
+            .save-btn {
+                background-color: #474BC2;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 4px;
+                border: none;
+            }
+
+            .form-control {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+
+            /* Edit description  */
+
+
+            /* application settings  */
+            /* Sidebar Panel */
+
+            /* Overlay to dim the background when settings panel is open */
+            .settings-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+                z-index: 999; /* Below the settings panel */
+                display: none; /* Initially hidden */
+            }
+
+            /* Ensure the application settings panel is above the overlay */
+            .application-settings-panel {
+                position: fixed;
+                right: 0;
+                top: 0;
+                width: 450px; /* Adjust width to fit the contents */
+                height: 100vh;
+                background: white;
+                z-index: 1000; /* Above overlay */
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+                display: none; /* Initially hidden */
+            }
+
+            /* 🔹 Application Settings Panel */
+            .settings-panel {
+                position: fixed;
+                top: 0;
+                right: -450px; /* Initially hidden */
+                width: 450px; /* Keep consistent width */
+                height: 100vh;
+                background: white;
+                padding: 20px;
+                transition: right 0.3s ease-in-out;
+                z-index: 1000;
+                overflow-y: auto; /* Enable scrolling for small screens */
+                display: flex;
+                flex-direction: column; /* ✅ Makes footer push to the bottom */
+            }
+
+
+                .settings-panel.show {
+                    right: 0;
+                }
+
+                .settings-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+
+                .close-btn {
+                    background: none;
+                    border: none;
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+
+                .settings-section {
+                    margin-top: 15px;
+                    padding: 10px;
+                    border-radius: 4px;
+                }
+
+                .settings-section label {
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+
+                .settings-panel label {
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+
+                .settings-panel input,.settings-panel select{
+                    border-radius:4px;
+                    border:1px solid grey !important;
+                    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+                }
+
+                .settings-section .badge{
+                    color:#000;
+                }
+
+
+
+                .settings-section input,
+                .settings-section select {
+                    width: auto;
+                    padding: 5px;
+                    margin-top: 5px;
+
+                }
+
+                .pending { background: #FDE68A; }
+                .request { background: #BFDBFE; }
+                .document { background: #E9D5FF; }
+                .acceptance { background: #FECACA; }
+                .success { background: #BBF7D0; }
+
+                #application-settings-panel input {
+                    border: 1px solid black;
+                    width: 100px;
+                }
+
+                .settings-content {
+                flex-grow: 1; /* ✅ Makes content take up all available space */
+                padding-bottom: 20px; /* Prevents content from being cut off */
+            }
+
+                .settings-footer {
+                    display: flex;
+                    justify-content: end;
+                    margin-bottom:30px;
+                    gap:20px;
+                }
+
+                .btn-default {
+                    background: #D1D5DB;
+                    padding: 8px 20px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .btn-save {
+                    background: #4F46E5;
+                    color: white;
+                    padding: 8px 20px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                #applicant-status {
+                color: black !important; /* Ensures the text color is black */
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+
+
+            /* Scrollbar */
+            .settings-panel::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .settings-panel::-webkit-scrollbar-thumb {
+                background: grey;
+            }
+
+            /* .settings-panel::-webkit-scrollbar-thumb {
+                background: ;
+                
+            } */
+
+            /* .settings-panel::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            } */
+            /* application settings  */
+            
+
+            
+    </style>  
+@endsection
+
+    
+@section('content')
+    @include('layouts.hr.navbar')
 
     <div class="row main-container" >
             @include('layouts.hr.sidebar')
@@ -1750,1226 +2955,11 @@
         <div class="col-md-9 dashboard-content" id="profileContent" style="display: none;">
             <!-- The profile UI will be injected here -->
         </div>
+    </div>
 
-
-
-
-<!-- content body -->
-
-<!-- footer -->
-@extends('layouts.hr.hrFooter')
-<!-- footer -->
-
-<!-- extra CSS -->
-@section('styles')
-    <style rel="stylesheet" type="text/css">
-                    
-                    body {
-                        background-color: #fff;
-                        height: 100%;
-                    }
-                    .main-container {
-                        display: flex;
-                        align-items: stretch; /* Ensures both sidebar & content stretch equally */
-                    }
-                    .sidebar {
-                        background-color: #F3F5FC;
-                        padding-top: 10px;
-                        padding-left: 20px;
-                        height: auto; /* Allows it to stretch dynamically */
-
-                        
-                    }
-                    /* Default styling for sidebar links */
-            /* Default sidebar link styling */
-            .nav-link {
-                display: flex;
-                align-items: center;
-                padding: 10px;
-                text-decoration: none;
-                color: black;
-                border-left: 3px solid transparent; /* No border by default */
-                transition: border-left 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            }
-
-            /* Add border-left only when clicked */
-            .nav-link.active {
-                border-left: 4px solid black; /* Highlight color */
-                background-color: #EDEFF7; /* Optional: Background change */
-            }
-
-
-            .dashboard-content {
-                padding: 20px;
-                flex-grow: 1; /* Ensure the content area takes the remaining space */
-                overflow-y: auto; /* Add scroll if content overflows */
-            }
-                    .card {
-                        margin-bottom: 20px;
-                    }
-
-                    .container {
-                    background-color:#F3F5FC;
-                    padding-left: 20px;
-                    border-radius: 8px;
-
-                    }
-
-                    h3 {
-                        color: #333;
-                    }
-
-                    .underline {
-                        border-bottom: 3px solid #4a90e2;
-                    }
-
-                    .chart-container {
-                        width: 100%;
-                        height: 350px;
-                        border:1px solid #b6a6f1;
-                        padding:30px;
-                    }
-
-                    .legend {
-                        margin-top: 90px;
-                        display: flex;
-                        flex-direction:column;
-                        text-align: left;
-                        gap:20px;
-                    }
-
-                    .legend-item {
-                        width: 12px;
-                        height: 12px;
-                        display: inline-block;
-                        border-radius: 3px;
-                        text-align:left;
-                    }
-
-                    .on-time {
-                        background-color: #D1D1F0;
-                    }
-
-                    .late {
-                        background-color: #D5CFFB;
-                    }
-
-                    .absent {
-                        background-color: #B1BBE7;
-                    }
-
-                    #category-container .btn {
-                margin-right: 10px; /* Adjust the value as needed */
-            }
-
-            #category-container .btn:last-child {
-                margin-right: 0; /* Remove margin from the last button */
-            }
-
-                /* Sidebar Styling */
-                .sidebar-form {
-                    position: fixed;
-                    top: 0;
-                    right: -400px; /* Hidden by default */
-                    width: 400px;
-                    height: 100vh;
-                    background-color: white;
-                    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-                    padding: 20px;
-                    transition: right 0.3s ease-in-out;
-                    z-index: 1000;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                }
-
-                /* Show Sidebar */
-                .sidebar-form.show {
-                    right: 0;
-                }
-
-                /* Sidebar Header */
-                .sidebar-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 15px;
-                }
-
-                .sidebar-header h3 {
-                    font-size: 20px;
-                    margin: 0;
-                }
-
-                /* Close Button */
-                .close-btn {
-                    font-size: 20px;
-                    cursor: pointer;
-                    color: black;
-                }
-
-                /* Sidebar Content */
-                .sidebar-content {
-                    flex-grow: 1;
-                }
-
-                /* Category Name Label */
-                .text-muted {
-                    font-size: 14px;
-                }
-
-                /* Create Button */
-                .btn-create {
-                    background-color: #5c67f2; /* Color from image */
-                    color: white;
-                    width: 100%;
-                    padding: 10px;
-                    border-radius: 5px;
-                    font-size: 16px;
-                    border: none;
-                }
-
-                .btn-create:hover {
-                    background-color: #4a54d2; /* Darker shade on hover */
-                }
-                    .card-container {
-                        background: #F3F5FC;
-                        padding: 20px;
-                        padding-bottom:0;
-                        border-radius: 8px;
-                        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-                        margin: 50px auto;
-                    }
-
-                    .header-title {
-                        font-size: 24px;
-                        font-weight: bold;
-                    }
-
-                    .table-container {
-                        background-color: #F3F5FC;
-                        border-radius: 10px;
-                        overflow: hidden;
-                    }
-                    .table{
-                        background-color:#F3F5FC;
-                    }
-
-                    .table th {
-                        background-color: #ffffff;
-                        border-bottom: 2px solid #e0e4f5;
-                        font-weight: bold;
-                    }
-
-                    .table td, .table th {
-                        vertical-align: middle;
-                        padding: 15px;
-                    }
-                    .table tr{
-                        background-color:#F3F5FC;
-                    }
-                    .table td{
-                        background-color:#F3F5FC;
-                    }
-
-                    .table td .approved{
-                        color:green;
-                    }
-
-                    .profile-img {
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        margin-right: 10px;
-                    }
-
-                    .approval-text {
-                        font-weight: bold;
-                    }
-
-                    .approval-text.approved {
-                        color: #6DD52D;
-                    }
-
-                    .approval-text.rejected {
-                        color: #DD3D3D;
-                    }
-
-                    .approval-icons img{
-                        margin-right:10px;
-                    }
-
-
-
-                    .hold { background-color: #ddd4ff; color: #5a49a1; }
-                    .paid { background-color: #d4ffe5; color: #2b8750; }
-                    .approved { color: green; }
-                    .setup { color: gray; }
-
-
-                    .table-container {
-                        overflow-x: auto;
-                        border:none;
-                    }
-                    .profile-img {
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        margin-right: 10px;
-                    }
-                    .status-badge {
-                        padding: 5px 10px;
-                        border-radius: 12px;
-                        font-size: 12px;
-                    }
-
-
-
-                    .profile-img {
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        margin-right: 10px;
-                    }
-                    .contact-info {
-                        display: flex;
-                        align-items: center;
-                        gap: 8px;
-                        font-size: 14px;
-                    }
-                    .menu-icon {
-                        position: absolute;
-                        top: 15px;
-                        right: 15px;
-                        cursor: pointer;
-                    }
-
-                    .search-container {
-                        position: relative;
-                        width: 100%;
-
-                        
-                    }
-
-                    .search-input {
-                        width: 100%;
-                        padding: 12px 40px; /* Space for icon */
-                        border: 1px solid #ccc;
-                        border-radius: 4px;
-                        font-size: 16px;
-                        outline: none;
-                        color: #555;
-                        background-color: #fff;
-                    }
-
-                    .search-input::placeholder {
-                        color: #aaa;
-                    }
-
-                    .search-icon {
-                        position: absolute;
-                        left: 12px;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        color: #aaa;
-                        font-size: 18px;
-                    }
-
-                    .dropdown-container {
-                        position: relative;
-                        display: inline-flex;
-                        align-items: center;
-                        background-color: #F8F9FC;
-                        border-radius: 4px;
-                        padding: 10px 10px;
-                        font-size: 16px;
-                        cursor: pointer;
-                        font-weight: 500;
-                        width: 100%;
-                        justify-content: space-between;
-                    }
-
-                    /* Left Section: Icon + Text */
-                    .dropdown-label {
-                        display: flex;
-                        align-items: center;
-                        gap: 8px;
-                        color: #333;
-                    }
-
-                    /* Down Arrow Button */
-                    .dropdown-arrow {
-                        background: white;
-                        border: none;
-                        padding: 5px 8px;
-                        border-radius: 4px;
-                        cursor: pointer;
-                        font-size: 18px;
-                        transition: background 0.2s ease-in-out;
-                    }
-
-                    .dropdown-arrow:hover {
-                        background: #EDEDED;
-                    }
-
-                    /* Dropdown Menu */
-                    .dropdown-menu {
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        background: white;
-                        border-radius: 4px;
-                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                        display: none; /* Initially hidden */
-                        padding: 5px 0;
-                        z-index: 1000;
-                    }
-
-                    .dropdown-menu.show {
-                        display: block;
-                    }
-
-                    /* Dropdown Items */
-                    .dropdown-item {
-                        padding: 10px 15px;
-                        font-size: 16px;
-                        color: #333;
-                        cursor: pointer;
-                        transition: background 0.2s ease-in-out;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                    }
-
-                    .dropdown-item:hover {
-                        background: #F3F5FC;
-                    }
-
-                    /* Selected Checkmark */
-                    .dropdown-item.selected {
-                        color: #000;
-                        font-weight: bold;
-
-                    }
-
-                    .dropdown-item.selected::after {
-                        content: "✔";
-                        font-size: 16px;
-                        color: #474BC2;
-                    }
-
-                    /* Overlay Background */
-            .overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.3);
-                z-index: 999;
-                display: none;
-            }
-
-            /* Sidebar Styling */
-            .sidebar-form {
-                position: fixed;
-                top: 0;
-                right: -400px; /* Hidden by default */
-                width: 400px;
-                height: 100vh;
-                background-color: white;
-                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-                padding: 20px;
-                transition: right 0.3s ease-in-out;
-                z-index: 1000;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            /* Show Sidebar */
-            .sidebar-form.show {
-                right: 0;
-            }
-
-            /* Sidebar Header */
-            .sidebar-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 15px;
-            }
-
-            .sidebar-header h3 {
-                font-size: 20px;
-                margin: 0;
-            }
-
-            /* Close Button */
-            .close-btn {
-                font-size: 20px;
-                cursor: pointer;
-                color: black;
-                background: none;
-                border: none;
-            }
-
-            /* Sidebar Content */
-            .sidebar-content {
-                flex-grow: 1;
-            }
-
-            .sidebar-content input,.sidebar-content textarea,.sidebar-content select{
-                border:1px solid grey;
-                margin-bottom:10px;
-            }
-
-
-            .image-upload-label {
-                font-size: 13px;
-                display: block;
-                margin-bottom: 5px;
-                color: #666;
-            }
-
-            .image-input-container {
-                display: flex;
-                align-items: center;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                overflow: hidden;
-                width: 100%;
-                height:40px;
-                background-color: #fff;
-                
-            }
-
-            .image-icon {
-                background-color: #4c47fe;
-                padding: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .image-icon i {
-                font-size: 20px;
-                color: white;
-            }
-
-            .image-input {
-                border: none;
-                flex-grow: 1;
-                padding: 10px;
-                outline: none;
-            }
-
-
-            /* Category Name Label */
-            .text-muted {
-                font-size: 14px;
-            }
-
-            /* Create Button */
-            .btn-create {
-                background-color: #5c67f2; /* Color from image */
-                color: white;
-                width: 100%;
-                padding: 10px;
-                border-radius: 5px;
-                font-size: 16px;
-                border: none;
-            }
-
-            .btn-create:hover {
-                background-color: #4a54d2; /* Darker shade on hover */
-            }
-
-
-                    .internship-card {
-                position: relative; /* Add this line */
-                border: 1px solid #DDE2F0;
-                border-radius: 12px;
-                padding: 20px;
-                background-color: #F8F9FC;
-                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
-                max-width: 600px;
-                margin: 20px auto;
-            }
-
-            .status-container {
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-                padding: 8px 12px;
-                border-radius: 8px;
-                font-size: 14px;
-                font-weight: bold;
-                color: white;
-                cursor: pointer;
-                border: none;
-                position: relative; /* Ensure it doesn't interfere with the dropdown */
-            }
-                    /* Different Status Colors */
-                    .status-open { background-color: #34C759; }  /* Green */
-                    .status-close { background-color: #FF3B30; } /* Red */
-                    .status-hold { background-color: #333333; }  /* Black */
-
-                    /* Dropdown Menu */
-                    .dropdown-menu {
-                        background: white;
-                        border-radius: 8px;
-                        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                    }
-
-                    .dropdown-item {
-                        font-size: 14px;
-                        font-weight: bold;
-                        cursor: pointer;
-                        padding: 8px 15px;
-                        transition: background 0.2s ease-in-out;
-                    }
-
-                    .dropdown-item:hover {
-                        background: #F3F5FC;
-                    }
-
-                    /* Title */
-                    .internship-title {
-                        font-size: 20px;
-                        font-weight: bold;
-                        margin-top: 10px;
-                    }
-
-                    /* Location */
-                    .location {
-                        display: flex;
-                        align-items: center;
-                        font-size: 14px;
-                        color: #666;
-                    }
-
-                    /* Stats Section */
-                    .stats-container {
-                        display: flex;
-                        background: white;
-                        border-radius: 8px;
-                        padding: 12px;
-                        margin: 15px 0;
-                        border: 1px solid #DDE2F0;
-                    }
-
-                    .stats-box {
-                        flex: 1;
-                        text-align: center;
-                    }
-
-                    .stats-box:not(:last-child) {
-                        border-right: 1px solid #DDE2F0;
-                    }
-
-                    .stats-number {
-                        font-size: 18px;
-                        font-weight: bold;
-                        color: black;
-                    }
-
-                    .stats-text {
-                        font-size: 12px;
-                        color: #666;
-                    }
-
-                    /* Tags */
-                    .tag {
-                        background: #D5CFFB;
-                        color: #4A3DA1;
-                        padding: 6px 12px;
-                        font-size: 12px;
-                        font-weight: bold;
-                        border-radius: 6px;
-                        display: inline-block;
-                    }
-
-                    /* View Details Link */
-                    .view-details {
-                        color: black;
-                        font-size: 14px;
-                        font-weight: bold;
-                        text-decoration: none;
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                    }
-
-                    .view-details:hover {
-                        text-decoration: underline;
-                    }
-
-                    /* Three-dot menu */
-                    .menu-icon {
-                        cursor: pointer;
-                        font-size: 18px;
-                    }
-
-                    .dropdown-menu.status-dropdown-menu {
-                position: absolute; /* Add this line */
-                top: 100%; /* Position it below the button */
-                left: 0; /* Align it with the left edge of the parent */
-                width: 100%; /* Match the width of the parent */
-                background: white;
-                border-radius: 8px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                display: none; /* Initially hidden */
-                z-index: 1000; /* Ensure it appears above other elements */
-                padding: 5px 0;
-            }
-
-            /* 🔹 Internship Details Panel */
-            .details-panel {
-                position: fixed;
-                top: 0;
-                right: -500px; /* Initially hidden */
-                width: 500px;
-                height: 100vh;
-                background-color: white;
-                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-                padding: 20px;
-                transition: right 0.3s ease-in-out;
-                z-index: 1000;
-            }
-
-            /* 🔹 Show Details Panel */
-            .details-panel.show {
-                right: 0;
-            }
-
-            /* 🔹 Header */
-            .details-header {
-                display: flex;
-                align-items: center;
-                margin-bottom: 15px;
-            }
-
-            /* Hide Internship List when viewing Details */
-            #internship-details-page {
-                display: none;
-            }
-
-            .back-btn {
-                font-size: 16px;
-                background: none;
-                border: none;
-
-                cursor: pointer;
-                padding: 10px;
-            }
-
-            /* 🔹 Card Styling */
-            .details-card {
-                background: #F3F5FC;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
-            }
-
-            /* 🔹 Tab Styling */
-            .nav-tabs{
-                width:100%;
-                padding:0;
-                margin:0;
-            }
-            .nav-tabs .nav-link {
-
-                font-weight: bold;
-                border: none;
-                color:grey;
-
-            }
-
-            .nav-tabs .nav-link.active {
-
-                border-bottom: 3px solid #474BC2 !important;
-                background-color:#F3F5FC;
-                box-shadow:none;
-
-            }
-
-
-            .pagination {
-                display: flex;
-                gap: 8px;
-            }
-
-            .page-item .page-link {
-                /* border-radius: 6px;
-                color: black;
-                border: 1px solid #ddd; */
-                padding: 8px 12px;
-                font-weight: 500;
-                transition: 0.3s ease-in-out;
-            }
-
-            .page-item.active .page-link {
-                background-color: #4c47fe; /* Match the blue color */
-                color: white;
-                border: none;
-                font-weight: bold;
-            }
-
-            .page-item.disabled .page-link {
-                color: #aaa;
-                cursor: not-allowed;
-                border: none;
-            }
-
-            .page-link:hover {
-                background-color: #f0f0f0;
-                color: black;
-            }
-
-
-            .scroll-container {
-                overflow-x: auto; /* Enables horizontal scrolling */
-                overflow-y: auto; /* Enables vertical scrolling */
-                white-space: nowrap; /* Prevents wrapping */
-                max-height: calc(100vh - 50px); /* Adjusts height to fit within viewport */
-                position: relative;
-                padding-bottom: 20px; /* Prevents content from covering the scrollbar */
-            }
-
-            /* ✅ Fixed Scrollbar Area */
-            .fixed-scrollbar {
-                position: sticky;
-                bottom: 0;
-                width: 100%;
-                background: white;
-                z-index: 10; /* Ensures scrollbar is above content */
-                height: 20px; /* Space for scrollbar */
-            }
-
-            /* ✅ Always Show Scrollbar */
-            .scroll-container::-webkit-scrollbar {
-                height: 10px; /* Makes scrollbar noticeable */
-                background-color: #f1f1f1;
-            }
-
-            .scroll-container::-webkit-scrollbar-thumb {
-                background-color: #888;
-                border-radius: 5px;
-            }
-
-            .scroll-container::-webkit-scrollbar-thumb:hover {
-                background-color: #555;
-            }
-
-
-
-
-            .kanban-board {
-                display: flex;
-                gap: 15px;
-                overflow-x: auto;
-            }
-
-            .column {
-                background: #F3F5FC;
-                border-radius: 8px;
-                padding: 10px;
-                min-width: 300px;
-                white-space: normal;
-            }
-
-            .card {
-                background: white;
-                padding: 10px;
-                border-radius: 5px;
-                margin-top: 5px;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            }
-
-
-
-            .status-pending{
-                padding:10px;
-                background-color:#FFE9A7;
-                border-radius:4px;
-            }
-
-            .status-pending .badge{
-                background-color:#FFC822;
-            }
-
-            .status-request{
-                padding:10px;
-                background-color:#D5EAFF;
-                border-radius:4px;
-            }
-
-            .status-request .badge{
-                background-color:#4EA6FF;
-            }
-
-            .status-fail{
-                padding:10px;
-                background-color:#FFB9B9;
-                border-radius:4px; 
-                
-            }
-
-            .status-fail .badge{
-                background-color:#980C0C;
-            }
-
-            .fail .card-body .badge{
-                color:#980C0C;
-                background-color:#FFB9B9;
-            }
-
-
-
-            .status-document{
-                padding:10px;
-                background-color:#DFC1FF;
-                border-radius:4px;
-            }
-
-            .status-document .badge{
-                background-color:#AA5BFF;
-            }
-
-
-            .status-acceptance{
-                padding:10px;
-                background-color:#FFB9E3;
-                border-radius:4px;
-            }
-
-            .status-acceptance .badge{
-                background-color:#FF68C3;
-            }
-
-
-            .status-success{
-                padding:10px;
-                background-color:#ADF1D7;
-                border-radius:4px;
-            }
-
-            .status-success .badge{
-                background-color:#4FD8A3;
-            }
-
-            .success .card-body .badge{
-                color:#359C22;
-                background-color:#b9efaf;
-            }
-
-            .applicant-card {
-                background: white;
-                border-radius: 4px;
-                padding: 15px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .profile-icon {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                margin-right: 10px;
-            }
-
-            .applicant-name {
-                font-size: 16px;
-                font-weight: bold;
-                margin: 0;
-            }
-
-            .applicant-email {
-                font-size: 12px;
-                color: gray;
-                margin: 0;
-            }
-
-            .file-list {
-                margin-top: 10px;
-            }
-
-            .file-item {
-                display: flex;
-                align-items: center;
-                margin-top:10px;
-            }
-
-            .file-icon {
-                width: 20px;
-                height: 20px;
-                margin-right: 8px;
-            }
-
-
-            /* Edit description  */
-            /* Layout Styles */
-
-            #edit-description-box label{
-                font-size:14px;
-
-            }
-
-            #edit-description-box textarea,#edit-description-box input,#edit-description-box .image-preview-container{
-                border:1px solid grey;
-                border-radius:4px;
-                color:grey;
-            }
-            .image-preview {
-                width: 100%;
-                height:100%;
-                border-radius: 4px;
-                object-fit: cover;
-            }
-
-            /* 🔹 Label */
-            .image-upload-label {
-                font-size: 14px;
-                margin-top: 10px;
-                color: #666;
-                text-align:start;
-                align-self: self-start;
-            }
-
-            /* 🔹 Custom Input Box */
-            .image-input-container {
-                display: flex;
-                align-items: center;
-                border-radius: 4px;
-                overflow: hidden;
-                width: 100%;
-                height: 40px;
-                background-color: #f8f9fc;
-                cursor: pointer;
-            }
-
-            /* 🔹 Icon Side */
-            .image-icon {
-                background-color: #4c47fe;
-                padding: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .image-icon i {
-                font-size: 20px;
-                color: white;
-            }
-
-            /* 🔹 Input Box for File Name */
-            .image-filename {
-                border: none;
-                flex-grow: 1;
-                padding: 10px;
-                outline: none;
-                font-size: 14px;
-                background: transparent;
-            }
-
-            .image-preview {
-                width: 100%;
-                height: auto;
-                border-radius: 4px;
-            }
-
-            .save-btn {
-                background-color: #474BC2;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 4px;
-                border: none;
-            }
-
-            .form-control {
-                font-size: 14px;
-                padding: 10px;
-            }
-
-
-            /* Edit description  */
-
-
-            /* application settings  */
-            /* Sidebar Panel */
-
-            /* Overlay to dim the background when settings panel is open */
-            .settings-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-                z-index: 999; /* Below the settings panel */
-                display: none; /* Initially hidden */
-            }
-
-            /* Ensure the application settings panel is above the overlay */
-            .application-settings-panel {
-                position: fixed;
-                right: 0;
-                top: 0;
-                width: 450px; /* Adjust width to fit the contents */
-                height: 100vh;
-                background: white;
-                z-index: 1000; /* Above overlay */
-                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
-                display: none; /* Initially hidden */
-            }
-
-            /* 🔹 Application Settings Panel */
-            .settings-panel {
-                position: fixed;
-                top: 0;
-                right: -450px; /* Initially hidden */
-                width: 450px; /* Keep consistent width */
-                height: 100vh;
-                background: white;
-                padding: 20px;
-                transition: right 0.3s ease-in-out;
-                z-index: 1000;
-                overflow-y: auto; /* Enable scrolling for small screens */
-                display: flex;
-                flex-direction: column; /* ✅ Makes footer push to the bottom */
-            }
-
-
-                .settings-panel.show {
-                    right: 0;
-                }
-
-                .settings-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    font-size: 18px;
-                    font-weight: bold;
-                }
-
-                .close-btn {
-                    background: none;
-                    border: none;
-                    font-size: 18px;
-                    cursor: pointer;
-                }
-
-                .settings-section {
-                    margin-top: 15px;
-                    padding: 10px;
-                    border-radius: 4px;
-                }
-
-                .settings-section label {
-                    font-size: 14px;
-                    margin-top: 5px;
-                }
-
-                .settings-panel label {
-                    font-size: 14px;
-                    margin-top: 5px;
-                }
-
-                .settings-panel input,.settings-panel select{
-                    border-radius:4px;
-                    border:1px solid grey !important;
-                    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-                }
-
-                .settings-section .badge{
-                    color:#000;
-                }
-
-
-
-                .settings-section input,
-                .settings-section select {
-                    width: auto;
-                    padding: 5px;
-                    margin-top: 5px;
-
-                }
-
-                .pending { background: #FDE68A; }
-                .request { background: #BFDBFE; }
-                .document { background: #E9D5FF; }
-                .acceptance { background: #FECACA; }
-                .success { background: #BBF7D0; }
-
-                #application-settings-panel input {
-                    border: 1px solid black;
-                    width: 100px;
-                }
-
-                .settings-content {
-                flex-grow: 1; /* ✅ Makes content take up all available space */
-                padding-bottom: 20px; /* Prevents content from being cut off */
-            }
-
-                .settings-footer {
-                    display: flex;
-                    justify-content: end;
-                    margin-bottom:30px;
-                    gap:20px;
-                }
-
-                .btn-default {
-                    background: #D1D5DB;
-                    padding: 8px 20px;
-                    border: none;
-                    cursor: pointer;
-                }
-
-                .btn-save {
-                    background: #4F46E5;
-                    color: white;
-                    padding: 8px 20px;
-                    border: none;
-                    cursor: pointer;
-                }
-
-                #applicant-status {
-                color: black !important; /* Ensures the text color is black */
-                padding: 5px 10px;
-                border-radius: 4px;
-                font-weight: bold;
-            }
-
-
-            /* Scrollbar */
-            .settings-panel::-webkit-scrollbar {
-                width: 4px;
-            }
-
-            .settings-panel::-webkit-scrollbar-thumb {
-                background: grey;
-            }
-
-            /* .settings-panel::-webkit-scrollbar-thumb {
-                background: ;
-                
-            } */
-
-            /* .settings-panel::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            } */
-            /* application settings  */
-            
-
-            
-    </style>    
 @endsection
-<!-- extra CSS -->
 
-<!-- extra JS -->
+
 @section('script')
     <script type="text/javascript">
 
@@ -3531,19 +3521,7 @@
 
 
 
-    </script>    
+    </script>  
 @endsection
-<!-- extra JS -->
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
