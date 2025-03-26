@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Successful - InternPlus</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <style rel="stylesheet" type="text/css">
-        body{
-            background-color:#fff;
-        }
-    </style>
 
-</head>
-<body>
+<!-- heading -->
+@extends('layouts.hr.hrHeader')
+<!-- heading -->
+
+<!-- content body -->
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
         <div class="container d-flex justify-content-start align-items-center">
@@ -50,7 +37,34 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+<!-- content body -->
+
+<!-- footer -->
+@extends('layouts.hr.hrFooter')
+<!-- footer -->
+
+<!-- extra CSS -->
+@section('styles')
+    <style rel="stylesheet" type="text/css">
+    body{
+        background-color:#fff;
+    }    
+    </style>
+@endsection
+<!-- extra CSS -->
+
+<!-- extra JS -->
+@section('script')
+    <script type="text/javascript">
+    </script>
+@endsection
+<!-- extra JS -->
+
+
+
+
+
+
+
+

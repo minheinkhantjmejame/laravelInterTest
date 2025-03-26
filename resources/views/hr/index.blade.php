@@ -6,7 +6,10 @@
     <title>InternPlus</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Icon -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- JS Chart  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
@@ -462,8 +465,8 @@
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item me-5"><a class="btn btn-dark" href="{{url('/register')}}" style="width:140px;background-color:#b1bbe7; color:black;">Register</a></li>
-                    <li class="nav-item"><a class="btn btn-dark" href="{{url('/login')}}" style="width:111px;background-color:#b1bbe7; color:black;">Log In</a></li>
+                    <li class="nav-item me-5"><a class="btn btn-dark" href="{{route('hr.register')}}" style="width:140px;background-color:#b1bbe7; color:black;">Register</a></li>
+                    <li class="nav-item"><a class="btn btn-dark" href="{{route('hr.login')}}" style="width:111px;background-color:#b1bbe7; color:black;">Log In</a></li>
                 </ul>
             </div>
         </div>

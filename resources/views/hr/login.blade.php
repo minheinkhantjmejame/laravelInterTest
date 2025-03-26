@@ -1,13 +1,80 @@
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - InternPlus</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/styles.css"> 
+<!-- heading -->
+@extends('layouts.hr.hrHeader')
+<!-- heading -->
+
+<!-- content body -->
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container d-flex justify-content-start align-items-center">
+            <!-- INTERNPLUS -->
+            <a class="navbar-brand fw-bold me-3" href="{{route('hr')}}" style="font-size:40px;">INTERNPLUS</a>
+            
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-white p-0" style="border:none;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="card-body" style="margin:auto;">
+        @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
+        <form id="registrationForm"  action="{{route('hr.login')}}" method="POST">
+            @csrf
+            <h2 class="mb-5">Login</h2>
+            <div class="mb-5 linediv">            
+                <p id="lineptag"><span></span>LOGIN TO YOUR ACCOUNT.</p>
+            </div>
+            <p class="mt-9">Email Address</p>
+            <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control"  style="border:0;" id="email" name="email" required>
+            </div>
+            <p style="margin:0;">Password</p>
+            <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <span class="input-group-text"  style="border:0;background-color:#fff;"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="password" name="password"  style="border:0;"  aria-label="Password" required>
+                <span class="input-group-text" style="cursor: pointer;border:0;background-color:#fff;"  onclick="togglePasswordVisibility()">
+                    <i class="bi bi-eye-slash"  style="border:0;" id="toggleIcon"></i>
+                </span>
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe" style="font-size:16px;">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password" style="text-decoration: none;text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);font-size:16px;color:#fff;">Forgot Password?</a>
+            </div>
+                                      
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2; border:0; border-radius:4px;">Log In</button>
+                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#b1bbe7; border:0; border-radius:4px;"><a href="#" style="text-decoration: none; color:#000;">Request Demo</a></button>
+            </div>                           
+        </form>
+        
+    </div>
+<!-- content body -->
+
+<!-- footer -->
+@extends('layouts.hr.hrFooter')
+<!-- footer -->
+
+<!-- extra CSS -->
+@section('styles')
     <style type="text/css" rel="stylesheet">
         body {
             background-color: #f8f9fc;
@@ -121,70 +188,13 @@
             background-color: #f8f9fc;
         }
 
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container d-flex justify-content-start align-items-center">
-            <!-- INTERNPLUS -->
-            <a class="navbar-brand fw-bold me-3" href="{{route('hr')}}" style="font-size:40px;">INTERNPLUS</a>
-            
-            <!-- Dropdown -->
-            <div class="dropdown">
-                <button class="btn btn-white p-0" style="border:none;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    </style>    
+@endsection
+<!-- extra CSS -->
 
-    <div class="card-body" style="margin:auto;">
-        <form id="registrationForm">
-            <h2 class="mb-5">Login</h2>
-            <div class="mb-5 linediv">            
-                <p id="lineptag"><span></span>LOGIN TO YOUR ACCOUNT.</p>
-            </div>
-            <p class="mt-9">Email Address</p>
-            <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-envelope"></i></span>
-                <input type="email" class="form-control"  style="border:0;" id="email"  required>
-            </div>
-            <p style="margin:0;">Password</p>
-            <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                <span class="input-group-text"  style="border:0;background-color:#fff;"><i class="bi bi-lock"></i></span>
-                <input type="password" class="form-control" id="password"  style="border:0;"  aria-label="Password" required>
-                <span class="input-group-text" style="cursor: pointer;border:0;background-color:#fff;"  onclick="togglePasswordVisibility()">
-                    <i class="bi bi-eye-slash"  style="border:0;" id="toggleIcon"></i>
-                </span>
-            </div>
-
-            <div class="d-flex justify-content-between mb-3">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe" style="font-size:16px;">Remember me</label>
-                </div>
-                <a href="#" class="forgot-password" style="text-decoration: none;text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);font-size:16px;color:#fff;">Forgot Password?</a>
-            </div>
-                                      
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2; border:0; border-radius:4px;"><a href="#" style="text-decoration: none; color:#fff;">Log In</a></button>
-                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#b1bbe7; border:0; border-radius:4px;"><a href="#" style="text-decoration: none; color:#000;">Request Demo</a></button>
-            </div>                           
-        </form>
-        
-    </div>
-
-
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+<!-- extra JS -->
+@section('script')
+    <script type="text/javascript">
         function togglePasswordVisibility() {
             var passwordInput = document.getElementById('password');
             var toggleIcon = document.getElementById('toggleIcon');
@@ -196,9 +206,19 @@
                 toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
             }
         }
-    </script>
+    </script>    
+@endsection
+<!-- extra JS -->
+
+
+ 
+
+
+
+
+
+
+
         
         
-        
-</body>
-</html>
+

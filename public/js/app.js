@@ -973,6 +973,7 @@ or documents required for processing.</p>
 
 document.addEventListener("DOMContentLoaded", function () {
     // DOM Elements
+    const hrData = window.hrProfileData || {};
     const dashboardContent = document.getElementById("dashboardContent");
     const packageContent = document.getElementById("packageContent");
     const settingsContent = document.getElementById("settingsContent");
@@ -1068,11 +1069,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showProfile() {
         let profileImage = localStorage.getItem("profileImage") || "../assets/img/user_sample_1.png";
-        let profileName = localStorage.getItem("profileName") || "Lhing W.";
+        let profileName = '{{ $hr_name ?? "" }}' || localStorage.getItem("profileName") || "New User";
         let position = localStorage.getItem("position") || "HR Manager";
-        let fullName = localStorage.getItem("fullName") || "Lhing Wang";
+        const fullName = hrData.name || 
+                        `${hrData.first_name || ''} ${hrData.last_name || ''}`.trim() || 
+                        'New User';
+
         let team = localStorage.getItem("team") || "Project Internplus";
-        let email = localStorage.getItem("email") || "wanglhing@vennessplus.com";
+        let email = '{{ $hr_email ?? "" }}' || localStorage.getItem("email") || "No email";
         let phone = localStorage.getItem("phone") || "0898144676";
         let lineID = localStorage.getItem("lineID") || "imlhingw21";
 
@@ -1085,7 +1089,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="d-flex align-items-center">
                         <img src="${profileImage}" alt="Profile Photo" class="rounded-circle" width="80" height="80">
                         <div class="ms-3">
-                            <h4 class="mb-0">${profileName}</h4>
+                            <h4 class="mb-0">${fullName}</h4>
                             <span class="badge">${position}</span>
                         </div>
                         <button class="btn edit edit-profile-btn ms-auto"><img src="../assets/icon/edit_pen.png" alt="">  Edit</button>
@@ -1106,7 +1110,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="col-md-6">
                             <span>Position</span><p>${position}</p>
-                            <span>Email</span><p>${email}</p>
+                            <span>Email</span><p>${hrData.email || 'No email'}</p>
                             <span>Line ID</span><p>${lineID}</p>
                         </div>
                     </div>
@@ -1197,6 +1201,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function saveProfile() {
+        const fullName = hrData.name || 
+        `${hrData.first_name || ''} ${hrData.last_name || ''}`.trim() || 
+        'New User';
         let newProfileName = document.getElementById("profileName").value;
         let newProfileRole = document.getElementById("profileRole").value;
         let selectedImage = document.getElementById("profilePreview").src;
@@ -1280,6 +1287,19 @@ document.addEventListener("DOMContentLoaded", function () {
         let newPhone = document.getElementById("phone").value;
         let newLineID = document.getElementById("lineID").value;
 
+                // Update both local JS object and localStorage
+                if (window.hrProfileData) {
+                    window.hrProfileData.name = newFullName;
+                    const nameParts = newName.split(' ');
+                    window.hrProfileData.first_name = nameParts[0];
+                    window.hrProfileData.last_name = nameParts.slice(1).join(' ');
+                }
+                
+                localStorage.setItem('fullName', newFullName);
+                
+                // Send to server if needed
+                updateServerProfile(newFullName);
+
         // Save updated information in localStorage
         localStorage.setItem("fullName", newFullName);
         localStorage.setItem("position", newPosition);
@@ -1287,6 +1307,24 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("email", newEmail);
         localStorage.setItem("phone", newPhone);
         localStorage.setItem("lineID", newLineID);
+
+         // Optionally: Send to server to update in database
+            fetch('/hr/update-profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify({
+                    name: newFullName
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    showProfileContent();
+                }
+            });
 
         // Go back to the profile page
         showProfileContent();

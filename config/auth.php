@@ -45,12 +45,20 @@ return [
         'driver' => 'session',
         'provider' => 'admin_users',  // Your admin user provider
     ],
+    'hr' => [
+        'driver' => 'session',
+        'provider' => 'hr_accounts',
+    ],
 ],
 
 'providers' => [
     'admin_users' => [
         'driver' => 'eloquent',
         'model' => App\Models\AdminUser::class,
+    ],
+    'hr_accounts' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\HrAccount::class,
     ],
 ],
 

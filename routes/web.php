@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -222,86 +223,106 @@ Route::get('/home_page_dashboard_before_approve_internship', function () {
 // intern pages
 
 //hr pages
-Route::get('hr', function () {
-    return view('hr.index'); 
-})->name('hr');
+Route::prefix('hr')->group(function(){
+    Route::get('/', function () {
+        return view('hr.index'); 
+    })->name('hr');
+    
+    // register 
+    Route::get('/register', function () {
+        return view('hr.register'); 
+    })->name('hr.register');
+    
+    // login
+    Route::get('/login', function () {
+        return view('hr.login'); 
+    })->name('hr.login');
 
-// register 
-Route::get('/register', function () {
-    return view('hr.register'); 
+    
+
+    // assignment sheet 
+    Route::get('/assignment_sheet', function () {
+        return view('hr.assignment_sheet'); 
+    });
+    
+    // calendar 
+    Route::get('/calendar', function () {
+        return view('hr.calendar'); 
+    });
+    
+    // dashboard
+    Route::get('/dashboard', function () {
+        $hrAccount = Auth::guard('hr')->user();
+        return view('hr.dashboard', [
+            'hr_name' => $hrAccount->first_name . ' ' . $hrAccount->last_name,
+            'hr_email' => $hrAccount->email
+        ]);
+    })->name('hr.dashboard')->middleware('auth:hr');
+    
+    // candidates 
+    Route::get('/candidates', function () {
+        return view('hr.candidates'); 
+    });
+    
+    // interns
+    Route::get('/interns', function () {
+        return view('hr.interns'); 
+    });
+    
+    // offboard 
+    Route::get('/offboard', function () {
+        return view('hr.offboard'); 
+    });
+    
+    // payroll
+    Route::get('/payroll', function () {
+        return view('hr.payroll'); 
+    });
+    
+    // program 
+    Route::get('/program', function () {
+        return view('hr.program'); 
+    });
+    
+    // registration_successful 
+    Route::get('/registration_successful', function () {
+        return view('hr.registration_successful'); 
+    });
+    
+    // report
+    Route::get('/report', function () {
+        return view('hr.report'); 
+    });
+    
+    // storage 
+    Route::get('/storage', function () {
+        return view('hr.storage'); 
+    });
+    
+    // test_forms 
+    Route::get('/test_forms', function () {
+        return view('hr.test_forms'); 
+    });
+    
+    // time_attendance
+    Route::get('/time_attendance', function () {
+        return view('hr.time_attendance'); 
+    });
+    
+    // hr accounts 
+
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
+    
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    
+    // Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('hr.dashboard');
+    // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    
+
 });
 
-// login
-Route::get('/login', function () {
-    return view('hr.login'); 
-});
-
-// assignment sheet 
-Route::get('/assignment_sheet', function () {
-    return view('hr.assignment_sheet'); 
-});
-
-// calendar 
-Route::get('/calendar', function () {
-    return view('hr.calendar'); 
-});
-
-// dashboard
-Route::get('/dashboard', function () {
-    return view('hr.dashboard'); 
-});
-
-// candidates 
-Route::get('/candidates', function () {
-    return view('hr.candidates'); 
-});
-
-// interns
-Route::get('/interns', function () {
-    return view('hr.interns'); 
-});
-
-// offboard 
-Route::get('/offboard', function () {
-    return view('hr.offboard'); 
-});
-
-// payroll
-Route::get('/payroll', function () {
-    return view('hr.payroll'); 
-});
-
-// program 
-Route::get('/program', function () {
-    return view('hr.program'); 
-});
-
-// registration_successful 
-Route::get('/registration_successful', function () {
-    return view('hr.registration_successful'); 
-});
-
-// report
-Route::get('/report', function () {
-    return view('hr.report'); 
-});
-
-// storage 
-Route::get('/storage', function () {
-    return view('hr.storage'); 
-});
-
-// test_forms 
-Route::get('/test_forms', function () {
-    return view('hr.test_forms'); 
-});
-
-// time_attendance
-Route::get('/time_attendance', function () {
-    return view('hr.time_attendance'); 
-});
-
-//hr pages
+    //hr pages
 
 // Admin Dashboard For HR accounts
 

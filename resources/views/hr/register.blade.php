@@ -1,14 +1,86 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - InternPlus</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/styles.css"> 
+<!-- heading -->
+@extends('layouts.hr.hrHeader')
+<!-- heading -->
+
+<!-- content body -->
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container d-flex justify-content-start align-items-center">
+            <!-- INTERNPLUS -->
+            <a class="navbar-brand fw-bold me-3" href="{{route('hr')}}" style="font-size:40px;">INTERNPLUS</a>
+            
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-white p-0" style="border:none;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="card-body" style="margin:auto;">
+        @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
+        <form id="registrationForm"  action="{{route('hr.register')}}" method="POST">
+            @csrf
+            <h2>Register</h2>
+            <p style="margin:0;">First Name</p>
+            <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-person" ></i></span>
+                <input type="text" class="form-control" id="firstName" name="first_name" style="border:0;"  required>
+            </div>
+            <p style="margin:0;">Last Name</p>
+            <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-person-check"></i></span>
+                <input type="text" class="form-control" id="lastName" name="last_name" style="border:0;"   required>
+            </div>
+            <p style="margin:0;">Email Address</p>
+            <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control"  style="border:0;" id="email" name="email"  required>
+            </div>
+            <p style="margin:0;">Password</p>
+            <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <span class="input-group-text"  style="border:0;background-color:#fff;"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="password" name="password"  style="border:0;"  aria-label="Password" required>
+                <span class="input-group-text" style="cursor: pointer;border:0;background-color:#fff;"  onclick="togglePasswordVisibility()">
+                    <i class="bi bi-eye-slash"  style="border:0;" id="toggleIcon"></i>
+                </span>
+            </div>
+                                      
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2;color:white; border:0; border-radius:4px;">Register</button>
+            </div>
+            <div class="social-login text-center d-flex justify-content-center">
+                <button type="button" class="btn social-btn me-3" style="color:#474bc2; border-color:#474bc2;" id="facebook-btn"><i class="bi bi-facebook"></i> Facebook</button>
+                <button type="button" class="btn social-btn" id="google-btn" style="color:#474bc2; border-color:#474bc2; border-radius:4px;"><i class="bi bi-google"></i> Google</button>
+            </div>                            
+        </form>
+        
+    </div>
+
+
+
+
+<!-- content body -->
+
+<!-- footer -->
+@extends('layouts.hr.hrFooter')
+<!-- footer -->
+
+<!-- extra CSS -->
+@section('styles')
     <style type="text/css" rel="stylesheet">
         body {
             background-color: #f8f9fc;
@@ -93,72 +165,12 @@
         }
 
     </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container d-flex justify-content-start align-items-center">
-            <!-- INTERNPLUS -->
-            <a class="navbar-brand fw-bold me-3" href="{{route('hr')}}" style="font-size:40px;">INTERNPLUS</a>
-            
-            <!-- Dropdown -->
-            <div class="dropdown">
-                <button class="btn btn-white p-0" style="border:none;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+@endsection
+<!-- extra CSS -->
 
-    <div class="card-body" style="margin:auto;">
-        <form id="registrationForm">
-            
-            <h2>Register</h2>
-            <p style="margin:0;">First Name</p>
-            <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-person" ></i></span>
-                <input type="text" class="form-control" id="firstName" style="border:0;"  required>
-            </div>
-            <p style="margin:0;">Last Name</p>
-            <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-person-check"></i></span>
-                <input type="text" class="form-control" id="lastName" style="border:0;"   required>
-            </div>
-            <p style="margin:0;">Email Address</p>
-            <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-envelope"></i></span>
-                <input type="email" class="form-control"  style="border:0;" id="email"  required>
-            </div>
-            <p style="margin:0;">Password</p>
-            <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-                <span class="input-group-text"  style="border:0;background-color:#fff;"><i class="bi bi-lock"></i></span>
-                <input type="password" class="form-control" id="password"  style="border:0;"  aria-label="Password" required>
-                <span class="input-group-text" style="cursor: pointer;border:0;background-color:#fff;"  onclick="togglePasswordVisibility()">
-                    <i class="bi bi-eye-slash"  style="border:0;" id="toggleIcon"></i>
-                </span>
-            </div>
-                                      
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2;color:white; border:0; border-radius:4px;"><a href="./registration_successful.html" style="text-decoration: none; color:#fff;">Register</a></button>
-            </div>
-            <div class="social-login text-center d-flex justify-content-center">
-                <button type="button" class="btn social-btn me-3" style="color:#474bc2; border-color:#474bc2;" id="facebook-btn"><i class="bi bi-facebook"></i> Facebook</button>
-                <button type="button" class="btn social-btn" id="google-btn" style="color:#474bc2; border-color:#474bc2; border-radius:4px;"><i class="bi bi-google"></i> Google</button>
-            </div>                            
-        </form>
-        
-    </div>
-
-
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+<!-- extra JS -->
+@section('script')
+    <script type="text/javascript">
         function togglePasswordVisibility() {
             var passwordInput = document.getElementById('password');
             var toggleIcon = document.getElementById('toggleIcon');
@@ -171,8 +183,20 @@
             }
         }
     </script>
+@endsection
+<!-- extra JS -->
+
+
+
+
+
+
+
+
+
+
+
         
         
         
-</body>
-</html>
+
