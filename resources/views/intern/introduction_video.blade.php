@@ -48,24 +48,24 @@
     @include('layouts.intern.navbar')
 
     <div class="container mt-5">
-        <p class="badge" style="font-weight:bold;">In-progress</p>
+        <p class="badge" style="font-weight:bold;" data-translate="In-progress">In-progress</p>
         <div class="header-content mb-0">
-            <h1>INTRODUCE YOURSELF VIDEO</h1><i class="bi bi-check2-square text-success"></i>
-            <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i>Back</a>
+            <h1 data-translate="INTRODUCE YOURSELF VIDEO">INTRODUCE YOURSELF VIDEO</h1><i class="bi bi-check2-square text-success"></i>
+            <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i><span data-translate="Back">Back</span></a>
         </div>
-        <p class="duedate mt-0">Due today</p>        
-        <p>Greeting from Vanness Plus Consulting Co., Ltd.</p>
-        <p>The questions :</p>
+        <p class="duedate mt-0" data-translate="Due today">Due today</p>        
+        <p data-translate="Greeting from Vanness Plus Consulting Co., Ltd.">Greeting from Vanness Plus Consulting Co., Ltd.</p>
+        <p data-translate="The questions :">The questions :</p>
         <ol>
-            <li>Please give the reason that you are interested in the role of Trainee</li>
-            <li> Is this a mandatory course in your university?</li>
-            <li> Tell about your mindsets to do the work both individually and team work</li>
-            <li>Waht is your internship period?</li>
-            <li>Do you prefer to work from the office? if not, do you prefer to work from home 100%?</li>
+            <li data-translate="Please give the reason that you are interested in the role of Trainee">Please give the reason that you are interested in the role of Trainee</li>
+            <li data-translate="Is this a mandatory course in your university?"> Is this a mandatory course in your university?</li>
+            <li data-translate=" Tell about your mindsets to do the work both individually and team work"> Tell about your mindsets to do the work both individually and team work</li>
+            <li data-translate="What is your internship period?">What is your internship period?</li>
+            <li data-translate="Do you prefer to work from the office? if not, do you prefer to work from home 100%?">Do you prefer to work from the office? if not, do you prefer to work from home 100%?</li>
         </ol>
-        <p>In case of any further queries, please kindly feel free to contact us anytime.</p>
+        <p data-translate="In case of any further queries, please kindly feel free to contact us anytime.">In case of any further queries, please kindly feel free to contact us anytime.</p>
         <hr>
-        <h3>YOUR VIDEO</h3>
+        <h3 data-translate="YOUR VIDEO">YOUR VIDEO</h3>
         <div class="input-group mb-1">
             <label class="input-group-text" for="fileInput">
                 <i class="bi bi-file-earmark" style="color:#fff;"></i>
@@ -76,7 +76,7 @@
         <p class="mt-0 text-muted" style="font-size:12px;">*Supports size up to 10 MB</p>
         
               
-        <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;">Send</button>
+        <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;" data-translate="Send">Send</button>
 
 
     </div>

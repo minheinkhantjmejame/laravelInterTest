@@ -91,45 +91,45 @@
     @include('layouts.intern.navbar')
 
     <div class="container mt-5">
-        <p class="badge" style="font-weight:bold;">In-progress</p>
+        <p class="badge" style="font-weight:bold;" data-translate="In-progress">In-progress</p>
         <div class="header-content mb-0">
-            <h1>INTERNSHIP REGISTRATION FORM</h1><i class="bi bi-check2-square text-success"></i>
-            <a href="#" style="border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i>Back</a>
+            <h1 data-translate="INTERNSHIP REGISTRATION FORM">INTERNSHIP REGISTRATION FORM</h1><i class="bi bi-check2-square text-success"></i>
+            <a href="#" style="border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i><span>Back</span></a>
         </div>
-        <p class="duedate mt-0">Due today</p>        
-        <p>Agreement, consent for the company to collect information for job applications according to the ActR.AB.B Personal information protection This form aims to store first name, last name, telephone number, address, email, national ID card number, photograph, work history, age, race, health, disability, labor union, genetics, biological, health information (for example. For example. such as a medical certificate) or any other information that affects the owner of personal data. for job recruitment The applicant has consented to the company. Store such information Therefore, we have filled in the information below. If you do not consent to the storage of information You can cancel filling in this information</p>             
+        <p class="duedate mt-0" data-translate="Due today">Due today</p>        
+        <p data-translate="Agreement, consent for the company to collect information for job applications according to the ActR.AB.B Personal information protection This form aims to store first name, last name, telephone number, address, email, national ID card number, photograph, work history, age, race, health, disability, labor union, genetics, biological, health information (for example. For example. such as a medical certificate) or any other information that affects the owner of personal data. for job recruitment The applicant has consented to the company. Store such information Therefore, we have filled in the information below. If you do not consent to the storage of information You can cancel filling in this information">Agreement, consent for the company to collect information for job applications according to the ActR.AB.B Personal information protection This form aims to store first name, last name, telephone number, address, email, national ID card number, photograph, work history, age, race, health, disability, labor union, genetics, biological, health information (for example. For example. such as a medical certificate) or any other information that affects the owner of personal data. for job recruitment The applicant has consented to the company. Store such information Therefore, we have filled in the information below. If you do not consent to the storage of information You can cancel filling in this information</p>             
         <form>
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name *</label>
+                        <label for="name" class="form-label" data-translate="NAME">NAME</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;"  id="name" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email Address *</label>
+                        <label for="email" class="form-label" data-translate="EMAIL ADDRESS">EMAIL ADDRESS</label>
                         <input type="email" class="form-control"   style="border:2px solid black; border-radius:4px;" id="email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number *</label>
+                        <label for="phone" class="form-label" data-translate="PHONE NUMBER">PHONE NUMBER</label>
                         <input type="tel" class="form-control"  style="border:2px solid black; border-radius:4px;" id="phone" required>
                     </div>
                     <div class="mb-3">
-                        <label for="nickname" class="form-label">Nickname</label>
+                        <label for="nickname" class="form-label" data-translate="NICKNAME">NICKNAME</label>
                         <input type="text" class="form-control"  style="border:2px solid black; border-radius:4px;" id="nickname">
                     </div>
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
+                        <label for="address" class="form-label" data-translate="ADDRESS">ADDRESS</label>
                         <input type="text" class="form-control"  style="border:2px solid black; border-radius:4px;" id="address">
                     </div>
                     <div class="mb-3">
-                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                        <label for="dateOfBirth" class="form-label" data-translate="DATE OF BIRTH">DATE OF BIRTH</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-calendar3"></i></span>
                             <input type="text" id="dateOfBirth" class="form-control"  style="border:2px solid black;border-left:none; border-radius:0 4px 4px 0;"  placeholder="MM/DD/YYYY">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Blood Type</label>
+                        <label class="form-label" data-translate="BLOOD TYPE">BLOOD TYPE</label>
                         <div id="bloodTypeSelector" class="mb-3">
                             <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectBloodType('A');">A</div>
                             <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectBloodType('B');">B</div>
@@ -139,45 +139,45 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="lineId" class="form-label">LINE ID</label>
+                        <label for="lineId" class="form-label" data-translate="LINE ID">LINE ID</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="lineId">
                     </div>
                     <div class="mb-3">
-                        <label for="strength" class="form-label">Your Strength</label>
+                        <label for="strength" class="form-label" data-translate="YOUR STRENGTH">YOUR STRENGTH</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="strength">
                     </div>
                     <div class="mb-3">
-                        <label for="weakness" class="form-label">Your Weakness</label>
+                        <label for="weakness" class="form-label" data-translate="YOUR WEAKNESS">YOUR WEAKNESS</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="weakness">
                     </div>
                     <div class="mb-3">
-                        <label for="opportunity" class="form-label">Your Opportunity</label>
+                        <label for="opportunity" class="form-label" data-translate="YOUR OPPORTUNITY">YOUR OPPORTUNITY</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="opportunity">
                     </div>
                     <div class="mb-3">
-                        <label for="threats" class="form-label">Your Threats</label>
+                        <label for="threats" class="form-label" data-translate="YOUR THREATS">YOUR THREATS</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="threats">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="university" class="form-label">University</label>
+                        <label for="university" class="form-label" data-translate="UNIVERSITY">UNIVERSITY</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="university">
                     </div>
                     <div class="mb-3">
-                        <label for="qualification" class="form-label">Qualification</label>
+                        <label for="qualification" class="form-label" data-translate="QUALIFICATION">QUALIFICATION</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="qualification">
                     </div>
                     <div class="mb-3">
-                        <label for="fieldOfStudy" class="form-label">Field of Study / Major</label>
+                        <label for="fieldOfStudy" class="form-label" data-translate="FIELD OF STUDY / MAJOR">FIELD OF STUDY / MAJOR</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="fieldOfStudy">
                     </div>
                     <div class="mb-3">
-                        <label for="gpa" class="form-label">GPA.</label>
+                        <label for="gpa" class="form-label" data-translate="GPA.">GPA.</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="gpa">
                     </div>
                     <div class="mb-3">
-                        <label for="resume" class="form-label">Resume</label>
+                        <label for="resume" class="form-label" data-translate="RESUME">RESUME</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-file-earmark"></i></span>
                             <input type="text" class="form-control file-name" style="border:2px solid black;border-left:none; border-radius:0 4px 4px 0;" placeholder="Select the file to upload" readonly>
@@ -185,22 +185,22 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="position" class="form-label">Position</label>
+                        <label for="position" class="form-label" data-translate="POSITION">POSITION</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="position" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Have Your Own PC or Notebook?</label>
+                        <label class="form-label" data-translate="HAVE YOUR OWN PC OR NOTEBOOK?">HAVE YOUR OWN PC OR NOTEBOOK?</label>
                         <div id="pcOwnership" class="mb-3">
                             <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectPC('Yes');">Yes</div>
                             <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectPC('No');">No</div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="internshipPeriod" class="form-label">Internship Period</label>
+                        <label for="internshipPeriod" class="form-label" data-translate="INTERNSHIP PERIOD">INTERNSHIP PERIOD</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="internshipPeriod" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Reason for Applying *</label>
+                        <label class="form-label" data-translate="REASON">REASON</label>
                         <div id="reasonSelectors">
                             <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectReason('University Compulsory');">University Compulsory</div>
                             <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectReason('Voluntary');">Voluntary</div>
@@ -209,12 +209,12 @@
                         <input type="hidden" id="reason" name="reason">
                     </div>
                     <div class="mb-3">
-                        <label for="sourceOfRecruitment" class="form-label">Source of Recruitment Announcement</label>
+                        <label for="sourceOfRecruitment" class="form-label" data-translate="Source of Recruitment Announcement">Source of Recruitment Announcement</label>
                         <input type="text" class="form-control"   style="border:2px solid black; border-radius:4px;" id="sourceOfRecruitment">
                     </div>
                     <div class="container mt-5">
                         <div class="mb-3">
-                            <label class="form-label">Internship Type *</label>
+                            <label class="form-label" data-translate="INTERNSHIP TYPE">INTERNSHIP TYPE</label>
                             <div id="internshipTypeSelectors">
                                 <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectInternshipType('WFH 100%');">WFH 100%</div>
                                 <div class="toggle-select"   style="border:2px solid black; border-radius:4px;" onclick="selectInternshipType('WFO 100%');">WFO 100%</div>
@@ -227,7 +227,7 @@
                 </div>
             </div>
         </form>
-        <button type="submit" class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;">Send</button>
+        <button type="submit" class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;" data-translate="Send">Send</button>
 
 
     </div>

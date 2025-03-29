@@ -194,23 +194,23 @@
                 </div>
             </div>
             <div>
-                <p><strong style="margin-right:20px;">FIRST NAME</strong> Nicharee</p>
-                <p><strong stylel="margin-right:30px;">EMAIL ADDRESS</strong> nicharee.sea@ku.th</p>
+                <p><strong style="margin-right:20px;"><span data-translate="FIRST NAME">FIRST NAME</span></strong> Nicharee</p>
+                <p><strong stylel="margin-right:30px;"><span data-translate="EMAIL ADDRESS">EMAIL ADDRESS</span></strong> nicharee.sea@ku.th</p>
             </div>
             <div>
-                <p><strong style="margin-right:20px;">LAST NAME </strong> Seattanannon</p>
-                <p><strong style="margin-right:20px;">PHONE NUMBER</strong> 0824941461</p>
+                <p><strong style="margin-right:20px;"><span data-translate="LAST NAME">LAST NAME</span></strong> Seattanannon</p>
+                <p><strong style="margin-right:20px;"><span data-translate="PHONE NUMBER">PHONE NUMBER</span></strong> 0824941461</p>
             </div>
         </div>
         <div class="info-row">
             <div style="text-align:center;">
-                <p><strong style="font-size:26px;">112987630</strong><br/>application ID</p>
+                <p><strong style="font-size:26px;">112987630</strong><br/><span data-translate="application ID">application ID</span></p>
             </div>
             <div style="text-align:center;">
-                <p><strong style="font-size:26px;">UX/UI Designer Trainee</strong><br/> position</p>
+                <p><strong style="font-size:26px;">UX/UI Designer Trainee</strong><br/><span data-translate="position">position</span></p>
             </div>
             <div style="text-align:center;">
-                <p><strong style="font-size:26px;">HYBRID</strong><br/>internship type</p>
+                <p><strong style="font-size:26px;">HYBRID</strong><br/><span data-translate="internship type">internship type</span></p>
             </div>
         </div>
 
@@ -218,7 +218,7 @@
         <div class="buttons info-row">
             <div>
                 <a href="#"><button class="button status-button-color" style="color:white;">1</button></a>
-                <p>Pending</p>
+                <p data-translate="Pending">Pending</p>
             </div>
 
             <!-- <div class="badge-container">
@@ -229,22 +229,22 @@
             
             <div>
                 <a href="#"><button class="button status-button-color" style="color:white;">2</button></a>
-                <p>Request Internship Application</p>
+                <p data-translate="Request Internship Application">Request Internship Application</p>
             </div>
             
             <div>
                 <button class="button status-button-color" style="color:white;">3</button>
-                <p>Request Internship Document</p>
+                <p data-translate="Request Internship Document">Request Internship Document</p>
             </div>
             
             <div>
                 <button class="button status-button-color" style="color:white;">4</button>
-                <p>Acceptance Terms</p>
+                <p data-translate="Acceptance Terms">Acceptance Terms</p>
             </div>
             
             <div>
                 <a href="#"><button class="button status-button-color success" style="color:white;">5</button></a>
-                <p>Success</p>
+                <p data-translate="Success">Success</p>
             </div>
             
         </div>
@@ -257,13 +257,13 @@
         <div class="status-card">
             <div class="status-description">
                 <img src="../assets/img/board.png" style="width:220px;" alt="">
-                <h3 style="font-size:30px;">WELCOME ONBOARD</h3>
-                <p>Welcome onboard as UX/UI Designer Trainee on<br/> Nov 25th,2024.<br/>Please log in to our website or sign up to access details <br/> throughout your internship</p>
+                <h3 style="font-size:30px;" data-translate="WELCOME ONBOARD">WELCOME ONBOARD</h3>
+                <p><span data-translate="">Welcome onboard as UX/UI Designer Trainee on</span><br/> Nov 25th,2024.<br/><span data-translate="Please log in to our website or sign up to access details">Please log in to our website or sign up to access details</span> <br/><span data-translate="throughout your internship">throughout your internship</span> </p>
                 <a href="{{url('login')}}" style="text-decoration: none;">
-                    <button class="confirm-button" onclick="confirmInternship()">Login</button>
+                    <button class="confirm-button" onclick="confirmInternship()" data-translate="Login">Login</button>
                 </a>
                 <a href="{{url('register')}}">
-                    <button class="cancel-button" style="border:none; background-color:#b1bbe7;" onclick="cancelInternship()">Register</button>
+                    <button class="cancel-button" style="border:none; background-color:#b1bbe7;" onclick="cancelInternship()" data-translate="Register">Register</button>
                 </a>
                 
             </div>

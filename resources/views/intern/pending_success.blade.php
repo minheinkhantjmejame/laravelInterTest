@@ -173,30 +173,30 @@
                     </div>
                 </div>
                 <div>
-                    <p><strong style="margin-right:20px;">FIRST NAME</strong> Nicharee</p>
-                    <p><strong stylel="margin-right:30px;">EMAIL ADDRESS</strong> nicharee.sea@ku.th</p>
+                    <p><strong style="margin-right:20px;"><span data-translate="FIRST NAME">FIRST NAME</span></strong> Nicharee</p>
+                    <p><strong stylel="margin-right:30px;"><span data-translate="EMAIL ADDRESS">EMAIL ADDRESS</span></strong> nicharee.sea@ku.th</p>
                 </div>
                 <div>
-                    <p><strong style="margin-right:20px;">LAST NAME </strong> Seattanannon</p>
-                    <p><strong style="margin-right:20px;">PHONE NUMBER</strong> 0824941461</p>
+                    <p><strong style="margin-right:20px;"><span data-translate="LAST NAME">LAST NAME</span></strong> Seattanannon</p>
+                    <p><strong style="margin-right:20px;"><span data-translate="PHONE NUMBER">PHONE NUMBER</span></strong> 0824941461</p>
                 </div>
             </div>
             <div class="info-row">
                 <div style="text-align:center;">
-                    <p><strong style="font-size:26px;">112987630</strong><br/>application ID</p>
+                    <p><strong style="font-size:26px;">112987630</strong><br/><span data-translate="application ID">application ID</span></p>
                 </div>
                 <div style="text-align:center;">
-                    <p><strong style="font-size:26px;">UX/UI Designer Trainee</strong><br/> position</p>
+                    <p><strong style="font-size:26px;">UX/UI Designer Trainee</strong><br/><span data-translate="position">position</span></p>
                 </div>
                 <div style="text-align:center;">
-                    <p><strong style="font-size:26px;">HYBRID</strong><br/>internship type</p>
+                    <p><strong style="font-size:26px;">HYBRID</strong><br/><span data-translate="internship type">internship type</span></p>
                 </div>
             </div>
 
         <div class="buttons info-row">
             <div>
                 <a href="./pending_status.html"><button class="button status-button-color" style="color:white;">1</button></a>
-                <p>Pending</p>
+                <p data-translate="Pending">Pending</p>
             </div>
 
             <!-- <div class="badge-container">
@@ -207,22 +207,22 @@
             
             <div>
                 <a href="#"><button class="button button status-button-color" style="color:white;">2</button></a>
-                <p>Request Internship Application</p>
+                <p data-translate="Request Internship Application">Request Internship Application</p>
             </div>
             
             <div>
                 <a href="#"><button class="button button status-button-color" style="color:white;">3</button></a>
-                <p>Request Internship Document</p>
+                <p data-translate="Request Internship Document">Request Internship Document</p>
             </div>
             
             <div>
                 <a href="#"><button class="button  status-button-color" style="color:white;">4</button></a>            
-                <p>Acceptance Terms</p>
+                <p data-translate="Acceptance Terms">Acceptance Terms</p>
             </div>
             
             <div>
                 <a href="{{url('success_login_register')}}"><button class="button success">5</button></a>
-                <p>Success</p>
+                <p data-translate="Success">Success</p>
             </div>
             
         </div>
@@ -233,11 +233,11 @@
 
             <!-- Status Card -->
             <div class="status-card">
-                <h4 style="font-weight:bold;">SUCCESS</h4>
+                <h4 style="font-weight:bold;" data-translate="SUCCESS">SUCCESS</h4>
                 <div class="status-description">
                     <img src="../assets/img/application_success.png" style="width:200px;" alt="">
-                    <h3 style="font-size:30px;">SUBMIT SUCCESSFULLY</h3>
-                    <p>We have received your answer! <br/>Please wait for evaluation and review your answer</p>
+                    <h3 style="font-size:30px;" data-translate="SUBMIT SUCCESSFULLY">SUBMIT SUCCESSFULLY</h3>
+                    <p><span data-translate="We have received your answer!">We have received your answer!</span> <br/><span data-translate="Please wait for evaluation and review your answer">Please wait for evaluation and review your answer</span></p>
                 </div>
             </div>
         </div>

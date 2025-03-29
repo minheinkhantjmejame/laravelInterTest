@@ -5,7 +5,7 @@
             
             <!-- Language Dropdown -->
             <div class="dropdown" style="display: inline-block;">
-                <button class="btn btn-white"  style="border:none; background-color:white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-white"  style="border:none; background-color:white; color:#323438;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

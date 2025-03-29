@@ -99,35 +99,35 @@
     @include('layouts.intern.navbar')
 
     <div class="container mt-5">
-        <p class="badge" style="font-size:16px; font-weight:bold;">In-progress</p>
+        <p class="badge" style="font-size:16px; font-weight:bold;" data-translate="In-progress">In-progress</p>
         <div class="header-content mb-0">
-            <h1>SKILL TEST</h1>
-            <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i>Back</a>
+            <h1 data-translate="SKILL TEST">SKILL TEST</h1>
+            <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i><span data-translate="Back">Back</span></a>
         </div>
-        <p class="duedate mt-0">Due today</p>        
-        <h2>Greeting from Vanness Plus Consulting Co., Ltd.</h2>
-        <p>Please do the skill test by choosing at least one of the following topics:</p>
+        <p class="duedate mt-0" data-translate="Due today">Due today</p>        
+        <h2 data-translate="Greeting from Vanness Plus Consulting Co., Ltd.">Greeting from Vanness Plus Consulting Co., Ltd.</h2>
+        <p data-translate="Please do the skill test by choosing at least one of the following topics:">Please do the skill test by choosing at least one of the following topics:</p>
         <ol>
-            <li>Design the dashboard of applicants tracking in the sense of applying, rejected, accepted, interviewed.</li>
-            <li>Designing the dashboard of web or mobile application to show the status of applicants who applied the Internship Program with company.</li>
-            <li>Designing the dashboard of web or mobile application to submit the assignments in each subject to professor.</li>
+            <li data-translate="Design the dashboard of applicants tracking in the sense of applying, rejected, accepted, interviewed.">Design the dashboard of applicants tracking in the sense of applying, rejected, accepted, interviewed.</li>
+            <li data-translate="Designing the dashboard of web or mobile application to show the status of applicants who applied the Internship Program with company.">Designing the dashboard of web or mobile application to show the status of applicants who applied the Internship Program with company.</li>
+            <li data-translate="Designing the dashboard of web or mobile application to submit the assignments in each subject to professor.">Designing the dashboard of web or mobile application to submit the assignments in each subject to professor.</li>
         </ol>
-        <p>In case of any further queries, please kindly feel free to contact us anytime.</p>
+        <p data-translate="In case of any further queries, please kindly feel free to contact us anytime.">In case of any further queries, please kindly feel free to contact us anytime.</p>
         <hr>
-        <h3>Select Topics</h3>
+        <h3 data-translate="Select Topics">Select Topics</h3>
         <p class="m-0" style="font-size:12px;">* You can choose more than one</p>
         <div>
             <button class="btn select_button btn-secondary btn-topic" style="border:1px solid black; border-radius:4px;">1</button>
             <button class="btn select_button btn-secondary btn-topic" style="border:1px solid black; border-radius:4px; ">2</button>
             <button class="btn select_button btn-secondary btn-topic" style="border:1px solid black; border-radius:4px;">3</button>
         </div>
-        <h3>Select Answer Type</h3>
+        <h3 data-translate="Select Answer Type">Select Answer Type</h3>
         <div class="mb-3">
-            <button class="btn select_button btn-info answer-type btn-topic me-4" onclick="toggleInput('file')">PDF File</button>
-            <button class="btn select_button btn-info answer-type btn-topic me-4" onclick="toggleInput('file')">ZIP File</button>
-            <button class="btn select_button btn-info answer-type btn-topic me-4" onclick="toggleInput('link')">Link</button>
+            <button class="btn select_button btn-info answer-type btn-topic me-4" onclick="toggleInput('file')" data-translate="PDF File">PDF File</button>
+            <button class="btn select_button btn-info answer-type btn-topic me-4" onclick="toggleInput('file')" data-translate="ZIP File">ZIP File</button>
+            <button class="btn select_button btn-info answer-type btn-topic me-4" onclick="toggleInput('link')" data-translate="Link">Link</button>
         </div>
-        <h3>Your Answer</h3>
+        <h3 data-translate="Your Answer">Your Answer</h3>
         <div class="input-group mb-1">
             <label class="input-group-text" for="fileInput">
                 <i class="bi bi-file-earmark"></i>
@@ -144,7 +144,7 @@
             <input type="text" id="linkInput" class="form-control"   style="border:2px solid black;border-left:none; border-radius:0 4px 4px 0;" placeholder="Enter the link here..." aria-label="Enter link" >
         </div>
         
-        <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;">Send</button>
+        <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;" data-translate="Send">Send</button>
 
 
     </div>

@@ -28,7 +28,7 @@
     </nav>
 
     <div class="container mt-5">
-        <div class="card registration-card" style="background-color:#f3f5fc;">
+        <div class="card registration-card" style="background-color:#f3f5fc;border: 1px solid #B1BBE7;">
         <div class="card login-card"  style="background-color:#f3f5fc;border:0; box-shadow: 0 0 0 0;">
             <div class="row g-0">
                 <div class="col-md-6 login-image" style="display:flex;">
@@ -56,7 +56,7 @@
                                     <input type="checkbox" class="form-check-input" id="rememberMe">
                                     <label class="form-check-label" for="rememberMe" style="font-size:16px;"  data-translate="Remember me">Remember me</label>
                                 </div>
-                                <a href="./forgot_pw.html" class="forgot-password" style="text-decoration: none; font-size:16px;color:#000;" data-translate="LOG IN">Forgot Password?</a>
+                                <a href="{{url('forgot_pw')}}" class="forgot-password" style="text-decoration: none; font-size:16px;color:#000;" data-translate="Forgot Password?">Forgot Password?</a>
                             </div>
                             <button  class="btn btn-black w-100" style="background-color:#474bc2; color:white; border-radius:4px;" data-translate="Log In"><a href="./home_page_dashboard_before_approve.html" style="text-decoration: none; color:#fff;">Login</a></button>
                             <div class="social-login mt-3 text-center d-flex justify-content-center">
@@ -86,6 +86,66 @@
                     toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
                 }
             }
+
+                            // Function to update language and translate all elements
+        async function updateLanguage(language) {
+            document.getElementById('dropdownLabel').textContent = language.toUpperCase();
+
+            // ✅ Save the selected language in localStorage
+            localStorage.setItem('selectedLanguage', language);
+
+            // ✅ Define translations for static text (placeholders, buttons, etc.)
+            const translations = {
+                'en': {
+                    'emailPlaceholder': ""
+                },
+                'th': {
+                    'emailPlaceholder': ""
+                },
+                'my': {
+                    'emailPlaceholder': ""
+                }
+            };
+
+            // ✅ Update placeholders
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+            }
+
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+            }
+
+            // ✅ Update text content using predefined translations or Google Translate API
+            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+            for (const element of elementsToTranslate) {
+                const key = element.getAttribute('data-translate');
+                
+                if (translations[language][key]) {
+                    element.innerText = translations[language][key];
+                } else {
+                    // Use Google Translate API if predefined translation is unavailable
+                    const translatedText = await translateText(key, language);
+                    element.innerText = translatedText;
+                }
+            }
+        }
+
+        // ✅ Function to translate text using Google Translate API
+        async function translateText(text, targetLanguage) {
+            try {
+                const response = await fetch(
+                    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+                );
+                const data = await response.json();
+                return data[0][0][0]; // Extract the translated text
+            } catch (error) {
+                console.error('Translation error:', error);
+                return text; // Fallback to the original text if translation fails
+            }
+        }
     </script>
 @endsection
 

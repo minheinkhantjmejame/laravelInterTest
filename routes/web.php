@@ -54,6 +54,10 @@ Route::get('/login', function () {
     return view('intern.login');
 });
 
+Route::get('/forgot_pw', function () {
+    return view('intern.forgot_pw');
+});
+
 // Internship Page 
 Route::get('/internship', function () {
     $title = request('title');

@@ -648,6 +648,10 @@ body {
     align-items:center;
 }
 
+.footer-icons a{
+    color:#5A5D62;
+}
+
 
 
 @media (min-width: 768px) {

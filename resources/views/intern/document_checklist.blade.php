@@ -51,24 +51,24 @@
 
 
             <div class="container mt-5">
-                <p class="badge" style="font-weight:bold;">In-progress</p>
+                <p class="badge" style="font-weight:bold;" data-translate="In-progress">In-progress</p>
                 <div class="header-content mb-0">
-                    <h1>DOCUMENT CHECKLIST</h1><i class="bi bi-check2-square text-success"></i>
-                    <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i>Back</a>
+                    <h1 data-translate="DOCUMENT CHECKLIST">DOCUMENT CHECKLIST</h1><i class="bi bi-check2-square text-success"></i>
+                    <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i><span data-translate="Back">Back</span></a>
                 </div>
-                <p class="duedate mt-0">Due today</p>        
-                <p>Greeting from Vanness Plus Consulting Co., Ltd.</p>
-                <p>Document checklist:</p>
+                <p class="duedate mt-0" data-translate="Due today">Due today</p>        
+                <p data-translate="Greeting from Vanness Plus Consulting Co., Ltd.">Greeting from Vanness Plus Consulting Co., Ltd.</p>
+                <p data-translate="Document checklist:">Document checklist:</p>
                 <ol>
-                    <li> A copy of ID card</li>
-                    <li> A copy of house registration</li>
-                    <li> Trascript</li>
+                    <li data-translate="A copy of ID card"> A copy of ID card</li>
+                    <li data-translate="A copy of house registration"> A copy of house registration</li>
+                    <li data-translate="Transcript"> Transcript</li>
                 </ol>
-                <p>In case of any further queries, please kindly feel free to contact us anytime.</p>
+                <p data-translate="In case of any further queries, please kindly feel free to contact us anytime.">In case of any further queries, please kindly feel free to contact us anytime.</p>
                 <hr>
 
         <!-- File Upload for ID Card -->
-        <h3>YOUR COPY OF ID CARD</h3>
+        <h3 data-translate="YOUR COPY OF ID CARD">YOUR COPY OF ID CARD</h3>
         <div class="input-group mb-1">
             <label class="input-group-text file-label" for="fileInput1">
                 <i class="bi bi-file-earmark"></i>
@@ -79,7 +79,7 @@
         <p class="mt-0" style="font-size:12px">* Supports size up to 10MB</p>
 
         <!-- File Upload for House Registration -->
-        <h3>YOUR COPY OF HOUSE REGISTRATION</h3>
+        <h3 data-translate="YOUR COPY OF HOUSE REGISTRATION">YOUR COPY OF HOUSE REGISTRATION</h3>
         <div class="input-group mb-1">
             <label class="input-group-text file-label" for="fileInput2">
                 <i class="bi bi-file-earmark"></i>
@@ -90,7 +90,7 @@
         <p class="mt-0" style="font-size:12px">* Supports size up to 10MB</p>
 
         <!-- File Upload for Transcript -->
-        <h3>YOUR TRANSCRIPT</h3>
+        <h3 data-translate="YOUR TRANSCRIPT">YOUR TRANSCRIPT</h3>
         <div class="input-group mb-1">
             <label class="input-group-text file-label" for="fileInput3">
                 <i class="bi bi-file-earmark"></i>
@@ -104,7 +104,7 @@
 
                 
                     
-        <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;">Send</button>
+        <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius:4px;" data-translate="Send">Send</button>
 
 
         </div>

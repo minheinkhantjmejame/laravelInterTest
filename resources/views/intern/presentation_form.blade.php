@@ -48,21 +48,21 @@
         @include('layouts.intern.navbar')
 
         <div class="container mt-5">
-            <p class="badge" style="font-weight:bold;">In-progress</p>
+            <p class="badge" style="font-weight:bold;" data-translate="In-progress">In-progress</p>
             <div class="header-content mb-0">
-                <h1 class="m-0">PRESENTATION POWERPOINT</h1><i class="bi bi-check2-square text-success"></i>
-                <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <h1 class="m-0" data-translate="PRESENTATION POWERPOINT">PRESENTATION POWERPOINT</h1><i class="bi bi-check2-square text-success"></i>
+                <a href="#" style=" border-radius:4px;" class="btn " onclick="history.back()"><i class="bi bi-arrow-left-short"></i><span data-translate="Back">Back</span></a>
             </div>
-            <p class="duedate mt-0">Due today</p>        
-            <p>Greeting from Vanness Plus Consulting Co., Ltd.</p>
-            <p>Presentation about:</p>
+            <p class="duedate mt-0" data-translate="Due Today">Due today</p>        
+            <p data-translate="Greeting from Vanness Plus Consulting Co., Ltd.">Greeting from Vanness Plus Consulting Co., Ltd.</p>
+            <p data-translate="Presentation about:">Presentation about:</p>
             <ol>
-                <li> "What is your dream job and why?"</li>
-                <li> "What are your characteristic and hobbies?"</li>
+                <li data-translate="What is your dream job and why?"> "What is your dream job and why?"</li>
+                <li data-translate="What are your characteristic and hobbies?"> "What are your characteristic and hobbies?"</li>
             </ol>
-            <p>In case of any further queries, please kindly feel free to contact us anytime.</p>
+            <p data-translate="In case of any further queries, please kindly feel free to contact us anytime.">In case of any further queries, please kindly feel free to contact us anytime.</p>
             <hr>
-            <h3>YOUR PRESENTATION</h3>
+            <h3 data-translate="YOUR PRESENTATION">YOUR PRESENTATION</h3>
             <div class="input-group mb-1">
                 <label class="input-group-text" for="fileInput">
                     <i class="bi bi-file-earmark" style="color:white;"></i>
@@ -73,7 +73,7 @@
             <p class="mt-0 text-muted" style="font-size:12px;">*Supports size up to 10 MB</p>
             
                 
-            <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius: 4px;">Send</button>
+            <button class="btn mb-3" style="background-color:#474bc2;color:white; border-radius: 4px;" data-translate="Send">Send</button>
 
 
         </div>

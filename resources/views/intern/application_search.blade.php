@@ -9,24 +9,29 @@
             }
             .search-container {
                 background-color: #f8f9fa;
-                border-radius: 10px;
-                padding: 40px 20px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                max-width: 100%;
-                margin: auto;
+                width: 100vw; /* Full viewport width */
+                position: relative; /* Ensures it breaks out of parent constraints */
+                left: 50%; /* Center it */
+                right: 50%; /* Center it */
+                margin-left: -50vw; /* Offset to stretch full width */
+                margin-right: -50vw; /* Offset to stretch full width */
+                padding: 40px 20px; /* Keep internal padding */
+                max-width: none; /* Remove max-width restriction */
             }
 
             .input-group {
                 justify-content: center;
             }
 
+
+
             .app-id-input {
                 width: 40px;
                 height: 40px;
                 text-align: center;
                 margin-right: 5px; 
-                border-radius: 5px;
-                border: 1px solid black; 
+                border-radius: 2px;
+                border: 1px solid black !important; 
                 background-color:white;
                 transition: border-color .15s ease-in-out;
                 display: inline-block;
@@ -61,7 +66,7 @@
 
             .internship-details .card {
                 background-color: #f8f9fa;
-                border: none;
+                border: 1px solid #B1BBE7;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
@@ -94,189 +99,217 @@
                 padding: 10px 15px; 
             }
 
-            .card {
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                overflow: hidden; 
-            }
+            /* .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
 
-            .card-body {
-                display: flex;
-                flex-wrap: wrap; 
-                align-items: center;
-                justify-content: space-between; 
-                padding: 20px;
-            }
+.card-body {
+    padding: 20px;
+}
 
+.row {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: stretch;
+    min-height: 200px; /* Set a minimum height to ensure consistency */
+/* } */
 
-            .card-image {
-                height: 100%; 
-                object-fit: cover;
-            }
+.col-md-3, .col-md-4, .col-md-2 {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure columns stretch to the full height of the row */
+}
 
-            .hr {
-                margin-top: 10px;
-                margin-bottom: 10px;
-                border-top: 1px solid #eee;
-            }
+.col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
 
-            .col-md-3 {
-                flex: 1 1 20%;
-                margin: 10px;
-                min-width: 160px;
-                max-width: 240px;
-            }
+.col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+}
 
-            .date-box, .type-box {
-                background-color: #f4f4f9;
-                padding: 10px;
-                border-radius: 5px;
-                margin-bottom: 10px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                width: 100%;
-                text-align: center;
-            }
+.col-md-2 {
+    flex: 0 0 16.6667%;
+    max-width: 16.6667%;
+}
 
-            .date-details p {
-                margin-bottom: 5px;
-            }
+.image-container {
+    position: relative;
+    height: 100%; /* Ensure the container stretches to the full height */
+    display: flex;
+    flex-direction: column;
+}
 
-            .type-title {
-                font-size: 24px;
-                margin-bottom: 0;
-            }
+.card-image {
+    width: 100%;
+    height: 100%; /* Ensure the image stretches to the full height */
+    object-fit: cover; /* Maintain aspect ratio while filling the container */
+}
 
-            .type-text {
-                font-size: 16px;
-                margin-top: 5px;
-            }
+.content-section {
+    height: 100%; /* Ensure the section stretches to the full height */
+}
 
-            .card-title {
-                font-size: 1.2rem; 
-                margin-bottom: 5px; 
-            }
+.content-box, .date-container, .type-box {
+    height: 100%; /* Ensure all content boxes stretch to the full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content at the top */
+    align-items: flex-start;
+    padding: 15px;
+    margin: 0; /* Remove any default margins */
+}
 
-            .card-title, .card-text {
-                margin-bottom: 4px; 
-            }
+.content-box {
+    padding: 15px 0;
+}
 
-            .card-body p {
-                font-size: 0.9rem; 
-                margin-bottom: 5px; 
+.date-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0; /* Remove padding to align with other sections */
+}
 
-            }
-            .btn-primary, .btn-success, .btn-danger {
-                color: #fff;
-            }
+.date-box, .type-box {
+    background-color: #d1d1f0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Remove any margins */
+}
 
-            .btn-primary {
-                background-color: #007bff; 
-            }
+.date-box {
+    flex: 1; /* Ensure each date box takes equal space */
+    margin-bottom: 10px;
+}
 
-            .btn-success {
-                background-color: #28a745;
-            }
+.date-box:last-child {
+    margin-bottom: 0;
+}
 
-            .btn-danger {
-                background-color: #dc3545; 
-            }
+.type-box {
+    flex: 1; /* Ensure the type-box stretches to the full height */
+    justify-content: center; /* Center the content vertically */
+}
 
-            .card {
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                overflow: hidden; 
-            }
+.date-box p, .type-box p {
+    margin: 0;
+}
 
-            .col-md-3 {
-                flex: 1 1 20%;
-                margin: 10px;
-                min-width: 160px;
-            }
+.type-box img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
 
-            .date-box, .type-box {
-                background-color: #f4f4f9;
-                padding: 10px;
-                border-radius: 5px;
-                margin-bottom: 10px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                width: 100%;
-                text-align: center;
-            }
-            .card-image {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 0; /* Ensure no extra margin at the top */
+}
 
-            .date-box, .type-box {
-                background-color: #f4f4f9;
-                padding: 10px 15px;
-                border-radius: 5px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
+.card-text {
+    font-size: 20px;
+    margin-bottom: 8px;
+    margin-top: 0; /* Ensure no extra margin at the top */
+}
 
-            .card-title {
-                font-size: 16px;
-                font-weight: bold;
-            }
+.hr {
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+    width: 100%;
+}
 
-            .card-text {
-                font-size: 14px;
-            }
+.pending-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
 
-            .hr {
-                border-top: 1px solid #ddd;
-                margin: 8px 0;
-            }
+.btn-pending {
+    background-color: #b1bbe7;
+    color: #000;
+    border: 0;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 5px 15px;
+}
 
-            .type-box {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+@media (max-width: 992px) {
+    .row {
+        flex-direction: column;
+        min-height: auto; /* Remove min-height on smaller screens */
+    }
 
-            .bi-suitcase-lg {
-                font-size: 24px;
-                color: #6c757d;
-            }
+    .col-md-3, .col-md-4, .col-md-2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
 
-            a{
-                text-decoration:none;
-            }
+    .image-container {
+        height: auto;
+    }
 
+    .content-section {
+        height: auto;
+    }
 
+    .content-box, .date-container, .type-box {
+        height: auto;
+    }
 
+    .pending-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
 
-        @media (max-width: 992px) { /* Adjusts when the screen size is below 992px */
-            .card-body {
-                flex-direction: column; /* Stacks the columns vertically on smaller screens */
-            }
+    .date-box, .type-box {
+        margin-bottom: 10px;
+    }
 
-            .col-md-3 {
-                flex: 1 1 100%; /* Takes full width on smaller screens */
-            }
+    .date-box:last-child {
+        margin-bottom: 10px;
+    }
+}
 
-            .date-box, .type-box {
-                margin-bottom: 10px; /* Ensures spacing between boxes on smaller screens */
-            }
-        }
+a {
+    text-decoration: none;
+}
 
-        @media (max-width: 1196px) {
-            .card-body {
-                justify-content: space-around; /* Adjusts spacing for medium screens */
-            }
-            .col-md-3 {
-                flex: 1 1 22%; /* Slightly more width per column at this breakpoint */
-            }
-        }
+@media (max-width: 1196px) {
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
 
+    .col-md-4 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+
+    .col-md-2 {
+        flex: 0 0 16.6667%;
+        max-width: 16.6667%;
+    }
+} */
 
     </style>
 @endsection
@@ -288,10 +321,10 @@
     @include('layouts.intern.navbar')
     
     <div class="container my-5">
-        <h5 class="mb-4 headingtext" style="font-size:48px;" data-translate="YOUR INTERNSHIP">YOUR INTERNSHIP</h5>
+        <h5 class="mb-4 headingtext" style="font-size:48px;" data-translate="YOUR APPLICATION">YOUR APPLICATION</h5>
         <div class="search-container text-center" style="background-color:#f3f5fc;">
-            <p  style="font-size:32px;" data-translate="Enter Your application ID">Enter Your Application ID</p>
-            <div class="d-flex justify-content-center mb-3 ">
+            <p  style="font-size:32px;" data-translate="ENTER YOUR APPLICATION ID">ENTER YOUR APPLICATION ID</p>
+            <div class="d-flex justify-content-center mb-3 application-id">
                 <input type="text" maxlength="1" class="form-control app-id-input"  style="border:0;">
                 <input type="text" maxlength="1" class="form-control app-id-input"  style="border:0;">
                 <input type="text" maxlength="1" class="form-control app-id-input"  style="border:0;">
@@ -302,12 +335,12 @@
                 <input type="text" maxlength="1" class="form-control app-id-input"  style="border:0;">
                 <input type="text" maxlength="1" class="form-control app-id-input"  style="border:0;">
             </div>
-            <button class="btn btn-primary app-search-button" type="button" style="background-color:#474bc2;">Search</button>
+            <button class="btn btn-primary app-search-button" type="button" style="background-color:#474bc2;" data-translate="Search">Search</button>
         </div>
     </div>
 
     <div class="container internship-details mt-3">
-            <h4 class="text-start mb-4" data-translate="APPLICATION INTERNSHIP">APPLICATION INTERNSHIP</h4>
+            <h4 class="text-start mb-4" data-translate="APPLICATION INTERNSHIP"> APPLICATION INTERNSHIP</h4>
             <div class="status-buttons d-flex justify-content-start mb-3">
                 <button class="btn btn-primary mx-2" style="background-color:#b1bbe7;color:#000; border:0; border-radius:4px; font-size:20px;" data-translate="Pending">Pending</button>
                 <button class="btn btn-primary mx-2" style="background-color:#b1bbe7;color:#000; border:0; border-radius:4px; font-size:20px;" data-translate="Request Internship Application">Request Internship Application</button>
@@ -319,29 +352,40 @@
             <a href="{{url('pending_status')}}">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-md-3">
-                                <img src="{{ asset('assets/img/pending_status.jpg') }}" style="width:250px;height:150px;" alt="Profile" class="img-fluid">
+                        <div class="row align-items-stretch position-relative">
+                            <!-- Image with Pending Button -->
+                            <div class="col-md-3 image-container">
+                                <img src="{{ asset('assets/img/status.png') }}" style="width:200px;height:180px;" alt="Profile" class="image-fluid card-image">
+                                <div class="pending-button">
+                                    <button class="btn btn-pending" style="background-color:#b1bbe7;color:#000;border:0;border-radius:4px;font-size:20px;" data-translate="Pending">Pending</button>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <h6 class="card-title" style="font-size:24px;" data-translate="UX/UI Designer Trainee">UX/UI Designer Trainee</h6>
-                                <p class="card-text" style="font-size:20px;"><i class="bi bi-geo-alt"></i> 287 Si Lom Rd, Liberty Square Building</p>
-                                <hr>
-                                <p class="card-text"><strong  style="font-size:24px;" data-translate="Application ID:">Application ID:</strong><span style="font-size:20px;"> 112987630</span></p>
+                            <!-- Title, Location, and Application ID -->
+                            <div class="col-md-4 content-section">
+                                <div class="content-box">
+                                    <h6 class="card-title" style="font-size:24px;" data-translate="UX/UI Designer Trainee">UX/UI Designer Trainee</h6>
+                                    <p class="card-text" style="font-size:20px;"><i class="bi bi-geo-alt"></i> 287 Si Lom Rd, Liberty Square Building</p>
+                                    <hr class="hr">
+                                    <p class="card-text"><strong style="font-size:24px;" data-translate="Application ID:">Application ID:</strong><span style="font-size:20px;"> 112987630</span></p>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                        <div class="date-box" style="background-color:#d1d1f0;">
-                            <p style="font-size:24px;" data-translate="Start date:"><strong>Start date:</strong></p>
-                            <p style="font-size:20px;"  data-translate="Mon, 25 Nov 2024">Mon, 25 Nov 2024</p>
-                        </div>
-                        <div class="date-box" style="background-color:#d1d1f0;">
-                            <p style="font-size:24px;"  data-translate="End date:"><strong>End date:</strong></p>
-                            <p style="font-size:20px;"  data-translate="Sat, 14 Mar 2025">Sat, 14 Mar 2025</p>
-                        </div>
-                        </div>
-                            <div class="col-md-3">
-                                <div class="type-box" style="background-color:#d1d1f0;">
-                                    <p style="font-size:24px;"  data-translate="Hybrid"><i class="bi bi-suitcase-lg" style="color:black;"></i> <br/>Hybrid</p>
+                            <!-- Date Boxes -->
+                            <div class="col-md-3 content-section">
+                                <div class="date-container">
+                                    <div class="date-box" style="background-color:#d1d1f0;">
+                                        <p style="font-size:24px;" data-translate="Start date:"><strong>Start date:</strong></p>
+                                        <p style="font-size:20px;" data-translate="Mon, 25 Nov 2024">Mon, 25 Nov 2024</p>
+                                    </div>
+                                    <div class="date-box" style="background-color:#d1d1f0;">
+                                        <p style="font-size:24px;" data-translate="End date:"><strong>End date:</strong></p>
+                                        <p style="font-size:20px;" data-translate="Sat, 14 Mar 2025">Sat, 14 Mar 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Type Box -->
+                            <div class="col-md-2 content-section" style="width:180px;height:200px;">
+                                <div class="type-box h-100" style="background-color:#d1d1f0; position: relative;">
+                                    <img src="{{asset('assets/icon/hybrid.png')}}" alt="" style="width:24px;height:24px; position: absolute; top:15px;right:15px;"> <p style="font-size:18px;position: absolute;left:13px;bottom:14px;"><span data-translate="Hybrid">Hybrid</span></p>
                                 </div>
                             </div>
                         </div>
@@ -350,45 +394,7 @@
             </a>
     </div>             
 
-    <footer class="bg-light py-4">
-            <div class="container text-left">
-                <div class="row align-items-center">
-                    <div class="col-md-6 fw-bold fs-4">INTERNPLUS</div>
-                    <div class="col-md-6 text-end">
-                        <div class="form-control d-inline-flex align-items-center me-2" style="background-color: #f3f4f6;border:0;width:  300px; height:35px;">
-                            <span class="input-group-text bg-transparent" style="border:0;"><i class="bi bi-envelope"></i></span>
-                            <input type="email" class="form-control bg-trasparent" style="border:0; width:300px;background-color: transparent;" id="email" placeholder="Enter your email to get the latest news..." required>
-                        </div>
-                        <button class="btn" style="background-color:#474bc2; color:white;" data-translate="Subscribe">Subscribe</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="row align-items-center">
-                    <div class="col-md-6 contact">
-                        <h5 class="fw-bold mb-3" data-translate="Contact Information">Contact Us</h5>
-                        <p><a href="https://maps.app.goo.gl/vupuH5eNXeRHCKHC9" class="text-decoration-none" style="color:#333333;"><i class="bi bi-geo-alt"></i> 287 Si Lom Rd, Silom, Bang Rak, Bangkok 10500</a></p>
-                        <p><i class="bi bi-telephone"></i> <a href="tel:020777581" class="text-decoration-none" style="color:#333333;">02-0777581 (Head Quarter Contact)</a></p>
-                        <p><i class="bi bi-envelope"></i> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cs@internplus.com" class="text-decoration-none" style="color:#333333;">cs@internplus.com</a></p>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <img src="../assets/img/location.png" alt="Map Icon" class="img-fluid">
-                    </div>
-                </div>
-                <hr>
-                <div class="row align-items-center" id="footer">
-                    <div class="col-md-6 order-md-1">
-                        <p data-translate="&copy; Internplus @ 2024. All rights reserved.">&copy; Internplus @ 2024. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6 order-md-2 footer-icons">
-                        <a href="#" class="text-dark mx-2"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="text-dark mx-2"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-dark mx-2"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="text-dark mx-2"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-dark mx-2"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-    </footer>
+    @include('layouts.intern.internFooter')
 @endsection
 
 

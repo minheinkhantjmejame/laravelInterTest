@@ -137,14 +137,14 @@
                     <p class="text-muted" style="color:#000;font-size:20px;"><i class="bi bi-geo-alt"></i>287 Si Lom Rd, Liberty Square Building</p>
                 </div>
                 <div class="col-md-4 text-end">
-                    <button class="btn btn-dark" onclick="history.back()"  style="background-color:#b1bbe7; color:black; border:0;"><i class="bi bi-arrow-left"></i> Back</button>
+                    <button class="btn btn-dark" onclick="history.back()"  style="background-color:#b1bbe7; color:black; border:0;"><i class="bi bi-arrow-left"></i><span data-translate="Back"> Back</span></button>
                     <button class="btn btn-dark ms-2" style="background-color:#474bc2; color:white; border:0;"><i class="bi bi-download"></i></button>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-8">
-                    <p style="font-size:24px;">Hi, Vanness Plus consulting Co., Ltd. is now recruiting interns. Internships can be done in both Work from home, On-site, and Hybrid with allowances. The office is located at Liberty Square Building, near BTS Sala Daeng/MRT Silom.</p>
+                    <p style="font-size:24px;" data-translate="Hi, Vanness Plus consulting Co., Ltd. is now recruiting interns. Internships can be done in both Work from home, On-site, and Hybrid with allowances. The office is located at Liberty Square Building, near BTS Sala Daeng/MRT Silom.">Hi, Vanness Plus consulting Co., Ltd. is now recruiting interns. Internships can be done in both Work from home, On-site, and Hybrid with allowances. The office is located at Liberty Square Building, near BTS Sala Daeng/MRT Silom.</p>
                 </div>
             </div>
                 <hr/>
@@ -157,22 +157,22 @@
                 <div class="col-md-6">
                     <form>
                         <div class="mb-3">
-                            <label for="firstName" class="form-label">First Name</label>
+                            <label for="firstName" class="form-label" data-translate="FIRST NAME">FIRST NAME</label>
                             <input type="text" class="form-control internship" id="firstName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="lastName" class="form-label">Last Name</label>
+                            <label for="lastName" class="form-label"  data-translate="LAST NAME">LAST NAME</label>
                             <input type="text" class="form-control internship" id="lastName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label"  data-translate="EMAIL ADDRESS">EMAIL ADDRESS</label>
                             <input type="email" class="form-control internship" id="email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
+                            <label for="phone" class="form-label"  data-translate="PHONE NUMBER">PHONE NUMBER</label>
                             <input type="tel" class="form-control internship" id="phone" required>
                         </div>
-                        <p class="mb-2" style="font-size:30px;">Your CV/RESUME</p>
+                        <p class="mb-2" style="font-size:30px;"  data-translate="YOUR CV/RESUME">YOUR CV/RESUME</p>
                         <div class="input-group mb-3" onclick="document.getElementById('cvFileInput').click();">                        
                             <label class="input-group-text" for="cvFileInput">
                                 <i class="bi bi-file-earmark" style="color:white;"></i>
@@ -182,7 +182,7 @@
                         </div>
                         <p class="mt-0 text-muted" style="font-size:12px;">*Supports size up to 10 MB</p>
                         
-                        <p class="mb-2" style="font-size:30px;">Your Portfolio</p>
+                        <p class="mb-2" style="font-size:30px;" data-translate="YOUR PORTFOLIO">YOUR PORTFOLIO</p>
                         <div class="input-group mb-3" onclick="document.getElementById('portfolioFileInput').click();">
                             <label class="input-group-text" for="portfolioFileInput">
                                 <i class="bi bi-file-earmark" style="color:white;"></i>
@@ -196,7 +196,7 @@
                 <div class="col-md-6">
                     <form>
                         <div class="mb-3">
-                            <label for="startDate" class="form-label">Internship Period</label>
+                            <label for="startDate" class="form-label" data-translate="INTERNSHIP PERIOD">INTERNSHIP PERIOD</label>
                             <div class="calendar-container">
                                 <!-- Header -->
                                 <div class="calendar-header">
@@ -232,7 +232,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Internship Type *</label>
+                            <label class="form-label" data-translate="INTERNSHIP TYPE">INTERNSHIP TYPE</label>
                         
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center">
@@ -244,7 +244,7 @@
                                     <i class="bi bi-building" style="font-size: 2rem;"></i>
                                 </div>
                                 <div class="text-start">
-                                    <p>On-site</p>
+                                    <p data-translate="On-site">On-site</p>
                                 </div>
                             </label>
                         </div>
@@ -255,7 +255,7 @@
                                     <i class="bi bi-house" style="font-size: 2rem;"></i>
                                 </div>
                                 <div class="text-start ml-0">
-                                <p>Work From Home</p> 
+                                <p data-translate="WORK FROM HOME">WORK FROM HOME</p> 
                                 </div>
                                 
                             </label>
@@ -267,7 +267,7 @@
                                     <i class="bi bi-briefcase" style="font-size: 2rem;"></i>
                                 </div>      
                                 <div class="text-start ml-0">
-                                    <p>Hybrid</p>
+                                    <p data-translate="Hybrid">Hybrid</p>
                                 </div>                    
                                 
                             </label>
@@ -281,7 +281,7 @@
         </div> -->
 
         <div class="d-flex justify-content-end mt-3">
-            <a href="{{url('application_success')}}" type="submit" class="btn btn-dark" style="background-color:#474bc2;color:white;">Apply</a>
+            <a href="{{url('application_success')}}" type="submit" class="btn btn-dark" style="background-color:#474bc2;color:white;" data-translate="Apply">Apply</a>
         </div>
         
                         
@@ -294,6 +294,65 @@
 @section('script')
     <script type="text/javascript"> 
 
+    // Function to update language and translate all elements
+    async function updateLanguage(language) {
+    document.getElementById('dropdownLabel').textContent = language.toUpperCase();
+
+    // ✅ Save the selected language in localStorage
+    localStorage.setItem('selectedLanguage', language);
+
+    // ✅ Define translations for static text (placeholders, buttons, etc.)
+    const translations = {
+        'en': {
+            'emailPlaceholder': "Enter your email"
+        },
+        'th': {
+            'emailPlaceholder': "ใส่อีเมลของคุณ"
+        },
+        'my': {
+            'emailPlaceholder': "သင့် အီးမဲလ်ကို ရိုက်ထည့်ပါ"
+        }
+    };
+
+    // ✅ Update placeholders
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+    }
+
+    const emailInput = document.getElementById('email');
+    if (emailInput) {
+        emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+    }
+
+    // ✅ Update text content using predefined translations or Google Translate API
+    const elementsToTranslate = document.querySelectorAll('[data-translate]');
+    for (const element of elementsToTranslate) {
+        const key = element.getAttribute('data-translate');
+        
+        if (translations[language][key]) {
+            element.innerText = translations[language][key];
+        } else {
+            // Use Google Translate API if predefined translation is unavailable
+            const translatedText = await translateText(key, language);
+            element.innerText = translatedText;
+        }
+    }
+}
+
+// ✅ Function to translate text using Google Translate API
+async function translateText(text, targetLanguage) {
+    try {
+        const response = await fetch(
+            `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+        );
+        const data = await response.json();
+        return data[0][0][0]; // Extract the translated text
+    } catch (error) {
+        console.error('Translation error:', error);
+        return text; // Fallback to the original text if translation fails
+    }
+}
 
         document.addEventListener('DOMContentLoaded', function () {
             // Function to get URL parameters
