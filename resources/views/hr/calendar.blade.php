@@ -633,7 +633,7 @@
             <div class="col-md-9 dashboard-content"  id="dashboardContent">
                 <div class="container" style="background-color:#fff;">
                     <div class="calendar-header">
-                        <h2>Calendar</h2>
+                        <h2 data-translate="Calendar">Calendar</h2>
                     
                         <div  style=" width:60%;">
                         <!-- New container for Year Selector & Month Navigation -->
@@ -657,7 +657,7 @@
                             <div class="month-navigation text-center" style="width:80%;display:flex;justify-content: center;align-items: center;">
                                 <div style="display:flex;justify-content: center;align-items: center;">
                                 <i id="prev-month" class="bi bi-chevron-left"></i>
-                                <p id="current-month" class="m-0">December</p>
+                                <p id="current-month" class="m-0" data-translate="December">December</p>
                                 <i id="next-month" class="bi bi-chevron-right"></i>
                                 </div>
                                 
@@ -689,31 +689,31 @@
                                 <div class="description-select">
                                     <img src="../assets/icon/pin.png" alt="">
                                     <select id="description-type" style="border:none; background-color: #F3F5FC; padding:10px 10px;" >
-                                        <option value="holiday">Holiday</option>
-                                        <option value="weekend">Weekend</option>
-                                        <option value="internship-onboard">Internship Onboard</option>
-                                        <option value="internship-offboard">Internship Offboard</option>
+                                        <option value="holiday" data-translate="Holiday">Holiday</option>
+                                        <option value="weekend" data-translate="Weekend">Weekend</option>
+                                        <option value="internship-onboard" data-translate="Internship Onboard">Internship Onboard</option>
+                                        <option value="internship-offboard" data-translate="Internship Offboard">Internship Offboard</option>
                                     </select>
                                 </div>
                                 <div class="description-input">
-                                    <label style="font-size:16px;">Description</label>
+                                    <label style="font-size:16px;" data-translate="Description">Description</label>
                                     <input type="text" id="description-text" placeholder="Enter description">
                                 </div>
                                 <div class="description-badge">
-                                    <span class="badge" id="description-badge">Weekend</span>
+                                    <span class="badge" id="description-badge" data-translate="Weekend">Weekend</span>
                                 </div>
                                 <div>
                                     <img src="../assets/icon/add_profile.png" style="width: 35px; height: 35px; border: 1px dashed black; border-radius: 50%; padding: 10px; box-sizing: border-box;"  alt="">
                                 </div>
                                 <div class="description-actions" style="display:flex;justify-content: end;align-items: end;">
-                                    <button id="add-button">Add</button>
-                                    <button id="delete-button">Delete</button>
+                                    <button id="add-button" data-translate="Add">Add</button>
+                                    <button id="delete-button" data-translate="Delete">Delete</button>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="date-description">
-                            <h5>Date Description</h5>
+                            <h5 data-translate="Date Description">Date Description</h5>
                             <hr>
                             <p class="badge-text">
                                 <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> Holiday
@@ -997,7 +997,7 @@
             }
 
             function updateDateDescription() {
-            let descriptionHTML = `<h5>Date Description</h5>`;
+            let descriptionHTML = `<h5 data-translate="Date Description">Date Description</h5>`;
 
             // 🔹 Add user-selected events before the separator line
             Object.keys(events).forEach(date => {
@@ -1017,16 +1017,16 @@
             // 🔹 Add a separator line before default event badges
             descriptionHTML += `<hr>
                                 <p class="badge-text">
-                                    <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> Holiday
+                                    <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> <span data-translate="Holiday">Holiday</span>
                                 </p>
                                 <p class="badge-text">
-                                    <span class="badge offboard-badge" style="width:15px;height:15px;"> </span> Weekend
+                                    <span class="badge offboard-badge" style="width:15px;height:15px;"> </span> <span data-translate="Weekend">Weekend</span> 
                                 </p>
                                 <p class="badge-text">
-                                    <span class="badge onboard-badge" style="width:15px;height:15px;"> </span> Internship onboard
+                                    <span class="badge onboard-badge" style="width:15px;height:15px;"> </span> <span data-translate="Internship onboard">Internship onboard</span>
                                 </p>
                                 <p class="badge-text">
-                                    <span class="badge holiday-badge" style="width:15px;height:15px;"> </span> Internship offboard
+                                    <span class="badge holiday-badge" style="width:15px;height:15px;"> </span><span data-translate="Intenship Offboard">Internship offboard</span>
                                 </p>`;
 
             dateDescriptionContainer.innerHTML = descriptionHTML;

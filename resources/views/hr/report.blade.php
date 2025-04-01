@@ -9,19 +9,19 @@
 
 
                 <div class="col-md-9 dashboard-content" id="dashboardContent">
-                    <h2 class="mb-5">Report</h2>
+                    <h2 class="mb-5" data-translate="Report">Report</h2>
                     
                     <!-- tab pane  -->
                     <div class="container">
                         <ul class="nav nav-tabs" id="reportTabs">
                             <li class="nav-item">
                                 <a class="nav-link active" id="dailyReport-tab" data-bs-toggle="tab" href="#dailyReport">
-                                    <i class="bi bi-clock-history" style="margin-right:5px;"></i> Daily Report
+                                    <i class="bi bi-clock-history" style="margin-right:5px;"></i><span data-translate="Daily Report">Daily Report</span> 
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="feedbackReport-tab" data-bs-toggle="tab" href="#feedbackReport">
-                                    <i class="bi bi-chat-dots" style="margin-right:5px;"></i> Feedback Report
+                                    <i class="bi bi-chat-dots" style="margin-right:5px;"></i><span data-translate="Feedback Report">Feedback Report</span>
                                 </a>
                             </li>
                         </ul>
@@ -32,24 +32,24 @@
                                 <!-- tab heading  -->
                                 <div class="d-flex justify-content-between mb-5 mt-4">
                                     <div class="d-flex justify-content-center align-items-center gap-5" style=" height:40px;">
-                                        <h3>Daily Report</h3>
+                                        <h3 data-translate="Daily Report">Daily Report</h3>
                                         <div class="" style="background-color:white; padding:10px 5px; border-radius: 4px;">
-                                            <button style="background-color: transparent; border-radius:4px; border:none;">Morning</button>
-                                            <button style="background-color: transparent; border-radius:4px; border:none;">Before Lunch</button>
-                                            <button style="background-color: transparent; border-radius:4px; border:none;">Evening</button>
+                                            <button style="background-color: transparent; border-radius:4px; border:none;" data-translate="Morning">Morning</button>
+                                            <button style="background-color: transparent; border-radius:4px; border:none;" data-translate="Before Lunch">Before Lunch</button>
+                                            <button style="background-color: transparent; border-radius:4px; border:none;" data-translate="Evening">Evening</button>
                                         </div>
                                     </div>
                                     <div class="d-flex gap-3">
                                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                                            <p class="mb-1">Total Onboard</p>
+                                            <p class="mb-1" data-translate="Total Onboard">Total Onboard</p>
                                             <h4 class="mb-0">17</h4>
                                         </div>
                                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                                            <p class="mb-1">Reported</p>
+                                            <p class="mb-1" data-translate="Reported">Reported</p>
                                             <h4 class="mb-0">15</h4>
                                         </div>
                                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                                            <p class="mb-1">Pending</p>
+                                            <p class="mb-1" data-translate="Pending">Pending</p>
                                             <h4 class="mb-0">2</h4>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="d-flex gap-2">
                                             <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
-                                                <i class="bi bi-sliders"></i> <span> General Setting</span>
+                                                <i class="bi bi-sliders"></i> <span data-translate="General Setting"> General Setting</span>
                                             </button>
                                             <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
                                         </div>
@@ -114,10 +114,10 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Intern</th>
-                                                <th>Note</th>
-                                                <th>Date/Time</th>
-                                                <th>Files</th>
+                                                <th data-translate="Intern">Intern</th>
+                                                <th data-translate="Note">Note</th>
+                                                <th data-translate="Date/Time">Date/Time</th>
+                                                <th data-translate="Files">Files</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <div>
-                                        <label for="reportsPerPage">Reports per page:</label>
+                                        <label for="reportsPerPage" data-translate="Reports per page:">Reports per page:</label>
                                         <select id="reportsPerPage" class="form-select d-inline-block w-auto bg-transparent">
                                             <option value="4">4</option>
                                             <option value="8">8</option>
@@ -146,23 +146,23 @@
                                 <!-- tab heading  -->
                                 <div class="d-flex justify-content-between mb-5 mt-4">
                                     <div class="d-flex justify-content-center align-items-center gap-3" style=" height:40px;">
-                                        <h3>Feedback Report</h3>
+                                        <h3 data-translate="Feedback Report">Feedback Report</h3>
                                         <div class="" style="background-color:white; padding:10px 5px; border-radius: 4px;">
-                                            <button style="background-color: transparent; border-radius:4px; border:none;">A week</button>
-                                            <button style="background-color: transparent; border-radius:4px; border:none;">A month</button>
+                                            <button style="background-color: transparent; border-radius:4px; border:none;" data-translate="A week">A week</button>
+                                            <button style="background-color: transparent; border-radius:4px; border:none;" data-translate="A month">A month</button>
                                         </div>
                                     </div>
                                     <div class="d-flex gap-3">
                                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                                            <p class="mb-1">Total Onboard</p>
+                                            <p class="mb-1" data-translate="Total Onboard">Total Onboard</p>
                                             <h4 class="mb-0">17</h4>
                                         </div>
                                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                                            <p class="mb-1">Reported</p>
+                                            <p class="mb-1" data-translate="Reported">Reported</p>
                                             <h4 class="mb-0">15</h4>
                                         </div>
                                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                                            <p class="mb-1">Pending</p>
+                                            <p class="mb-1" data-translate="Pending">Pending</p>
                                             <h4 class="mb-0">2</h4>
                                         </div>
                                     </div>
@@ -185,9 +185,9 @@
                                     </div>
                                     <div class="d-flex gap-2">
                                         <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
-                                            <i class="bi bi-sliders"></i> <span> General Setting</span>
+                                            <i class="bi bi-sliders"></i> <span data-translate="General Setting"> General Setting</span>
                                         </button>
-                                        <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
+                                        <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""><span data-translate="Export">Export</span>Export</button>
                                     </div>
                             </div>
 
@@ -199,7 +199,7 @@
                                 
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <div>
-                                        <label for="feedbackPerPage">Interns per page:</label>
+                                        <label for="feedbackPerPage" data-translate="Interns per page:">Interns per page:</label>
                                         <select id="feedbackPerPage" class="form-select d-inline-block w-auto bg-transparent">
                                             <option value="3">3</option>
                                             <option value="6">6</option>
@@ -218,7 +218,7 @@
                             <!-- Feedback Panel -->
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="feedbackPanel">
                                 <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title">Feedback Details</h5>
+                                    <h5 class="offcanvas-title" data-translate="Feedback Details">Feedback Details</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
                                 </div>
                                 <div class="offcanvas-body" id="feedbackDetails"></div>
@@ -677,7 +677,7 @@
                 const totalPages = Math.ceil(reportData.length / reportsPerPage);
 
                 paginationControls.innerHTML += `<li class="page-item ${currentReportPage === 1 ? 'disabled' : ''}">
-                    <a class="page-link" href="#" onclick="changeReportPage(${currentReportPage - 1})">Previous</a></li>`;
+                    <a class="page-link" href="#" style="border:none !important;justify-content:center;align-items:center;" onclick="changeReportPage(${currentReportPage - 1})"><i class="bi bi-chevron-left"></i> Previous</a></li></a></li>`;
 
                 if (totalPages > 3) {
                     paginationControls.innerHTML += `<li class="page-item ${currentReportPage === 1 ? 'active' : ''}">
@@ -704,7 +704,7 @@
                 }
 
                 paginationControls.innerHTML += `<li class="page-item ${currentReportPage === totalPages ? 'disabled' : ''}">
-                    <a class="page-link" href="#" onclick="changeReportPage(${currentReportPage + 1})">Next</a></li>`;
+                    <a class="page-link" href="#" style="border:none !important;justify-content:center;align-items:center;" onclick="changeReportPage(${currentReportPage + 1})">Next<i class="bi bi-chevron-right"></i> </a></li>`;
             }
 
             function changeReportPage(page) {
@@ -792,7 +792,7 @@
                 const totalPages = Math.ceil(feedbackData.length / feedbackPerPage);
                 
                 paginationControls.innerHTML += `<li class="page-item ${currentFeedbackPage === 1 ? 'disabled' : ''}">
-                    <a class="page-link" href="#" onclick="changeFeedbackPage(${currentFeedbackPage - 1})">Previous</a></li>`;
+                    <a class="page-link" href="#" style="border:none !important;justify-content:center;align-items:center;" onclick="changeFeedbackPage(${currentFeedbackPage - 1})"><i class="bi bi-chevron-left"></i>Previous</a></li>`;
                 
                 if (totalPages > 3) {
                     paginationControls.innerHTML += `<li class="page-item ${currentFeedbackPage === 1 ? 'active' : ''}">
@@ -819,7 +819,7 @@
                 }
                 
                 paginationControls.innerHTML += `<li class="page-item ${currentFeedbackPage === totalPages ? 'disabled' : ''}">
-                    <a class="page-link" href="#" onclick="changeFeedbackPage(${currentFeedbackPage + 1})">Next</a></li>`;
+                    <a class="page-link" href="#" style="border:none !important;justify-content:center;align-items:center;" onclick="changeFeedbackPage(${currentFeedbackPage + 1})">Next<i class="bi bi-chevron-right"></i></a></li>`;
             }
 
             function changeFeedbackPage(page) {

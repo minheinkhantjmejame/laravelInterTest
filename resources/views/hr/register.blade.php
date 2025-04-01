@@ -105,9 +105,9 @@
                         <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateLanguage('en')">EN</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateLanguage('th')">THAI</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateLanguage('my')">MYAN</a></li>
                     </ul>
                 </div>
             </div>
@@ -123,23 +123,23 @@
             @endif
             <form id="registrationForm"  action="{{route('hr.register')}}" method="POST">
                 @csrf
-                <h2>Register</h2>
-                <p style="margin:0;">First Name</p>
+                <h2 data-translate="Register">Register</h2>
+                <p style="margin:0;" data-translate="First Name">First Name</p>
                 <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                     <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-person" ></i></span>
                     <input type="text" class="form-control" id="firstName" name="first_name" style="border:0;"  required>
                 </div>
-                <p style="margin:0;">Last Name</p>
+                <p style="margin:0;" data-translate="Last Name">Last Name</p>
                 <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                     <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-person-check"></i></span>
                     <input type="text" class="form-control" id="lastName" name="last_name" style="border:0;"   required>
                 </div>
-                <p style="margin:0;">Email Address</p>
+                <p style="margin:0;" data-translate="Email Address">Email Address</p>
                 <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                     <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-envelope"></i></span>
                     <input type="email" class="form-control"  style="border:0;" id="email" name="email"  required>
                 </div>
-                <p style="margin:0;">Password</p>
+                <p style="margin:0;" data-translate="Password">Password</p>
                 <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                     <span class="input-group-text"  style="border:0;background-color:#fff;"><i class="bi bi-lock"></i></span>
                     <input type="password" class="form-control" id="password" name="password"  style="border:0;"  aria-label="Password" required>
@@ -149,12 +149,16 @@
                 </div>
                                         
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2;color:white; border:0; border-radius:4px;">Register</button>
+                    <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2;color:white; border:0; border-radius:4px;" data-translate="Register">Register</button>
                 </div>
                 <div class="social-login text-center d-flex justify-content-center">
                     <button type="button" class="btn social-btn me-3" style="color:#474bc2; border-color:#474bc2;" id="facebook-btn"><i class="bi bi-facebook"></i> Facebook</button>
                     <button type="button" class="btn social-btn" id="google-btn" style="color:#474bc2; border-color:#474bc2; border-radius:4px;"><i class="bi bi-google"></i> Google</button>
-                </div>                            
+                </div> 
+                <div class=" text-center d-flex justify-content-center mt-3 gap-2">
+                    <p class="fw-bold" data-translate="Already A Member?">Already A Member?</p> <a href="{{route("hr.login")}}" style="text-decoration:none; color:black;" data-translate="Log In"> Log in</a>
+                </div>
+                
             </form>
             
     </div>
@@ -174,6 +178,65 @@
             } else {
                 passwordInput.type = 'password';
                 toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
+            }
+        }
+
+        async function updateLanguage(language) {
+            document.getElementById('dropdownLabel').textContent = language.toUpperCase();
+
+            // ✅ Save the selected language in localStorage
+            localStorage.setItem('selectedLanguage', language);
+
+            // ✅ Define translations for static text (placeholders, buttons, etc.)
+            const translations = {
+                'en': {
+                    'emailPlaceholder': ""
+                },
+                'th': {
+                    'emailPlaceholder': ""
+                },
+                'my': {
+                    'emailPlaceholder': ""
+                }
+            };
+
+            // ✅ Update placeholders
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+            }
+
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+            }
+
+            // ✅ Update text content using predefined translations or Google Translate API
+            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+            for (const element of elementsToTranslate) {
+                const key = element.getAttribute('data-translate');
+                
+                if (translations[language][key]) {
+                    element.innerText = translations[language][key];
+                } else {
+                    // Use Google Translate API if predefined translation is unavailable
+                    const translatedText = await translateText(key, language);
+                    element.innerText = translatedText;
+                }
+            }
+        }
+
+        // ✅ Function to translate text using Google Translate API
+        async function translateText(text, targetLanguage) {
+            try {
+                const response = await fetch(
+                    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+                );
+                const data = await response.json();
+                return data[0][0][0]; // Extract the translated text
+            } catch (error) {
+                console.error('Translation error:', error);
+                return text; // Fallback to the original text if translation fails
             }
         }
     </script>

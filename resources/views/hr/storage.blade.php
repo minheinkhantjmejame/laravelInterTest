@@ -9,7 +9,7 @@
 
 
                 <div class="col-md-9 dashboard-content" id="dashboardContent">
-                    <h2 class="mb-0">Storage</h2>
+                    <h2 class="mb-0" data-translate="Storage">Storage</h2>
                     <div class="row" style="margin-left:5px; gap:20px;">
 
                                                 <!-- Right-Side New Folder Panel -->
@@ -19,11 +19,11 @@
                                 <button id="closePanel" class="btn-close"></button>
                             </div>
                             <div class="new-folder-body">
-                                <label class="mb-2" for="folderName" style="font-size:14px;">Folder Name</label>
+                                <label class="mb-2" for="folderName" style="font-size:14px;" data-translate="Folder Name">Folder Name</label>
                                 <input type="text" id="folderName" class="form-control" style="border:1px solid #C8C8C8;" placeholder="Enter folder name">
                             </div>
                             <div class="new-folder-footer align-self-end" style="align-items: end;">
-                                <button id="createFolder" class="btn btn-primary" style="background-color:#474BC2;">Create</button>
+                                <button id="createFolder" class="btn btn-primary" style="background-color:#474BC2;" data-translate="Create">Create</button>
                             </div>
                         </div>
 
@@ -32,7 +32,7 @@
                         <div class="card folder-card col-md-3" style="padding:20px;">
                             <button class="btn align-self-end"><img src="../assets/icon/add.png" style="width:30px;height:30px;" alt=""></button>
                             <img src="../assets/icon/folder-add.png" style="width:50px;height:50px;" alt="">
-                            <p class="mb-0" style="font-size:20px;">New Folder</p>
+                            <p class="mb-0" style="font-size:20px;" data-translate="New Folder">New Folder</p>
                         </div>
                     </div> 
                     <h3 class="mb-0 mt-4">Recent uploaded</h3>
@@ -41,17 +41,17 @@
                     </div>
                     
 
-                    <h3 class="">All files</h3>
+                    <h3 class="mt-4" data-translate="All Files">All files</h3>
                     <!-- File Category Tabs -->
                     <div class="d-flex align-items-center">
                         <!-- File Category Buttons with Equal Height and Width -->
                         <div class="d-flex p-1" style="background-color:#F3F5FC; border-radius:4px; height:45px; width:auto;">
-                            <button class="btn file-category active me-2" data-category="all">View all</button>
-                            <button class="btn file-category me-2" data-category="documents">Documents</button>
-                            <button class="btn file-category me-2" data-category="pdfs">PDFs</button>
-                            <button class="btn file-category me-2" data-category="zips">ZIPs</button>
-                            <button class="btn file-category me-2" data-category="images">Images</button>
-                            <button class="btn file-category" data-category="videos">Videos</button>
+                            <button class="btn file-category active me-2" data-category="all" data-translate="View all">View all</button>
+                            <button class="btn file-category me-2" data-category="documents" data-translate="Documents">Documents</button>
+                            <button class="btn file-category me-2" data-category="pdfs" data-translate="PDFs">PDFs</button>
+                            <button class="btn file-category me-2" data-category="zips" data-translate="ZIPs">ZIPs</button>
+                            <button class="btn file-category me-2" data-category="images" data-translate="Images">Images</button>
+                            <button class="btn file-category" data-category="videos" data-translate="Videos">Videos</button>
                         </div>
                     
                         <!-- Search Bar & General Settings Button -->
@@ -61,7 +61,7 @@
                                 <input type="text" id="searchInput" style="border:none;" class="form-control" placeholder="Search">
                             </div>
                             <button class="btn general-setting-btn" style="border:1px solid #C8C8C8; width:auto;">
-                                <i class="bi bi-sliders"></i> General Setting
+                                <i class="bi bi-sliders"></i><span data-translate="General Setting">General Setting</span> 
                             </button>
                         </div>
                     </div>
@@ -73,10 +73,10 @@
                             <thead>
                                 <tr>
                                     <th><input type="checkbox"></th>
-                                    <th>File name</th>
-                                    <th>Uploaded by</th>
-                                    <th>File source</th>
-                                    <th>Date/Time</th>
+                                    <th data-translate="File name">File name</th>
+                                    <th data-translate="Uploaded by">Uploaded by</th>
+                                    <th data-translate="File source">File source</th>
+                                    <th data-translate="Date/Time">Date/Time</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -87,7 +87,7 @@
                                 <!-- Pagination -->
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <div>
-                            <label>Files per page</label>
+                            <label data-translate="Files per page">Files per page</label>
                             <select id="filesPerPage" class="form-select d-inline-block w-auto">
                                 <option>6</option>
                                 <option>12</option>
@@ -415,6 +415,10 @@
 
 @section('script')
     <script type="text/javascript">
+
+
+
+    
                         document.addEventListener("DOMContentLoaded", function () {
                     let sidebarLinks = document.querySelectorAll(".nav-link");
 
@@ -874,7 +878,7 @@
                         // Previous Button
                         paginationContainer.innerHTML += `
                             <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                                <a class="page-link previous" href="#" onclick="changePage(${currentPage - 1}); return false;"><i class="bi bi-chevron-left"></i> Previous</a>
+                                <a class="page-link previous" href="#" onclick="changePage(${currentPage - 1}); return false;"><i class="bi bi-chevron-left"></i><span data-translate="Previous">Previous</span></a>
                             </li>
                         `;
 
@@ -965,7 +969,7 @@
                                             <div class="dropdown">
                                                 <button class="btn action-btn" type="button" data-bs-toggle="dropdown">&#8942;</button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#"><i class="bi bi-download"></i> Download</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="bi bi-download"></i> <span data-translate="Download">Download</span></a></li>
                                                     <li>
                                                         <a class="dropdown-item" href="#" id="addToFolder"><i class="bi bi-folder-plus"></i> Add to folder</a>
                                                         <ul class="dropdown-menu sub-dropdown">
@@ -1030,6 +1034,9 @@
                     .then(data => console.log("Upload successful:", data))
                     .catch(error => console.error("Error uploading file:", error));
                 });
+
+
+                
     </script>
 @endsection
 

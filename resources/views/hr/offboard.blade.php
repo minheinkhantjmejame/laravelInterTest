@@ -155,16 +155,16 @@
             <div class="col-md-9 dashboard-content" id="dashboardContent">
                 <!-- heading part  -->
                 <div class="d-flex justify-content-between mb-3">
-                    <h2 class="mb-0">Offboard</h2>
+                    <h2 class="mb-0" data-translate="Offboard">Offboard</h2>
                 
                     <!-- Summary Badges -->
                     <div class="d-flex gap-3">
                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 200px; height: 80px;">
-                            <p class="mb-1">Total offboard</p>
+                            <p class="mb-1" data-translate="Total Offboard">Total offboard</p>
                             <h4 class="mb-0">9</h4>
                         </div>
                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 200px; height: 80px;">
-                            <p class="mb-1">Approved</p>
+                            <p class="mb-1" data-translate="Approved">Approved</p>
                             <h4 class="mb-0">8</h4>
                         </div>
                     </div>
@@ -184,29 +184,29 @@
                                     <!-- All Program Dropdown -->
                                     <div class="dropdown">
                                         <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="programDropdownBtn"  data-bs-toggle="dropdown">
-                                            <img src="../assets/icon/verified.png" alt=""> All Approval
+                                            <img src="../assets/icon/verified.png" alt=""><span data-translate="All Approval"> All Approval</span>
                 
                                             <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" ></i></span>
                                         </button>
                                         <ul class="dropdown-menu" id="programDropdown">
-                                            <li><a class="dropdown-item active" href="#">All</a></li>
-                                            <li><a class="dropdown-item" href="#">HR Trainee</a></li>
-                                            <li><a class="dropdown-item" href="#">Software Tester</a></li>
-                                            <li><a class="dropdown-item" href="#">Marketing Trainee</a></li>
+                                            <li><a class="dropdown-item active" href="#"><span data-translate="All"> All</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="HR Trainee">HR Trainee</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="Software Tester">Software Tester</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="Marketing Trainee">Marketing Trainee</span></a></li>
                                         </ul>
                                     </div>
                             
                                     <!-- All Step Dropdown -->
                                     <div class="dropdown">
                                         <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="stepDropdownBtn"  data-bs-toggle="dropdown">
-                                            <img src="../assets/icon/arrow-circle-right.png" alt=""> All Evaluation
+                                            <img src="../assets/icon/arrow-circle-right.png" alt=""><span data-translate="All Evalution">All Evaluation</span> 
                                             <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="background-color:white;"></i></span>
                                         </button>
                                         <ul class="dropdown-menu" id="stepDropdown">
-                                            <li><a class="dropdown-item active" href="#">All</a></li>
-                                            <li><a class="dropdown-item" href="#">Pending</a></li>
-                                            <li><a class="dropdown-item" href="#">Request Internship Application</a></li>
-                                            <li><a class="dropdown-item" href="#">Success</a></li>
+                                            <li><a class="dropdown-item active" href="#"><span data-translate="All">All</span> All</a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="Pending">Pending</span> </a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate=" Request Internship Application"> Request Internship Application</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="Success">Success</span> Success</a></li>
                                         </ul>
                                     </div>
                 
@@ -214,11 +214,11 @@
                 
                                     <div class="dropdown">
                                         <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="stepDropdownBtn"  data-bs-toggle="dropdown">
-                                            <img src="../assets/icon/user-shield.png" alt=""> All Certification
+                                            <img src="../assets/icon/user-shield.png" alt=""> <span data-translate="All Certification">All Certification</span>
                                             <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="background-color:white;"></i></span>
                                         </button>
                                         <ul class="dropdown-menu" id="stepDropdown">
-                                            <li><a class="dropdown-item active" href="#">All</a></li>
+                                            <li><a class="dropdown-item active" href="#"><span data-translate="All">All</span></a></li>
                                             <li><a class="dropdown-item" href="#">Emma Watson</a></li>
                                             <li><a class="dropdown-item" href="#">Draco Malfoy</a></li>
                                             <li><a class="dropdown-item" href="#">Beck Chan</a></li>
@@ -231,7 +231,7 @@
                             
                                 <!-- Right Section: General Setting Button -->
                                 <button class="btn general-setting-btn">
-                                    <i class="bi bi-sliders"></i> General Setting
+                                    <i class="bi bi-sliders"></i><span data-translate="General Setting"> General Setting</span>
                                 </button>
                     </div>
 
@@ -242,16 +242,16 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Intern</th>
-                                            <th>VDO Testimonial</th>
-                                            <th>Privacy Policy Document</th>
-                                            <th>Verify Allowances</th>
-                                            <th>Internship Certificate</th>
-                                            <th>Internship Assessment</th>
-                                            <th>Assessment Form</th>
-                                            <th>Approval</th>
-                                            <th>Internship Evaluation</th>
-                                            <th>Certification</th>
+                                            <th data-translate="Intern">Intern</th>
+                                            <th data-translate="VDO Testimonial">VDO Testimonial</th>
+                                            <th data-translate="Privacy Policy Document">Privacy Policy Document</th>
+                                            <th data-translate="Verify Allowances">Verify Allowances</th>
+                                            <th data-translate="Internship Certificate">Internship Certificate</th>
+                                            <th data-translate="Internship Assessment">Internship Assessment</th>
+                                            <th data-translate="Assessment Form">Assessment Form</th>
+                                            <th data-translate="Approval">Approval</th>
+                                            <th data-translate="Internship Evaluation">Internship Evaluation</th>
+                                            <th data-translate="Certification">Certification</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -261,7 +261,7 @@
                                 </table>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <div>
-                                        <label for="offboardPerPage">Interns per page:</label>
+                                        <label for="offboardPerPage" data-translate="Interns per page:">Interns per page:</label>
                                         <select id="offboardPerPage" class="form-select d-inline-block w-auto bg-transparent">
                                             <option value="4">4</option>
                                             <option value="8">8</option>
@@ -297,7 +297,67 @@
 
 @section('script')
     <script type="text/javascript">
+           async function updateLanguage(language) {
+            document.getElementById('dropdownLabel').textContent = language.toUpperCase();
 
+            // ✅ Save the selected language in localStorage
+            localStorage.setItem('selectedLanguage', language);
+
+            // ✅ Define translations for static text (placeholders, buttons, etc.)
+            const translations = {
+                'en': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"Search for candidates"
+                },
+                'th': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ค้นหาผู้สมัคร"
+                },
+                'my': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ကိုယ်စားလှယ်လောင်းများကိုရှာဖွေပါ။"
+                }
+            };
+
+            // ✅ Update placeholders
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+            }
+
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+            }
+
+            // ✅ Update text content using predefined translations or Google Translate API
+            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+            for (const element of elementsToTranslate) {
+                const key = element.getAttribute('data-translate');
+                
+                if (translations[language][key]) {
+                    element.innerText = translations[language][key];
+                } else {
+                    // Use Google Translate API if predefined translation is unavailable
+                    const translatedText = await translateText(key, language);
+                    element.innerText = translatedText;
+                }
+            }
+        }
+
+        // ✅ Function to translate text using Google Translate API
+        async function translateText(text, targetLanguage) {
+            try {
+                const response = await fetch(
+                    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+                );
+                const data = await response.json();
+                return data[0][0][0]; // Extract the translated text
+            } catch (error) {
+                console.error('Translation error:', error);
+                return text; // Fallback to the original text if translation fails
+            }
+        }
             document.addEventListener("DOMContentLoaded", function () {
                 let sidebarLinks = document.querySelectorAll(".nav-link");
 
@@ -417,7 +477,7 @@
                 // Previous Button
                 paginationControls.innerHTML += `
                     <li class="page-item ${currentOffboardPage === 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changeOffboardPage(${currentOffboardPage - 1})">Previous</a>
+                        <a class="page-link" href="#" style="border:none !important;" onclick="changeOffboardPage(${currentOffboardPage - 1})"><i class="bi bi-chevron-left"></i> <span>Previous</span> </a>
                     </li>`;
 
                 // Page Numbers
@@ -431,7 +491,7 @@
                 // Next Button
                 paginationControls.innerHTML += `
                     <li class="page-item ${currentOffboardPage === totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changeOffboardPage(${currentOffboardPage + 1})">Next</a>
+                        <a class="page-link" href="#" style="border:none !important;" onclick="changeOffboardPage(${currentOffboardPage + 1})"><span>Next</span><i class="bi bi-chevron-right"></i> </a>
                     </li>`;
             }
 

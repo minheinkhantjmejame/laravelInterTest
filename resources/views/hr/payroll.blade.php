@@ -95,20 +95,20 @@
                 <div class="col-md-9 dashboard-content" id="dashboardContent">
                     <!-- heading part  -->
                     <div class="d-flex justify-content-between mb-3">
-                        <h2 class="mb-0">Payroll</h2>
+                        <h2 class="mb-0" data-translate="Payroll">Payroll</h2>
                     
                         <!-- Summary Badges -->
                         <div class="d-flex gap-3">
                             <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 200px; height: 80px;">
-                                <p class="mb-1">Total Request</p>
+                                <p class="mb-1" data-translate="Total Request">Total Request</p>
                                 <h4 class="mb-0">9</h4>
                             </div>
                             <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 200px; height: 80px;">
-                                <p class="mb-1">Approved</p>
+                                <p class="mb-1" data-translate="Approved">Approved</p>
                                 <h4 class="mb-0">6</h4>
                             </div>
                             <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 200px; height: 80px;">
-                                <p class="mb-1">Paid</p>
+                                <p class="mb-1" data-translate="Paid">Paid</p>
                                 <h4 class="mb-0">5</h4>
                             </div>
                         </div>           
@@ -127,28 +127,28 @@
                                 </div>
                                 <div class="dropdown">
                                     <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="programDropdownBtn"  data-bs-toggle="dropdown">
-                                        <img src="../assets/icon/desktop.png" alt=""> All Approval
+                                        <img src="../assets/icon/desktop.png" alt=""><span data-translate="All Approval">All Approval</span> 
 
                                         <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" ></i></span>
                                     </button>
                                     <ul class="dropdown-menu" id="programDropdown">
-                                        <li><a class="dropdown-item active" href="#">All</a></li>
-                                        <li><a class="dropdown-item" href="#">HR Trainee</a></li>
-                                        <li><a class="dropdown-item" href="#">Software Tester</a></li>
-                                        <li><a class="dropdown-item" href="#">Marketing Trainee</a></li>
+                                        <li><a class="dropdown-item active" href="#"><span data-translate="All">All</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><span data-translate="HR Trainee">HR Trainee</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><span data-translate="Software Tester">Software Tester</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><span data-translate="Marketing Trainee">Marketing Trainee</span></a></li>
                                     </ul>
                                 </div>
                                 <!-- All Step Dropdown -->
                                 <div class="dropdown">
                                     <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="stepDropdownBtn"  data-bs-toggle="dropdown">
-                                        <img src="../assets/icon/arrow-circle-right.png" alt=""> All Status
+                                        <img src="../assets/icon/arrow-circle-right.png" alt=""><span data-translate="All Status">All Status</span> 
                                         <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="background-color:white;"></i></span>
                                     </button>
                                     <ul class="dropdown-menu" id="stepDropdown">
-                                        <li><a class="dropdown-item active" href="#">All</a></li>
-                                        <li><a class="dropdown-item" href="#">Pending</a></li>
-                                        <li><a class="dropdown-item" href="#">Request Internship Application</a></li>
-                                        <li><a class="dropdown-item" href="#">Success</a></li>
+                                        <li><a class="dropdown-item active" href="#"><span data-translate="All">All</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><span data-translate="Pending">Pending</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><span data-translate="Request Internship Application">Request Internship Application</span></a></li>
+                                        <li><a class="dropdown-item" href="#"><span data-translate="Success">Success</span></a></li>
                                     </ul>
                                 </div>
                         
@@ -159,9 +159,9 @@
                             <div class="d-flex gap-3">
                             <!-- Right Section: General Setting Button -->
                                 <button class="btn general-setting-btn" style="border:1px solid #c0c0c0; border-radius: 4px;">
-                                    <i class="bi bi-sliders"></i> General Setting
-                                </button>
-                                <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
+                                    <i class="bi bi-sliders"></i><span data-translate="General Setting">General Setting</span> 
+                                </button> 
+                                <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> <span data-translate="Export">Export</span></button>
                             </div>
                         </div>  
                         
@@ -171,13 +171,13 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Intern</th>
-                                <th>Day Worked</th>
-                                <th>Allowance</th>
-                                <th>Payday Date</th>
-                                <th>Approval</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th data-translate="Intern">Intern</th>
+                                <th data-translate="Day Worked">Day Worked</th>
+                                <th data-translate="Allowance">Allowance</th>
+                                <th data-translate="Payday Date">Payday Date</th>
+                                <th data-translate="Approval">Approval</th>
+                                <th data-translate="Status">Status</th>
+                                <th data-translate=""></th>
                             </tr>
                         </thead>
                         <tbody id="payrollTableBody"></tbody>
@@ -185,7 +185,7 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <div>
-                        <label for="payrollPerPage">Interns per page:</label>
+                        <label for="payrollPerPage" data-translate="Interns per page:">Interns per page:</label>
                         <select id="payrollPerPage" class="form-select d-inline-block w-auto bg-transparent">
                             <option value="6">6</option>
                             <option value="12">12</option>
@@ -212,7 +212,67 @@
 
 @section('script')
      <script type="text/javascript">
+           async function updateLanguage(language) {
+            document.getElementById('dropdownLabel').textContent = language.toUpperCase();
 
+            // ✅ Save the selected language in localStorage
+            localStorage.setItem('selectedLanguage', language);
+
+            // ✅ Define translations for static text (placeholders, buttons, etc.)
+            const translations = {
+                'en': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"Search for candidates"
+                },
+                'th': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ค้นหาผู้สมัคร"
+                },
+                'my': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ကိုယ်စားလှယ်လောင်းများကိုရှာဖွေပါ။"
+                }
+            };
+
+            // ✅ Update placeholders
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+            }
+
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+            }
+
+            // ✅ Update text content using predefined translations or Google Translate API
+            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+            for (const element of elementsToTranslate) {
+                const key = element.getAttribute('data-translate');
+                
+                if (translations[language][key]) {
+                    element.innerText = translations[language][key];
+                } else {
+                    // Use Google Translate API if predefined translation is unavailable
+                    const translatedText = await translateText(key, language);
+                    element.innerText = translatedText;
+                }
+            }
+        }
+
+        // ✅ Function to translate text using Google Translate API
+        async function translateText(text, targetLanguage) {
+            try {
+                const response = await fetch(
+                    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+                );
+                const data = await response.json();
+                return data[0][0][0]; // Extract the translated text
+            } catch (error) {
+                console.error('Translation error:', error);
+                return text; // Fallback to the original text if translation fails
+            }
+        }
         document.addEventListener("DOMContentLoaded", function () {
             let sidebarLinks = document.querySelectorAll(".nav-link");
 
@@ -338,7 +398,7 @@
 
                     // Previous Button
                     paginationControls.innerHTML += `<li class="page-item ${currentPayrollPage === 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changePayrollPage(${currentPayrollPage - 1})">Previous</a></li>`;
+                        <a class="page-link" href="#" style="border:none !important;" onclick="changePayrollPage(${currentPayrollPage - 1})"><i class="bi bi-chevron-left"></i> <span>Previous</span></a></li>`;
 
                     if (totalPages > 3) {
                         paginationControls.innerHTML += `<li class="page-item ${currentPayrollPage === 1 ? 'active' : ''}">
@@ -371,7 +431,7 @@
 
                     // Next Button
                     paginationControls.innerHTML += `<li class="page-item ${currentPayrollPage === totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changePayrollPage(${currentPayrollPage + 1})">Next</a></li>`;
+                        <a class="page-link" href="#" style="border:none !important;" onclick="changePayrollPage(${currentPayrollPage + 1})"><span>Next</span><i class="bi bi-chevron-right"></i> </a></li>`;
                 }
 
                 function changePayrollPage(page) {

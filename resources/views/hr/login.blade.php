@@ -26,7 +26,7 @@
             width:400px;
             height:520px;
             position:relative;
-            overflow: hidden;
+            /* overflow: hidden; */
             
         }
 
@@ -60,25 +60,34 @@
 
         }
 
-        #lineptag{
-            font-size: 18px;
-            font-weight: bold;
-            color: #323438;
-            letter-spacing: 3px;
-            position:absolute;
-            transform:translateY(-50%);
-            right:10px;;
-        }
+        #lineptag {
+    font-size: 18px;
+    font-weight: bold;
+    color: #323438;
+    letter-spacing: 3px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+    transform: none; /* Remove translateX */
+    white-space: nowrap;
+}
 
-        #lineptag span{
-            position: absolute;
-            top: 50%;
-            width: 70px;
-            height: 2px;
-            background-color: #323438;
-            transform:translateX(-150%)translateY(-50%);
-        }
+/* Line element */
+#lineptag span:first-child {
+    width: 70px;
+    height: 2px;
+    background-color: #323438;
+    display: block;
+    flex-shrink: 0;
+}
 
+/* Text element */
+#lineptag > span:last-child {
+    position: relative;
+    display: inline-block;
+}
         .btn-black {
             background-color: #474bc2;
             color: white;
@@ -129,9 +138,9 @@
                     <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('en')">EN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('th')">THAI</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('my')">MYAN</a></li>
                 </ul>
             </div>
         </div>
@@ -147,16 +156,16 @@
         @endif
         <form id="registrationForm"  action="{{route('hr.login')}}" method="POST">
             @csrf
-            <h2 class="mb-5">Login</h2>
+            <h2 class="mb-5" data-translate="Login">Login</h2>
             <div class="mb-5 linediv">            
-                <p id="lineptag"><span></span>LOGIN TO YOUR ACCOUNT.</p>
+                <p id="lineptag"><span></span><span data-translate="LOGIN TO YOUR ACCOUNT.">LOGIN TO YOUR ACCOUNT.</span></p>
             </div>
-            <p class="mt-9">Email Address</p>
+            <p class="mt-9" data-translate="Email Address">Email Address</p>
             <div class="mb-3 input-group"  style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                 <span class="input-group-text" style="border:0;background-color:#fff;"><i class="bi bi-envelope"></i></span>
                 <input type="email" class="form-control"  style="border:0;" id="email" name="email" required>
             </div>
-            <p style="margin:0;">Password</p>
+            <p style="margin:0;" data-translate="Password">Password</p>
             <div class="mb-3 input-group" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                 <span class="input-group-text"  style="border:0;background-color:#fff;"><i class="bi bi-lock"></i></span>
                 <input type="password" class="form-control" id="password" name="password"  style="border:0;"  aria-label="Password" required>
@@ -168,16 +177,22 @@
             <div class="d-flex justify-content-between mb-3">
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe" style="font-size:16px;">Remember me</label>
+                    <label class="form-check-label" for="rememberMe" style="font-size:16px;" data-translate="Remember me">Remember me</label>
                 </div>
-                <a href="#" class="forgot-password" style="text-decoration: none;text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);font-size:16px;color:#fff;">Forgot Password?</a>
+                <a href="#" class="forgot-password" style="text-decoration: none;text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);font-size:16px;color:#fff;" data-translate="Forgot Password ?">Forgot Password?</a>
             </div>
                                       
             <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2; border:0; border-radius:4px;">Log In</button>
-                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#b1bbe7; border:0; border-radius:4px;"><a href="#" style="text-decoration: none; color:#000;">Request Demo</a></button>
-            </div>                           
+                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#474bc2; border:0; border-radius:4px;" data-translate="Log In">Log In</button>
+                <button type="submit" class="btn btn-black w-100 mb-3" style="background-color:#b1bbe7; border:0; border-radius:4px;"><a href="#" style="text-decoration: none; color:#000;" data-translate="Request Demo">Request Demo</a></button>
+            </div> 
+            <div class=" text-center d-flex justify-content-center mt-3 gap-2">
+                <p class="fw-bold" data-translate="Don't have an account?">Don't have an account?</p> <a href="{{route("hr.register")}}" style="text-decoration:none; color:black;" data-translate="Register">Register</a>
+            </div> 
+                        
         </form>
+
+        
         
     </div>
 @endsection
@@ -193,6 +208,65 @@
             } else {
                 passwordInput.type = 'password';
                 toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
+            }
+        }
+
+        async function updateLanguage(language) {
+            document.getElementById('dropdownLabel').textContent = language.toUpperCase();
+
+            // ✅ Save the selected language in localStorage
+            localStorage.setItem('selectedLanguage', language);
+
+            // ✅ Define translations for static text (placeholders, buttons, etc.)
+            const translations = {
+                'en': {
+                    'emailPlaceholder': ""
+                },
+                'th': {
+                    'emailPlaceholder': ""
+                },
+                'my': {
+                    'emailPlaceholder': ""
+                }
+            };
+
+            // ✅ Update placeholders
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+            }
+
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+            }
+
+            // ✅ Update text content using predefined translations or Google Translate API
+            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+            for (const element of elementsToTranslate) {
+                const key = element.getAttribute('data-translate');
+                
+                if (translations[language][key]) {
+                    element.innerText = translations[language][key];
+                } else {
+                    // Use Google Translate API if predefined translation is unavailable
+                    const translatedText = await translateText(key, language);
+                    element.innerText = translatedText;
+                }
+            }
+        }
+
+        // ✅ Function to translate text using Google Translate API
+        async function translateText(text, targetLanguage) {
+            try {
+                const response = await fetch(
+                    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+                );
+                const data = await response.json();
+                return data[0][0][0]; // Extract the translated text
+            } catch (error) {
+                console.error('Translation error:', error);
+                return text; // Fallback to the original text if translation fails
             }
         }
     </script>   

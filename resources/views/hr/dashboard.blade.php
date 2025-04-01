@@ -637,7 +637,7 @@
                                                 <img src="../assets/icon/tick-circle.png" alt="">
                                                 <img src="../assets/icon/close-circle.png" alt="">
                                             </td>
-                                            <td><span class="status-badge hold">• Hold</span></td>
+                                            <td><span class="status-badge hold">•Hold</span></td>
                                         </tr>
                                         <tr>
                                             <td class="d-flex align-items-center">
@@ -660,7 +660,7 @@
                                                 </select>
                                             </td>
                                             <td class="approved approval-text"><i class="bi bi-check"></i> Approved</td>
-                                            <td><span class="status-badge hold">• Hold</span></td>
+                                            <td><span class="status-badge hold">•Hold</span></td>
                                         </tr>
                                         <tr>
                                             <td class="d-flex align-items-center">
@@ -683,7 +683,7 @@
                                                 </select>
                                             </td>
                                             <td class="approved approval-text"><i class="bi bi-check"></i> Approved</td>
-                                            <td><span class="status-badge paid">• Paid</span></td>
+                                            <td><span class="status-badge paid">•Paid</span></td>
                                         </tr>
                                     </tbody>
                                 </table>

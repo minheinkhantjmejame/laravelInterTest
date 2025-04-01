@@ -1,14 +1,15 @@
     <div class="row mb-0">
         <div class="col-md-3" style="background-color:#F3F5FC;border-right:2px solid #fff;border-bottom:2px solid #fff;">
             <a class="navbar-brand fw-bold" href="#" style="font-size:40px; margin-left:20px;">INTERNPLUS</a>
-            <div class="dropdown" style="margin:0;display: inline-block;">
-                <button class="btn btn-white" style="border:none;background-color:#F3F5FC" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <!-- Language Dropdown -->
+            <div class="dropdown" style="display: inline-block;">
+                <button class="btn btn-white"  style="border:none; background-color:white; color:#323438;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('EN')">EN</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('THAI')">THAI</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('MYAN')">MYAN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('en')">EN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('th')">THAI</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('my')">MYAN</a></li>
                 </ul>
             </div>
         </div>

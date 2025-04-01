@@ -1221,15 +1221,15 @@
                 <div  class="row">
                     
                         <div class="col-md-6" style="text-align: start;">
-                            <h1>Internship Program</h1>
+                            <h1 data-translate="Internship Program">Internship Program</h1>
                             <div class="row">
-                                <div class="col-md-3"><p style="color:#359C22;">. Open <span>14</span></p></div>
-                                <div class="col-md-3"><p style="color:#DD3D3D;">. Close <span>3</span></p></div>
-                                <div class="col-md-3"><p style="color:#000000;">. Hold <span>1</span></p></div>
+                                <div class="col-md-3"><p style="color:#359C22;">. <span data-translate="Open">Open</span> <span>14</span></p></div>
+                                <div class="col-md-3"><p style="color:#DD3D3D;">. <span data-translate="Close">Close</span> <span>3</span></p></div>
+                                <div class="col-md-3"><p style="color:#000000;">. <span data-translate="Hold">Hold </span><span>1</span></p></div>
                             </div>
                         </div>
                         <div class="col-md-6" style="text-align:end;">
-                            <button id="open-create-program" style="border:none;background-color:#474BC2; padding:10px; color:white;"> <img src="../assets/icon/feather-add.png" alt=""> Create Program</button>
+                            <button id="open-create-program" style="border:none;background-color:#474BC2; padding:10px; color:white;"> <img src="../assets/icon/feather-add.png" alt=""> <span data-translate="Create Program">Create Program</span></button>
                         </div>
                         <!-- Overlay Background -->
             <div id="overlay" class="overlay"></div>
@@ -1237,15 +1237,15 @@
             <!-- Create Program Sidebar -->
             <div id="create-program-sidebar" class="sidebar-form">
                 <div class="sidebar-header">
-                    <h2>Create Program</h2>
+                    <h2 data-translate="Create Program">Create Program</h2>
                     <button id="close-create-program" style="font-size:40px;" class="close-btn">&times;</button>
                 </div>
 
                 <div class="sidebar-content">
-                    <label for="program-name" style="font-size:13px;">Program Name</label>
+                    <label for="program-name" style="font-size:13px;" data-translate="Program Name">Program Name</label>
                     <input type="text" class="form-control" id="program-name" placeholder="Enter program name">
 
-                    <label for="image-upload" class="image-upload-label">Image</label>
+                    <label for="image-upload" class="image-upload-label" data-translate="Image">Image</label>
                     <div class="image-input-container" onclick="document.getElementById('image-upload').click()">
                         <div class="image-icon">
                             <i class="bi bi-image"></i>
@@ -1256,24 +1256,24 @@
                     
                     
 
-                    <label for="description"  style="font-size:13px;">Description</label>
+                    <label for="description"  style="font-size:13px;" data-translate="Description">Description</label>
                     <textarea class="form-control" id="description" rows="3"></textarea>
 
-                    <label for="location"  style="font-size:13px;">Location</label>
+                    <label for="location"  style="font-size:13px;" data-translate="Location">Location</label>
                     <input type="text" class="form-control" id="location" placeholder="Enter location">
 
                     <div class="d-flex justify-content-between gap-3">
                         <div class="w-50">
-                            <label  style="font-size:13px;">Category</label>
+                            <label  style="font-size:13px;" data-translate="Category">Category</label>
                             <select class="form-control">
-                                <option>IT</option>
-                                <option>Human Resources</option>
-                                <option>Marketing</option>
-                                <option>Translation</option>
+                                <option data-translate="IT">IT</option>
+                                <option data-translate="Human Resources">Human Resources</option>
+                                <option data-translate="Marketing">Marketing</option>
+                                <option data-translate="Translation">Translation</option>
                             </select>
                         </div>
                         <div class="w-50">
-                            <label  style="font-size:13px;">Number of open positions</label>
+                            <label  style="font-size:13px;" data-translate="Number of open positions">Number of open positions</label>
                             <input type="number" class="form-control" min="1" placeholder="Enter number">
                         </div>
                     </div>

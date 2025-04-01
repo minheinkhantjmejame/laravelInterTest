@@ -219,20 +219,20 @@
                 <div class="col-md-9 dashboard-content" id="dashboardContent">
                     <div class="container-fluid">
                         <div class="d-flex justify-content-between mb-3">
-                            <h2 class="mb-0">Candidates</h2>
+                            <h2 class="mb-0" data-translate="Candidates">Candidates</h2>
                         
                             <!-- Summary Badges -->
                             <div class="d-flex gap-3">
                                 <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
-                                    <p class="mb-1">Succeeded</p>
+                                    <p class="mb-1" data-translate="Succeeded">Succeeded</p>
                                     <h4 class="mb-0">24</h4>
                                 </div>
                                 <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
-                                    <p class="mb-1">In-progress</p>
+                                    <p class="mb-1" data-translate="In-progress">In-progress</p>
                                     <h4 class="mb-0">53</h4>
                                 </div>
                                 <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: 120px; height: 80px;">
-                                    <p class="mb-1">Failed</p>
+                                    <p class="mb-1" data-translate="Failed">Failed</p>
                                     <h4 class="mb-0">76</h4>
                                 </div>
                             </div>
@@ -253,36 +253,36 @@
                                 <!-- All Program Dropdown -->
                                 <div class="dropdown">
                                     <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="programDropdownBtn">
-                                        <img src="../assets/icon/desktop.png" alt=""> All Program
+                                        <img src="../assets/icon/desktop.png" alt=""> <span data-translate="All Program">All Program</span> 
 
                                         <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" ></i></span>
                                     </button>
                                     <ul class="dropdown-menu" id="programDropdown">
-                                        <li><a class="dropdown-item active" href="#">All</a></li>
-                                        <li><a class="dropdown-item" href="#">HR Trainee</a></li>
-                                        <li><a class="dropdown-item" href="#">Software Tester</a></li>
-                                        <li><a class="dropdown-item" href="#">Marketing Trainee</a></li>
+                                        <li><a class="dropdown-item active" href="#" data-translate="All">All</a></li>
+                                        <li><a class="dropdown-item" href="#" data-translate="HR Trainee">HR Trainee</a></li>
+                                        <li><a class="dropdown-item" href="#" data-translate="Software Tester">Software Tester</a></li>
+                                        <li><a class="dropdown-item" href="#" data-translate="Marketing Trainee">Marketing Trainee</a></li>
                                     </ul>
                                 </div>
                         
                                 <!-- All Step Dropdown -->
                                 <div class="dropdown">
                                     <button class="btn custom-dropdown-btn" style="background-color:#F3F5FC;" id="stepDropdownBtn">
-                                        <img src="../assets/icon/arrow-circle-right.png" alt=""> All Step
+                                        <img src="../assets/icon/arrow-circle-right.png" alt=""><span data-translate="All Step">All Step</span> 
                                         <span style="background-color:white;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="background-color:white;"></i></span>
                                     </button>
                                     <ul class="dropdown-menu" id="stepDropdown">
-                                        <li><a class="dropdown-item active" href="#">All</a></li>
-                                        <li><a class="dropdown-item" href="#">Pending</a></li>
-                                        <li><a class="dropdown-item" href="#">Request Internship Application</a></li>
-                                        <li><a class="dropdown-item" href="#">Success</a></li>
+                                        <li><a class="dropdown-item active" href="#" data-translate="All">All</a></li>
+                                        <li><a class="dropdown-item" href="#" data-translate="Pending">Pending</a></li>
+                                        <li><a class="dropdown-item" href="#" data-translate="Request Internship Application">Request Internship Application</a></li>
+                                        <li><a class="dropdown-item" href="#" data-translate="Success">Success</a></li>
                                     </ul>
                                 </div>
                             </div>
                         
                             <!-- Right Section: General Setting Button -->
                             <button class="btn btn-outline-dark general-setting-btn">
-                                <i class="bi bi-sliders"></i> General Setting
+                                <i class="bi bi-sliders"></i> <span data-translate="General Setting"> General Setting</span>
                             </button>
                         </div>
                         
@@ -295,15 +295,15 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Internship ID</th>
-                                <th>First name</th>
-                                <th>Last name</th>
-                                <th>Email address</th>
-                                <th>Phone number</th>
-                                <th>Internship Period</th>
-                                <th>Type</th>
-                                <th>Program</th>
-                                <th>Step</th>
+                                <th data-translate="Internship ID">Internship ID</th>
+                                <th data-translate="First name">First name</th>
+                                <th data-translate="Last name">Last name</th>
+                                <th data-translate="Email address">Email address</th>
+                                <th data-translate="Phone number">Phone number</th>
+                                <th data-translate="Internship Period">Internship Period</th>
+                                <th data-translate="Type">Type</th>
+                                <th data-translate="Program">Program</th>
+                                <th data-translate="Step">Step</th>
                                 <th></th> <!-- Action Column for Dropdown -->
                             </tr>
                         </thead>
@@ -315,7 +315,7 @@
                     <!-- Pagination (Inside Same Container) -->
                     <div class="pagination-container">
                         <div>
-                            <label>Candidates per page</label>
+                            <label data-translate="Cadidates per page">Candidates per page</label>
                             <select class="form-select d-inline-block w-auto">
                                 <option>8</option>
                                 <option>16</option>
@@ -351,6 +351,68 @@
 
 @section('script')
     <script tyle="text/javascript">
+
+async function updateLanguage(language) {
+            document.getElementById('dropdownLabel').textContent = language.toUpperCase();
+
+            // ✅ Save the selected language in localStorage
+            localStorage.setItem('selectedLanguage', language);
+
+            // ✅ Define translations for static text (placeholders, buttons, etc.)
+            const translations = {
+                'en': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"Search for candidates"
+                },
+                'th': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ค้นหาผู้สมัคร"
+                },
+                'my': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ကိုယ်စားလှယ်လောင်းများကိုရှာဖွေပါ။"
+                }
+            };
+
+            // ✅ Update placeholders
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+            }
+
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+            }
+
+            // ✅ Update text content using predefined translations or Google Translate API
+            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+            for (const element of elementsToTranslate) {
+                const key = element.getAttribute('data-translate');
+                
+                if (translations[language][key]) {
+                    element.innerText = translations[language][key];
+                } else {
+                    // Use Google Translate API if predefined translation is unavailable
+                    const translatedText = await translateText(key, language);
+                    element.innerText = translatedText;
+                }
+            }
+        }
+
+        // ✅ Function to translate text using Google Translate API
+        async function translateText(text, targetLanguage) {
+            try {
+                const response = await fetch(
+                    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+                );
+                const data = await response.json();
+                return data[0][0][0]; // Extract the translated text
+            } catch (error) {
+                console.error('Translation error:', error);
+                return text; // Fallback to the original text if translation fails
+            }
+        }
                 document.addEventListener("DOMContentLoaded", function () {
             let sidebarLinks = document.querySelectorAll(".nav-link");
 
@@ -585,9 +647,9 @@
                                         &#8942;
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i> Edit</a></li>
-                                        <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash"></i> Remove</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus"></i> Add to Intern</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i><span data-translate="Edit">Edit</span> </a></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash"></i><span data-translate="Remove">Remove</span> </a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-plus"></i> <span data-translate="Add to Intern">Add to Intern</span> </a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -606,7 +668,7 @@
             // Previous Button
             paginationContainer.innerHTML += `
                 <li class="page-item  ${currentPage === 1 ? "disabled" : ""}" style="border:none;">
-                    <a class="page-link" href="#"  style="border:none;" onclick="changePage(${currentPage - 1})"><i class="bi bi-chevron-left"></i> Previous</a>
+                    <a class="page-link" href="#"  style="border:none;" onclick="changePage(${currentPage - 1})"><i class="bi bi-chevron-left"></i> <span data-translate="Previous">Previous</span> </a>
                 </li>
             `;
 
@@ -645,7 +707,7 @@
             // Next Button
             paginationContainer.innerHTML += `
                 <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
-                    <a class="page-link" href="#" onclick="changePage(${currentPage + 1})" style="border:none;">Next <i class="bi bi-chevron-right"></i></a>
+                    <a class="page-link" href="#" onclick="changePage(${currentPage + 1})" style="border:none;"><span data-translate="Next">Next</span> <i class="bi bi-chevron-right"></i></a>
                 </li>
             `;
             }

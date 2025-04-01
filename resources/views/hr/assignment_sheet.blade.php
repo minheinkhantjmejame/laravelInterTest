@@ -289,19 +289,19 @@
             <div class="col-md-9 dashboard-content" id="dashboardContent">
 
                 <div class="d-flex justify-content-between mb-3">
-                    <h2 class="mb-0">Assignment Sheet</h2>
+                    <h2 class="mb-0" data-translate="Assignment Sheet">Assignment Sheet</h2>
                     <!-- Summary Badges -->
                     <div class="d-flex gap-3">
                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                            <p class="mb-1">Completed</p>
+                            <p class="mb-1" data-translate="Completed">Completed</p>
                             <h4 class="mb-0">202</h4>
                         </div>
                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                            <p class="mb-1">Pending</p>
+                            <p class="mb-1" data-translate="Pending">Pending</p>
                             <h4 class="mb-0">26</h4>
                         </div>
                         <div class="badge-box p-3  text-start d-flex flex-column justify-content-center" style="width: auto; height: 80px;">
-                            <p class="mb-1">Not Started</p>
+                            <p class="mb-1" data-translate="Not Started">Not Started</p>
                             <h4 class="mb-0">4</h4>
                         </div>
                     </div>
@@ -312,12 +312,12 @@
                     <ul class="nav nav-tabs" id="assignmentTabs">
                         <li class="nav-item">
                             <a class="nav-link active" id="tasks-tab" data-bs-toggle="tab" href="#tasks">
-                                <i class="bi bi-clipboard-data-fill" style="margin-right:5px;"></i> Tasks
+                                <i class="bi bi-clipboard-data-fill" style="margin-right:5px;"></i> <span data-translate="Tasks">Tasks</span> 
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="assignments-tab" data-bs-toggle="tab" href="#assignments">
-                                <i class="bi bi-file-earmark-text-fill" style="margin-right:5px;"></i> Assignments
+                                <i class="bi bi-file-earmark-text-fill" style="margin-right:5px;"></i><span data-translate="Assignments">Assignments</span> 
                             </a>
                         </li>
                     </ul>
@@ -326,7 +326,7 @@
                         <!-- Tasks Tab -->
                         <div class="tab-pane fade show active" id="tasks">
                             <div class="w-100 d-flex justify-content-between mb-5">
-                                <h3>Tasks</h3>
+                                <h3 data-translate="Tasks">Tasks</h3>
                                 <div>
                                     <div class="dropdown">
                                         <button class="btn calendar_btn" type="button" id="dateButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -354,26 +354,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
+                                    <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> <span data-translate="Export">Export</span></button>
                                 </div>
                             </div>
                             <!-- data filter  -->
                             <div class="d-flex justify-content-between mb-3" style="height:50px;">
                                 <div class="d-flex gap-2">
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">All Intern</button>
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">On-site</button>
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">Work From Home</button>
-                                    <button class="btn" style="border:1px solid black; background-color: transparent;">Hybrid</button>
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;"><span data-translate="All Intern">All Intern</span></button>
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;"><span data-translate="On-site">On-site</span></button>
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;"><span data-translate="Work From Home">Work From Home</span></button>
+                                    <button class="btn" style="border:1px solid black; background-color: transparent;"><span data-translate="Hybrid">Hybrid</span></button>
                                     <div class="dropdown"  style="width:auto; border-radius:4px;">
                                         <button class="btn custom-dropdown-btn" style="background-color:white; height:100%;" data-bs-toggle="dropdown">
-                                            <img src="../assets/icon/verified.png" alt=""> All Approval
+                                            <img src="../assets/icon/verified.png" alt=""><span data-translate=" All Approval"> All Approval</span>
                                             <span style="background-color:#474BC2 !important;width:20px;height:20px; border-radius:4px; margin-left:5px;"><i class="bi bi-chevron-down custom-arrow" style="color:white;"></i></span>
                                         </button>
                                         <ul class="dropdown-menu" id="stepDropdown">
-                                            <li><a class="dropdown-item active" href="#">All</a></li>
-                                            <li><a class="dropdown-item" href="#">Approved</a></li>
-                                            <li><a class="dropdown-item" href="#">Pending</a></li>
-                                            <li><a class="dropdown-item" href="#">Rejected</a></li>
+                                            <li><a class="dropdown-item active" href="#"><span data-translate="All">All</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="Approved">Approved</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="Pending">Pending</span></a></li>
+                                            <li><a class="dropdown-item" href="#"><span data-translate="Rejected">Rejected</span></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -383,7 +383,7 @@
                                         <input type="text" id="searchInputTestForm" style="height:100%; width:200px; border:none; background-color: white;"  class="form-control" placeholder="Search for tests">
                                     </div>
                                     <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
-                                        <i class="bi bi-sliders"></i> <span> General Setting</span>
+                                        <i class="bi bi-sliders"></i> <span data-translate=" General Setting"> General Setting</span>
                                     </button>
                                 </div>
                             </div>
@@ -394,13 +394,13 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Intern</th>
-                                            <th>Task/Day</th>
-                                            <th>Start Time</th>
-                                            <th>End Time</th>
-                                            <th>Status</th>
-                                            <th>File</th>
-                                            <th>Approval</th>
+                                            <th data-translate="Intern">Intern</th>
+                                            <th data-translate="Task/Day">Task/Day</th>
+                                            <th data-translate="Start Time">Start Time</th>
+                                            <th data-translate="End Time">End Time</th>
+                                            <th data-translate="Status">Status</th>
+                                            <th data-translate="File">File</th>
+                                            <th data-translate="Approval">Approval</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -412,7 +412,7 @@
                             
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <div>
-                                    <label for="tasksPerPage">Tasks per page:</label>
+                                    <label for="tasksPerPage" data-translate="Tasks per page:">Tasks per page:</label>
                                     <select id="tasksPerPage" class="form-select d-inline-block w-auto bg-transparent" style="border:1px solid #C8C8C8;">
                                         <option value="5">5</option>
                                         <option value="10">10</option>
@@ -432,8 +432,8 @@
                         <!-- Assignments Tab -->
                         <div class="tab-pane fade" id="assignments">
                             <div class="w-100 d-flex justify-content-between mb-5">
-                                <h3>Assignments</h3>
-                                <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""> Export</button>
+                                <h3 data-translate="Assignments">Assignments</h3>
+                                <button class="btn " style="background-color: #474BC2; color:white; border-radius: 4px; padding-top: 10px;"><img src="../assets/icon/export_1.png" alt=""><span data-translate="Export">Export</span></button>
                             </div>
                             <div class="d-flex justify-content-between" >
                                 <div class="d-flex gap-2">
@@ -474,7 +474,7 @@
                                     </div>
                                 </div>
                                 <button class="btn general-setting-btn" style="border:1px solid black; width:auto; display:flex;justify-content: center;align-items: center;">
-                                    <i class="bi bi-sliders"></i> <span> General Setting</span>
+                                    <i class="bi bi-sliders"></i> <span data-translate="General Setting"> General Setting</span>
                                 </button>
                             </div>
                                 <!-- Assignment Cards -->
@@ -486,7 +486,7 @@
             <!-- Pagination -->
             <div class="d-flex justify-content-between align-items-center mt-3">
                 <div>
-                    <label for="assignmentsPerPage">tasks per page:</label>
+                    <label for="assignmentsPerPage" data-translate="tasks per page:">tasks per page:</label>
                     <select id="assignmentsPerPage" class="form-select d-inline-block w-auto bg-transparent" style="border:1px solid #C8C8C8;">
                         <option value="3">3</option>
                         <option value="6">6</option>
@@ -540,7 +540,67 @@
 
 @section('script')
         <script type="text/javascript">
+            async function updateLanguage(language) {
+            document.getElementById('dropdownLabel').textContent = language.toUpperCase();
 
+            // ✅ Save the selected language in localStorage
+            localStorage.setItem('selectedLanguage', language);
+
+            // ✅ Define translations for static text (placeholders, buttons, etc.)
+            const translations = {
+                'en': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"Search for candidates"
+                },
+                'th': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ค้นหาผู้สมัคร"
+                },
+                'my': {
+                    'emailPlaceholder': "",
+                    'searchPlaceholder':"ကိုယ်စားလှယ်လောင်းများကိုရှာဖွေပါ။"
+                }
+            };
+
+            // ✅ Update placeholders
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.setAttribute("placeholder", translations[language]?.searchPlaceholder || translations['en'].searchPlaceholder);
+            }
+
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.setAttribute("placeholder", translations[language]?.emailPlaceholder || translations['en'].emailPlaceholder);
+            }
+
+            // ✅ Update text content using predefined translations or Google Translate API
+            const elementsToTranslate = document.querySelectorAll('[data-translate]');
+            for (const element of elementsToTranslate) {
+                const key = element.getAttribute('data-translate');
+                
+                if (translations[language][key]) {
+                    element.innerText = translations[language][key];
+                } else {
+                    // Use Google Translate API if predefined translation is unavailable
+                    const translatedText = await translateText(key, language);
+                    element.innerText = translatedText;
+                }
+            }
+        }
+
+        // ✅ Function to translate text using Google Translate API
+        async function translateText(text, targetLanguage) {
+            try {
+                const response = await fetch(
+                    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`
+                );
+                const data = await response.json();
+                return data[0][0][0]; // Extract the translated text
+            } catch (error) {
+                console.error('Translation error:', error);
+                return text; // Fallback to the original text if translation fails
+            }
+        }
 
                 document.addEventListener("DOMContentLoaded", function () {
                     let sidebarLinks = document.querySelectorAll(".nav-link");
